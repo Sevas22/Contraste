@@ -82,11 +82,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  // El SVG primero: escala sin pixelarse en pestañas de pantalla densa.
+  // El PNG queda de reserva para los navegadores que no aceptan SVG como icono.
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/icon-dark-32x32.png' },
+      { url: '/icon-dark-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
+    shortcut: '/favicon.ico',
     apple: '/apple-icon.png',
   },
 }
