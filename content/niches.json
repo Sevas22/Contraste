@@ -1,0 +1,142 @@
+[
+  {
+    "id": "bebidas",
+    "slug": "marketing-btl-para-bebidas-degustacion-y-experiencia",
+    "name": "Bebidas Alcohólicas",
+    "menuLabel": "Bebidas Alcohólicas",
+    "headline": "Marketing BTL para bebidas: degustación y experiencia",
+    "subheadline": "Que la primera vez que prueben tu marca sea inolvidable",
+    "description": "Activaciones, degustaciones y experiencias de marca para licores y bebidas alcohólicas. Promotoría entrenada, cumplimiento normativo y medición real en punto de venta.",
+    "intro": "En bebidas alcohólicas la decisión se toma en segundos y casi siempre frente al lineal. Diseñamos degustaciones y activaciones que convierten ese segundo en una prueba de producto, y esa prueba en recompra.",
+    "keywords": [
+      "marketing BTL bebidas alcohólicas",
+      "degustación de licores en punto de venta",
+      "activación de marca aguardiente",
+      "promotoría licores Colombia",
+      "sampling bebidas Medellín"
+    ],
+    "capabilities": [
+      "Degustaciones y sampling en punto de venta y canal HORECA",
+      "Promotoría entrenada en protocolo de servicio y normativa de licores",
+      "Producción de barras, stands y activaciones de marca",
+      "Medición de pruebas de producto, conversión y recompra"
+    ],
+    "faqs": [
+      {
+        "q": "¿Qué necesita una degustación de licor para ser efectiva?",
+        "a": "Tres cosas: promotoría que sepa hablar del producto, una mecánica que no interrumpa la compra y medición del número de pruebas frente a las conversiones. Sin el tercer punto no se sabe si funcionó."
+      },
+      {
+        "q": "¿Se puede activar una marca de licor en cualquier punto de venta?",
+        "a": "No. Cada cadena y cada municipio tiene reglas distintas sobre degustación de alcohol, horarios y material visible. Gestionamos los permisos antes de montar la activación."
+      }
+    ],
+    "accent": "#F2653C",
+    "order": 1
+  },
+  {
+    "id": "inmobiliario",
+    "slug": "marketing-btl-inmobiliario-mas-leads-y-ventas",
+    "name": "Desarrollo Inmobiliario",
+    "menuLabel": "Desarrollo Inmobiliario",
+    "headline": "Marketing BTL inmobiliario: más leads y ventas",
+    "subheadline": "De la sala de ventas al cierre, con trazabilidad",
+    "description": "Activaciones, salas de ventas y experiencias para proyectos inmobiliarios. Captación de leads calificados con trazabilidad completa hasta la visita y el cierre.",
+    "intro": "Vender vivienda no es vender un producto: es acompañar la decisión financiera más grande de una familia. Construimos experiencias en sala de ventas y en calle que generan leads reales, no bases de datos infladas.",
+    "keywords": [
+      "marketing BTL inmobiliario",
+      "activación sala de ventas",
+      "captación de leads inmobiliarios",
+      "marketing proyectos de vivienda Colombia",
+      "eventos inmobiliarios Medellín"
+    ],
+    "capabilities": [
+      "Activaciones en sala de ventas y salas itinerantes",
+      "Captación de leads con calificación en sitio",
+      "Ferias, lanzamientos y eventos de proyecto",
+      "Trazabilidad del lead: contacto, visita agendada y cierre"
+    ],
+    "faqs": [
+      {
+        "q": "¿Cómo se mide una activación inmobiliaria?",
+        "a": "Por leads calificados, no por volumen de contactos. Registramos cuántas personas dejaron datos, cuántas cumplían el perfil de crédito y cuántas agendaron visita al proyecto."
+      },
+      {
+        "q": "¿Sirve el BTL para proyectos VIS?",
+        "a": "Sí, y suele rendir más que en estrato alto: el comprador VIS necesita resolver dudas de subsidio y crédito en persona, y ese es exactamente el terreno del marketing experiencial."
+      }
+    ],
+    "accent": "#5AA9E6",
+    "order": 2
+  },
+  {
+    "id": "consumo-masivo",
+    "slug": "marketing-btl-consumo-masivo-mas-trafico-y-ventas",
+    "name": "Consumo Masivo",
+    "menuLabel": "Consumo Masivo",
+    "headline": "Marketing BTL consumo masivo: más tráfico y ventas",
+    "subheadline": "Ganar el lineal, turno por turno",
+    "description": "Trade marketing y activaciones para consumo masivo. Impulso en punto de venta, sampling y gestión de promotores con reporte por punto, turno y referencia.",
+    "intro": "En consumo masivo la marca se gana o se pierde en el lineal. Operamos impulso, sampling y material POP en varias ciudades a la vez, con reporte diario de lo que realmente pasó en cada punto.",
+    "keywords": [
+      "trade marketing Colombia",
+      "impulso en punto de venta",
+      "sampling consumo masivo",
+      "gestión de promotores retail",
+      "activación de marca supermercados"
+    ],
+    "capabilities": [
+      "Impulso y mercaderistas en cadenas y canal tradicional",
+      "Sampling y demostración de producto",
+      "Implementación y auditoría de material POP",
+      "Reporte por punto, turno, promotor y referencia"
+    ],
+    "faqs": [
+      {
+        "q": "¿Cuál es la diferencia entre impulso y sampling?",
+        "a": "El impulso busca cerrar la venta en el momento con un promotor que argumenta frente al lineal. El sampling busca la prueba de producto para generar recompra futura. Suelen combinarse, pero se miden distinto."
+      },
+      {
+        "q": "¿Cómo se controla que el promotor sí esté en el punto?",
+        "a": "Con registro de entrada y salida por turno, evidencia fotográfica del lineal y reporte de unidades movidas. Ese control es lo que separa una operación seria de una que solo factura horas."
+      }
+    ],
+    "accent": "#4ECDA4",
+    "order": 3
+  },
+  {
+    "id": "tecnologia",
+    "slug": "activaciones-btl-tecnologia-alto-impacto",
+    "name": "Tecnología",
+    "menuLabel": "Tecnología",
+    "headline": "Activaciones BTL de tecnología: alto impacto",
+    "subheadline": "Hacer tangible lo que se explica en una diapositiva",
+    "description": "Activaciones y experiencias para marcas de tecnología: lanzamientos, demostraciones de producto y experiencias interactivas que hacen entender el producto usándolo.",
+    "intro": "Un producto tecnológico rara vez se vende explicándolo. Se vende cuando la persona lo usa. Diseñamos demostraciones y experiencias interactivas donde el asistente prueba, no escucha.",
+    "keywords": [
+      "activaciones BTL tecnología",
+      "lanzamiento de producto tecnológico",
+      "experiencias interactivas de marca",
+      "demo de producto en evento",
+      "marketing experiencial tecnología Colombia"
+    ],
+    "capabilities": [
+      "Lanzamientos y presentaciones de producto",
+      "Demostraciones guiadas y experiencias interactivas",
+      "Stands y espacios de marca para ferias del sector",
+      "Captura de interacción y medición de intención de compra"
+    ],
+    "faqs": [
+      {
+        "q": "¿Qué formato funciona mejor para lanzar un producto tecnológico?",
+        "a": "El que permite que la persona lo toque. Una demo guiada de tres minutos convierte más que una presentación de treinta, porque la memoria del uso pesa más que la del argumento."
+      },
+      {
+        "q": "¿Se puede medir una activación de tecnología?",
+        "a": "Sí: interacciones completadas, tiempo de uso por persona, preguntas frecuentes recogidas en sitio e intención de compra declarada. Esos datos además alimentan el roadmap de producto."
+      }
+    ],
+    "accent": "#9B85FF",
+    "order": 4
+  }
+]

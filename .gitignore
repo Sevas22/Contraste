@@ -1,0 +1,33 @@
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+.vercel/
+
+# Variables de entorno
+# Se ignora .env a secas además de .env*.local: el patrón anterior sólo cubría
+# los .local, así que un .env creado por descuido se habría versionado con la
+# cadena de Neon y el secreto de sesión dentro.
+.env
+.env.*
+!.env.example
+
+# Claves y certificados, por si alguna vez cae uno aquí
+*.pem
+*.key
+*.p12
+
+# Artefactos de compilación
+*.tsbuildinfo
+next-env.d.ts
+
+# Común
+node_modules
+.next/
+.next-*/
+out/
+.DS_Store
+Thumbs.db
+*.log

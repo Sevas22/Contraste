@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "contraste-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "pnpm@10", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "contraste-prod",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "pnpm@10", "start"],
+      "port": 3001
+    }
+  ]
+}

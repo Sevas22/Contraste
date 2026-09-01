@@ -1,0 +1,241 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: var(--font-jost);
+  --font-sans: var(--font-jost);
+  --font-mono: var(--font-mono-brand);
+
+  --color-accent-text: var(--accent-text);
+  --color-violet: var(--violet);
+  --color-violet-text: var(--violet-text);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+/* ── Sistema de marca Contraste ──────────────────────────────────
+   El nombre de la agencia es una instrucción de diseño: contraste.
+   Por eso el sistema es de negro casi puro contra un ácido de alta
+   luminancia, con el violeta original como segundo acento.
+
+   --accent #C8FF00 sobre #08080A -> 16.9:1  (AAA en cualquier tamaño)
+   --violet #6E53F9 sobre #08080A ->  4.1:1  (sólo texto grande y superficies)
+   --violet-text #A895FF          ->  8.0:1  (texto pequeño)             */
+:root {
+  color-scheme: dark;
+
+  --background: #08080a;
+  --foreground: #f4f4f6;
+
+  --card: #101013;
+  --card-foreground: #f4f4f6;
+  --popover: #101013;
+  --popover-foreground: #f4f4f6;
+
+  --primary: #f4f4f6;
+  --primary-foreground: #08080a;
+
+  --secondary: #141418;
+  --secondary-foreground: #f4f4f6;
+
+  --muted: #141418;
+  --muted-foreground: #8f8f9c;
+
+  /* Acento principal: ácido. Es lo que hace que el sitio se vea eléctrico. */
+  --accent: #c8ff00;
+  --accent-foreground: #08080a;
+  --accent-text: #c8ff00;
+
+  /* Segundo acento: el violeta que ya era de la marca. Se reserva para
+     marcar contraste real (nichos, estados, degradados), no como relleno. */
+  --violet: #6e53f9;
+  --violet-text: #a895ff;
+
+  --destructive: #ff4d5e;
+
+  --border: #ffffff14;
+  --input: #ffffff24;
+  --ring: #c8ff00;
+
+  /* Radio casi cero: la estética es editorial, no de tarjeta de app. */
+  --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Seguro contra la barra horizontal. Medido: al entrar en una página, las
+       animaciones de entrada ensanchan el área desplazable hasta 5px durante
+       algo más de un segundo, y aparece una barra que luego desaparece sola.
+       Se usa `clip` y no `hidden` a propósito: `hidden` convierte el body en
+       contenedor de scroll y rompe el `position: sticky` de la cabecera. */
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+  /* Sin scroll-behavior aquí: lo gestiona Lenis. Dejar ambos hace que el
+     salto nativo pelee con la interpolación y se note un tirón. */
+}
+
+@layer components {
+  /* Etiqueta de sección */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Titular editorial: condensado por tracking negativo agresivo.
+     Es el gesto que carga casi todo el peso visual del sitio. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    /* Red de seguridad: en español abundan las palabras largas
+       ("Conversaciones", "Multinacionales") y a 320px de ancho una sola
+       basta para empujar la página entera hacia los lados. Sólo actúa
+       cuando la palabra de verdad no cabe; con los tamaños actuales no
+       llega a dispararse, pero evita que el cliente rompa la maqueta
+       escribiendo un titular más largo desde el panel. */
+    overflow-wrap: break-word;
+  }
+
+  /* Variante hueca: mismo titular en contorno. Se alterna con la sólida
+     para crear ritmo sin añadir un segundo color. */
+  .display-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--foreground);
+    paint-order: stroke fill;
+  }
+  .display-outline-accent {
+    -webkit-text-stroke-color: var(--accent);
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .shell {
+    width: 100%;
+    max-width: 88rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .shell {
+      padding-inline: 3rem;
+    }
+  }
+
+  /* Grano: rompe la planitud del negro y da textura de impresión.
+     Va sobre todo el documento, sin capturar el puntero. */
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Línea diagonal de corte entre secciones */
+  .edge-top {
+    clip-path: polygon(0 2.5vw, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* ── Movimiento ─────────────────────────────────────────────────── */
+
+/* Aparición al entrar en pantalla. El estado inicial vive aquí y el
+   componente Reveal sólo alterna el atributo, así no hay parpadeo. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal='in'] {
+  opacity: 1;
+  transform: none;
+}
+
+/* El script de Calendly fija un alto de 150px en línea sobre su propio
+   iframe, y en línea gana a cualquier clase. Medido: el calendario se quedaba
+   en 150px dentro de un contenedor de 680 y había que hacer scroll dentro del
+   iframe para ver algo. Es el único sitio del proyecto con !important, y es
+   porque no hay forma de quitar ese estilo en línea desde fuera. */
+[data-calendly] iframe {
+  height: 100% !important;
+}
+
+/* Giro del sello circular */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Marquesina infinita */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee 34s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="scroll-smooth"] { scroll-behavior: auto !important; }
+  .animate-marquee,
+  .animate-marquee-reverse { animation: none; }
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  [style*="animation: spin"] { animation: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
