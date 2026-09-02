@@ -91,9 +91,9 @@ export default async function EpisodePage({ params, locale = DEFAULT_LOCALE }: P
             tomarlo por inglés malo, y un lector de pantalla cambia la fonética
             en vez de leer español con acento inglés. */}
         <article lang={idiomaContenido}>
-          <header className="shell pb-12">
+          <header className="shell movil-centrado pb-12">
             <nav aria-label={t.comun.rutaNavegacion} className="mb-10">
-              <ol className="flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
+              <ol className="fila-icono flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
                 <li>
                   <Link href={ruta('/')} className="hover:text-foreground">
                     {t.comun.inicio}
@@ -159,7 +159,7 @@ export default async function EpisodePage({ params, locale = DEFAULT_LOCALE }: P
             )}
           </header>
 
-          <div className="shell pb-16">
+          <div className="shell movil-centrado pb-16">
             <EpisodePlayer
               mediaType={episode.mediaType}
               youtubeId={episode.youtubeId}
@@ -169,7 +169,7 @@ export default async function EpisodePage({ params, locale = DEFAULT_LOCALE }: P
             />
           </div>
 
-          <div className="shell grid gap-16 pb-24 lg:grid-cols-[1fr_320px] lg:gap-20 lg:pb-32">
+          <div className="shell movil-centrado grid gap-16 pb-24 lg:grid-cols-[1fr_320px] lg:gap-20 lg:pb-32">
             <div className="min-w-0">
               {episode.summary && (
                 <section>

@@ -19,11 +19,22 @@ const RATIO = 1000 / 136
 export function Logo({
   className = '',
   width = 168,
+  widthClass = '',
   priority = false,
   href = '/',
 }: {
   className?: string
+  /** Ancho fijo en píxeles. Se ignora si se pasa `widthClass`. */
   width?: number
+  /**
+   * Clases de ancho para cuando tiene que cambiar por breakpoint,
+   * p. ej. `w-[132px] lg:w-[150px]`.
+   *
+   * Existe porque el ancho iba en un `style` en línea, y un estilo en línea
+   * gana a cualquier clase de Tailwind: `lg:w-[150px]` no se aplicaba nunca.
+   * Cuando se usa esta prop, el estilo en línea no se emite.
+   */
+  widthClass?: string
   /** Sólo para el logo que se ve sin hacer scroll. */
   priority?: boolean
   /** Destino del logo: en la versión inglesa apunta a /en, no a la raíz. */
@@ -42,8 +53,8 @@ export function Logo({
         height={Math.round(width / RATIO)}
         priority={priority}
         sizes={`${width}px`}
-        className="h-auto"
-        style={{ width }}
+        className={`h-auto ${widthClass}`}
+        style={widthClass ? undefined : { width }}
       />
     </Link>
   )

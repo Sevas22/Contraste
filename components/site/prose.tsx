@@ -12,7 +12,11 @@ export function Prose({ body }: { body: string }) {
   const blocks = body.trim().split(/\n{2,}/).filter(Boolean)
 
   return (
-    <div className="flex flex-col gap-6">
+    /* La clase `prose` no es de Tailwind: es el gancho que usa la regla de
+       centrado en móvil de globals.css para dejar ESTE bloque alineado a la
+       izquierda. Centrar párrafos largos deja el margen izquierdo dentado y
+       el ojo pierde el punto de retorno en cada línea. */
+    <div className="prose flex flex-col gap-6">
       {blocks.map((block, i) => {
         const lines = block.split('\n')
 

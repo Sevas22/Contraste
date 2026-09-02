@@ -38,7 +38,7 @@ export async function Footer({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
   return (
     <footer className="relative border-t border-border bg-background">
       {/* ── Llamada de cierre ────────────────────────────────── */}
-      <div className="shell grid gap-10 py-16 md:grid-cols-[1.2fr_auto] md:items-end lg:py-20">
+      <div className="shell movil-centrado grid gap-10 py-16 md:grid-cols-[1.2fr_auto] md:items-end lg:py-20">
         <div>
           <p className="eyebrow flex items-center gap-2.5">
             <BrandMark className="size-3 shrink-0" />
@@ -63,11 +63,11 @@ export async function Footer({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
       </div>
 
       {/* ── Columnas ─────────────────────────────────────────── */}
-      <div className="shell grid gap-12 border-t border-border py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-10">
+      <div className="shell movil-centrado grid gap-12 border-t border-border py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-10">
         <div>
           <Logo width={170} href={ruta('/')} />
 
-          <ul className="mt-8 flex gap-2">
+          <ul className="fila-icono mt-8 flex gap-2">
             {socials.map(({ href, label, Icon }) => (
               <li key={label}>
                 <a
@@ -158,7 +158,7 @@ export async function Footer({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
           <ul className="mt-6 flex flex-col gap-3 text-sm text-muted-foreground">
             {/* Mientras la calle sea la de relleno se muestra sólo la ciudad:
                 es verdad y sostiene la señal local sin inventarse un domicilio. */}
-            <li className="flex items-start gap-3">
+            <li className="fila-icono flex items-start gap-3">
               <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
               <span>
                 {hasRealAddress && (
@@ -171,7 +171,7 @@ export async function Footer({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
               </span>
             </li>
             {hasRealPhone && (
-              <li className="flex items-center gap-3">
+              <li className="fila-icono flex items-center gap-3">
                 <Phone className="size-4 shrink-0 text-accent" />
                 <a
                   href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
@@ -181,7 +181,7 @@ export async function Footer({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
                 </a>
               </li>
             )}
-            <li className="flex items-center gap-3">
+            <li className="fila-icono flex items-center gap-3">
               <Mail className="size-4 shrink-0 text-accent" />
               <a
                 href={`mailto:${site.contact.email}`}

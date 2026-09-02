@@ -210,6 +210,66 @@
   height: 100% !important;
 }
 
+/* ── Centrado en móvil ──────────────────────────────────────────
+   El cliente pidió que en móvil todo se centre. Se resuelve con una
+   sola clase aplicada al contenedor de cada sección en vez de repartir
+   `text-center lg:text-left` por cuarenta elementos: así la regla vive
+   en un sitio y cambiarla de opinión es una línea.
+
+   Corta en 64rem (lg) porque es donde el sitio pasa a dos columnas y el
+   centrado deja de tener sentido.
+
+   Lo que NO se centra, y es deliberado:
+
+   - El cuerpo de los artículos del blog (`.prose`). Centrar párrafos
+     largos deja el margen izquierdo dentado y el ojo pierde el punto de
+     retorno en cada línea; es la diferencia entre un titular y un texto
+     que se lee.
+   - Las respuestas de las preguntas frecuentes, por lo mismo.
+   - Las tablas de datos y los bloques de código, si algún día los hay. */
+@media (width < 64rem) {
+  .movil-centrado {
+    text-align: center;
+  }
+
+  /* La etiqueta de sección es un flex con la marca + el texto */
+  .movil-centrado .eyebrow {
+    justify-content: center;
+  }
+
+  /* Los bloques con ancho máximo se centran en su contenedor: sin esto
+     el texto se centra dentro de una caja que sigue pegada a la izquierda. */
+  .movil-centrado :is(p, h1, h2, h3, h4, ul, ol, dl) {
+    margin-inline: auto;
+  }
+
+  /* Las listas con viñeta o numeración propias se centran como bloque
+     pero conservan su alineación interna: una lista centrada carácter a
+     carácter es ilegible. */
+  .movil-centrado :is(ul, ol) > li {
+    text-align: center;
+  }
+
+  /* Filas de icono + texto (contacto del pie, capacidades de nicho) */
+  .movil-centrado .fila-icono {
+    justify-content: center;
+  }
+
+  /* …pero no dentro de la prosa: ahí las viñetas van pegadas al margen */
+  .movil-centrado .prose .fila-icono,
+  .movil-centrado .prose li {
+    justify-content: flex-start;
+  }
+
+  /* Excepciones: prosa larga y respuestas de FAQ mandan sobre lo anterior */
+  .movil-centrado .prose,
+  .movil-centrado .prose :is(p, li, h2, h3, div, span),
+  .movil-centrado .sin-centrar,
+  .movil-centrado .sin-centrar :is(p, li) {
+    text-align: left;
+  }
+}
+
 /* Giro del sello circular */
 @keyframes spin {
   from { transform: rotate(0deg); }

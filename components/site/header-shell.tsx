@@ -73,8 +73,8 @@ export function HeaderShell({
         scrolled || open || openMenu ? 'border-b border-border bg-background/90 backdrop-blur-xl' : ''
       }`}
     >
-      <div className="shell flex items-center justify-between py-5">
-        <Logo width={150} priority href={localePath(locale, '/')} />
+      <div className="shell flex items-center justify-between py-3.5 lg:py-5">
+        <Logo width={150} widthClass="w-[132px] lg:w-[150px]" priority href={localePath(locale, '/')} />
 
         <nav aria-label={t.nav.navPrincipal} className="hidden items-center gap-1 lg:flex">
           {menu.map((item) => {
@@ -177,7 +177,7 @@ export function HeaderShell({
             aria-expanded={open}
             aria-controls="menu-movil"
             aria-label={open ? t.nav.cerrarMenu : t.nav.abrirMenu}
-            className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-3 text-xs font-bold uppercase tracking-wider lg:hidden"
+            className="-my-1.5 inline-flex items-center gap-2 rounded-full border border-border px-4 py-3.5 text-xs font-bold uppercase tracking-wider lg:hidden"
           >
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
             {t.nav.menu}
@@ -189,7 +189,7 @@ export function HeaderShell({
         <div
           id="menu-movil"
           data-lenis-prevent
-          className="shell max-h-[calc(100svh-84px)] overflow-y-auto overscroll-contain border-t border-border pb-10 pt-6 lg:hidden"
+          className="shell max-h-[calc(100svh-64px)] overflow-y-auto overscroll-contain border-t border-border pb-10 pt-6 lg:hidden"
         >
           {/* En móvil el botón del header está oculto por espacio, así que el
               contacto vive aquí: es donde WhatsApp más se usa. */}

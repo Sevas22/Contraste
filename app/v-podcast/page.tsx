@@ -52,7 +52,7 @@ export default async function VPodcastPage({ locale = DEFAULT_LOCALE }: { locale
       <Header locale={locale} />
 
       <main className="pt-32 lg:pt-40">
-        <section className="shell pb-14">
+        <section className="shell movil-centrado pb-14">
           <nav aria-label={t.comun.rutaNavegacion} className="mb-10">
             <ol className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
               <li>
@@ -101,7 +101,7 @@ export default async function VPodcastPage({ locale = DEFAULT_LOCALE }: { locale
                 )}
               </div>
 
-              <div className="flex flex-col justify-center">
+              <div className="movil-centrado flex flex-col justify-center">
                 <SectionLabel>{t.podcast.ultimoEpisodio}</SectionLabel>
                 <SplitHeadline
                   text={featured.title}
@@ -127,7 +127,7 @@ export default async function VPodcastPage({ locale = DEFAULT_LOCALE }: { locale
         )}
 
         {/* ── Filtro por nicho ───────────────────────────────── */}
-        <section className="shell pb-8">
+        <section className="shell movil-centrado pb-8">
           <h2 className="eyebrow">{t.nichos.explorarPorNicho}</h2>
           <ul className="mt-6 flex flex-wrap gap-3">
             {niches.map((niche) => {
@@ -155,7 +155,7 @@ export default async function VPodcastPage({ locale = DEFAULT_LOCALE }: { locale
         {/* ── Todos los episodios ────────────────────────────── */}
         <section className="relative overflow-hidden border-t border-border pb-24 pt-16 lg:pb-32">
           <WordmarkMural />
-          <div className="shell relative">
+          <div className="shell movil-centrado relative">
           <h2 className="eyebrow border-t border-border pt-10">
             {episodes.length} {episodes.length === 1 ? 'episodio' : 'episodios'}
           </h2>
@@ -184,7 +184,7 @@ export default async function VPodcastPage({ locale = DEFAULT_LOCALE }: { locale
                     )}
                   </div>
 
-                  <div className="flex flex-col justify-center">
+                  <div className="movil-centrado flex flex-col justify-center">
                     <p className="font-mono text-xs text-muted-foreground">
                       Episodio {String(episode.number).padStart(2, '0')} ·{' '}
                       {formatDate(episode.publishedAt, locale)}

@@ -81,9 +81,9 @@ export default async function PostPage({ params, locale = DEFAULT_LOCALE }: Prop
             tomarlo por inglés malo, y un lector de pantalla cambia la fonética
             en vez de leer español con acento inglés. */}
         <article lang={idiomaContenido}>
-          <header className="shell pb-10">
+          <header className="shell movil-centrado pb-10">
             <nav aria-label={t.comun.rutaNavegacion} className="mb-10">
-              <ol className="flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
+              <ol className="fila-icono flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
                 <li>
                   <Link href={ruta('/')} className="hover:text-foreground">
                     {t.comun.inicio}
@@ -173,10 +173,13 @@ export default async function PostPage({ params, locale = DEFAULT_LOCALE }: Prop
             </div>
           )}
 
-          <div className="shell grid gap-16 pb-24 lg:grid-cols-[1fr_300px] lg:gap-20 lg:pb-32">
+          <div className="shell movil-centrado grid gap-16 pb-24 lg:grid-cols-[1fr_300px] lg:gap-20 lg:pb-32">
             <div className="min-w-0">
               {post.excerpt && (
-                <p className="mb-10 border-l-2 border-accent pl-6 text-lg leading-relaxed text-foreground/85">
+                // Fuera del centrado: el filete ácido va pegado al margen
+                // izquierdo y un texto centrado junto a una regla izquierda se
+                // lee como un error de maquetación, no como una decisión.
+                <p className="sin-centrar mb-10 border-l-2 border-accent pl-6 text-lg leading-relaxed text-foreground/85">
                   {post.excerpt}
                 </p>
               )}

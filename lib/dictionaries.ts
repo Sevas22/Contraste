@@ -547,5 +547,5 @@ export function getDictionary(locale: Locale): Dictionary {
 
 /** Sustituye {marcadores} en una plantilla del diccionario. */
 export function fill(plantilla: string, valores: Record<string, string | number>): string {
-  return plantilla.replace(/{(w+)}/g, (_, k) => String(valores[k] ?? `{${k}}`))
+  return plantilla.replace(/\{(\w+)\}/g, (_, k) => String(valores[k] ?? `{${k}}`))
 }

@@ -63,7 +63,7 @@ export function ClientsWall({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
   return (
     <section className="overflow-hidden border-t border-border py-20 lg:py-28">
       <div className="shell">
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+        <div className="movil-centrado flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <SectionLabel>{t.clientes.etiqueta}</SectionLabel>
             <h2 className="display mt-5 max-w-xl text-[clamp(1.8rem,3.6vw,3rem)]">

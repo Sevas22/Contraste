@@ -95,9 +95,9 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
           {/* Mural detrás del titular: da profundidad sin competir con el texto,
               porque va al 5% y en contorno. */}
           <WordmarkMural rows={10} opacity={0.05} />
-          <div className="shell relative">
+          <div className="shell movil-centrado relative">
           <nav aria-label={t.comun.rutaNavegacion} className="mb-10">
-            <ol className="flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
+            <ol className="fila-icono flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground">
               <li>
                 <Link href={ruta('/')} className="hover:text-foreground">
                   {t.comun.inicio}
@@ -149,7 +149,7 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
               <h2 className="eyebrow mt-14">{t.nichos.queHacemos}</h2>
               <ul className="mt-6 flex flex-col gap-4">
                 {niche.capabilities.map((capability) => (
-                  <li key={capability} className="flex items-start gap-4 border-b border-border pb-4">
+                  <li key={capability} className="fila-icono flex items-start gap-4 border-b border-border pb-4">
                     <Check className="mt-0.5 size-4 shrink-0" style={{ color: niche.accent }} />
                     <span className="text-sm leading-relaxed">{capability}</span>
                   </li>
@@ -266,7 +266,7 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
         {/* ── FAQ del nicho — activo de GEO ──────────────────── */}
         {niche.faqs.length > 0 && (
           <section className="shell py-20 lg:py-28">
-            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <div className="movil-centrado grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
               <div>
                 <SectionLabel>{t.faq.etiqueta}</SectionLabel>
                 <h2 className="display mt-5 text-[clamp(1.7rem,3.2vw,2.5rem)]">
@@ -299,7 +299,7 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
 
         {/* ── Otros nichos: enlazado interno ─────────────────── */}
         <section className="border-t border-border bg-secondary/25 py-16">
-          <div className="shell">
+          <div className="shell movil-centrado">
             <h2 className="eyebrow">{t.nichos.otrosNichos}</h2>
             <ul className="mt-8 flex flex-wrap gap-3">
               {allNiches
@@ -325,7 +325,7 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
 
         {/* ── Agendar ────────────────────────────────────────── */}
         <section id="agendar" className="scroll-mt-24 bg-accent py-20 text-accent-foreground lg:py-28">
-          <div className="shell flex flex-col justify-between gap-12 lg:flex-row lg:items-center lg:gap-16">
+          <div className="shell movil-centrado flex flex-col justify-between gap-12 lg:flex-row lg:items-center lg:gap-16">
             <div className="min-w-0">
               <p className="font-mono text-xs font-bold uppercase tracking-[0.28em]">
                 {t.contacto.agendaUnaReunion}

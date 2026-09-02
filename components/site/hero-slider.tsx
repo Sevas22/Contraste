@@ -143,7 +143,7 @@ export function HeroSlider({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
 
       {/* Contenido */}
       <div className="shell pointer-events-none relative flex h-full flex-col justify-end pb-28 lg:pb-32">
-        <div className="pointer-events-auto max-w-lg lg:max-w-xl">
+        <div className="movil-centrado pointer-events-auto max-w-lg lg:max-w-xl">
           <p className="eyebrow mb-5 flex items-center gap-2.5">
             <BrandMark className="size-3 shrink-0" />
             {copy(heroSlides[active].id).kicker}

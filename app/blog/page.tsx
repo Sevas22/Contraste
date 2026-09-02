@@ -37,7 +37,7 @@ export default async function BlogIndex({ locale = DEFAULT_LOCALE }: { locale?: 
       <Header locale={locale} />
 
       <main className="pt-32 lg:pt-40">
-        <section className="shell pb-14">
+        <section className="shell movil-centrado pb-14">
           <nav aria-label={t.comun.rutaNavegacion} className="mb-10">
             <ol className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
               <li>
@@ -85,7 +85,7 @@ export default async function BlogIndex({ locale = DEFAULT_LOCALE }: { locale?: 
                       />
                     )}
                   </div>
-                  <div className="flex flex-col justify-center">
+                  <div className="movil-centrado flex flex-col justify-center">
                     <SectionLabel>{t.blog.masReciente}</SectionLabel>
                     <h2 className="display mt-5 text-[clamp(1.7rem,3.4vw,2.6rem)] transition-colors group-hover:text-accent-text">
                       {featured.title}
@@ -113,7 +113,7 @@ export default async function BlogIndex({ locale = DEFAULT_LOCALE }: { locale?: 
               </section>
             )}
 
-            <section className="shell pb-24 lg:pb-32">
+            <section className="shell movil-centrado pb-24 lg:pb-32">
               {rest.length > 0 && (
                 <>
                   <h2 className="eyebrow border-t border-border pt-10">

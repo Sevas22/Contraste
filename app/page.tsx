@@ -55,7 +55,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
         {/* ── Manifiesto ──────────────────────────────────────── */}
         <section id="agencia" className="scroll-mt-24 py-24 lg:py-36">
           <div className="shell">
-            <div className="grid gap-14 md:grid-cols-[170px_1fr] md:gap-10 lg:grid-cols-[240px_1fr] lg:gap-20">
+            <div className="movil-centrado grid gap-14 md:grid-cols-[170px_1fr] md:gap-10 lg:grid-cols-[240px_1fr] lg:gap-20">
               <div className="lg:sticky lg:top-32 lg:self-start">
                 <SectionLabel>{t.agencia.etiqueta}</SectionLabel>
                 <p className="mt-6 font-mono text-xs leading-relaxed text-muted-foreground">
@@ -116,7 +116,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
               así el bloque entero se recorre como una secuencia de pantallas
               y no como un titular seguido de una lista. */}
           <div className="flex min-h-[85svh] items-center py-20">
-            <div className="shell w-full">
+            <div className="shell movil-centrado w-full">
               <SectionLabel>{t.nichos.etiqueta}</SectionLabel>
               <Reveal>
                 <h2 className="display mt-8 max-w-5xl text-[clamp(2.6rem,8vw,6.5rem)]">
@@ -147,7 +147,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
         {/* ── Servicios ───────────────────────────────────────── */}
         <section id="servicios" className="scroll-mt-24 py-24 lg:py-32">
           <div className="shell">
-            <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+            <div className="movil-centrado flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
               <div>
                 <SectionLabel>{t.servicios.etiqueta}</SectionLabel>
                 <Reveal>
@@ -209,7 +209,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
               contra 900 de viewport y el último punto de la lista quedaba
               cortado. Ahora entra entera en una pantalla estándar. */}
           <div className="shell relative py-20 lg:py-24">
-            <div className="lg:max-w-[46%]">
+            <div className="movil-centrado lg:max-w-[46%]">
               <SectionLabel>{t.resultados.etiqueta}</SectionLabel>
               <Reveal>
                 <h2 className="display mt-5 text-[clamp(1.9rem,5vw,3.9rem)]">
@@ -267,7 +267,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
         {/* ── V-Podcast ───────────────────────────────────────── */}
         <section id="v-podcast" className="scroll-mt-24 py-24 lg:py-32">
           <div className="shell">
-            <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+            <div className="movil-centrado flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
               <div>
                 <SectionLabel>{t.podcast.etiqueta}</SectionLabel>
                 <Reveal>
@@ -338,7 +338,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
           id="contacto"
           className="scroll-mt-24 bg-accent py-24 text-accent-foreground lg:py-32"
         >
-          <div className="shell">
+          <div className="shell movil-centrado">
             <p className="font-mono text-xs font-bold uppercase tracking-[0.28em]">
               {t.contacto.etiqueta}
             </p>
