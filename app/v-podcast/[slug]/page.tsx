@@ -19,8 +19,8 @@ import {
 } from '@/lib/content'
 import { SectionLabel } from '@/components/site/brand-mark'
 import { getDictionary, fill } from '@/lib/dictionaries'
-import { translateEpisode, translateEpisodes, translateNiche, translateNiches, translatePost, translatePosts, contentLang } from '@/lib/translate-content'
-import { DEFAULT_LOCALE, localePath, type Locale } from '@/lib/i18n'
+import { translateEpisode, translateEpisodes, translateNiche, translateNiches, translatePost, translatePosts, contentLang, hasEnglish } from '@/lib/translate-content'
+import { DEFAULT_LOCALE, alternatesFor, localePath, type Locale } from '@/lib/i18n'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: episode.subtitle ? `${episode.title} — ${episode.subtitle}` : episode.title,
     description,
     keywords: episode.keywords,
-    alternates: { canonical: `/v-podcast/${slug}` },
+    alternates: alternatesFor(`/v-podcast/${slug}`, { traducida: hasEnglish(episode) }),
     openGraph: {
       type: 'article',
       title: episode.title,

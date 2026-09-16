@@ -46,11 +46,36 @@ export const site = {
     instagram: 'https://www.instagram.com/agencia_contraste/',
     facebook: 'https://www.facebook.com/contrastebtl',
     youtube: 'https://www.youtube.com/@agenciacontraste',
-    linkedin: 'https://www.linkedin.com/company/contraste-agencia',
+    /**
+     * `contrasteagencia`, SIN guion. La de guion (`contraste-agencia`) es
+     * "Contraste Agencia Digital", de Fraijanes, Guatemala: estuvo enlazada
+     * aquí y en el `sameAs` del JSON-LD, y eso le decía a Google y a los
+     * motores de IA que las dos empresas eran la misma entidad.
+     */
+    linkedin: 'https://www.linkedin.com/company/contrasteagencia',
   },
 
   // Ciudades donde opera — cada una genera señales de GEO local
   serviceAreas: ['Medellín', 'Bogotá', 'Cali', 'Barranquilla', 'Ciudad de México'],
+
+  /**
+   * Temas de los que la agencia es autoridad. Van a `knowsAbout` en el JSON-LD
+   * de la organización: es la forma explícita de decirle al Knowledge Graph y
+   * a los motores de IA sobre qué preguntar a esta entidad. Son los términos
+   * con los que la gente busca, no los internos de la agencia.
+   */
+  knowsAbout: [
+    'Marketing BTL',
+    'Marketing experiencial',
+    'Activaciones de marca',
+    'Trade marketing',
+    'Degustaciones y sampling en punto de venta',
+    'Gestión de promotores e impulsadoras',
+    'Marketing inmobiliario y salas de ventas',
+    'Lanzamientos de producto',
+    'Producción de eventos y stands',
+    'Medición de activaciones BTL',
+  ],
 } as const
 
 
@@ -66,6 +91,24 @@ export const site = {
  */
 export const hasRealAddress = !site.contact.street.includes('00 #00-00')
 export const hasRealPhone = !site.contact.phone.includes('300 000 0000')
+
+/**
+ * `<title>` que no se corta en Google.
+ *
+ * Google recorta hacia los 580 px, unos 60 caracteres. La marca al final ayuda
+ * al clic, pero si empuja el título por encima del límite lo que se pierde es
+ * la keyword del final ("…y ventas | Contr…"). Entonces se sacrifica la marca,
+ * que Google ya muestra encima del resultado de todas formas.
+ *
+ * Devuelve el título completo: se usa con `title: { absolute }` para que la
+ * plantilla del layout no vuelva a añadir la marca.
+ */
+export const TITLE_MAX = 60
+
+export function pageTitle(text: string): string {
+  const conMarca = `${text} | ${site.name}`
+  return conMarca.length <= TITLE_MAX ? conMarca : text
+}
 
 /**
  * Navegación principal. Replica la estructura que el cliente quiere conservar:
@@ -166,7 +209,12 @@ export const heroSlides = [
     title: ['Servicios de', 'Experiencia'],
     body: 'Producción 360, promotoría y trazabilidad. De la idea a la calle, sin intermediarios.',
     type: 'video' as const,
-    src: '/media/hero-ron-viejo-de-caldas.mp4',
+    /**
+     * La versión ligera (4 MB). El original pesa 63 MB y el navegador lo baja
+     * entero en cuanto el carrusel llega a esta diapositiva, a los 13 segundos:
+     * cualquier visita que se quedara mirando el hero se lo descargaba.
+     */
+    src: '/media/hero-ron-viejo-de-caldas-ligero.mp4',
     poster: '/media/hero-resultados.jpg',
     alt: 'Activación de marca de Ron Viejo de Caldas producida por Contraste',
   },

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, CalendarDays } from 'lucide-react'
 import { getDictionary } from '@/lib/dictionaries'
 import { DEFAULT_LOCALE, type Locale } from '@/lib/i18n'
+import { nicheOf, placementOf, track } from '@/lib/track'
 
 /**
  * Agendamiento con Calendly.
@@ -42,6 +43,40 @@ export function Calendly({
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const botonRef = useRef<HTMLDivElement>(null)
+  // Contexto de medición, fijado al abrir: al agendar el botón ya no existe
+  const contextoRef = useRef<{ placement: string; niche?: string }>({ placement: 'page' })
+
+  function abrir() {
+    contextoRef.current = {
+      placement: placementOf(botonRef.current),
+      niche: nicheOf(botonRef.current),
+    }
+    track('calendly_open', contextoRef.current)
+    setOpen(true)
+  }
+
+  /**
+   * La conversión de verdad: la cita confirmada, no el clic en "Agendar".
+   *
+   * Calendly corre en un iframe de otro dominio y avisa a la página con
+   * `postMessage`. Se comprueba el origen porque cualquier ventana puede
+   * mandar mensajes con esa forma. Un embudo `calendly_open` →
+   * `generate_lead (calendly)` dice cuánta gente abre el calendario y se va
+   * sin agendar, que es la fuga que más interesa ver.
+   */
+  useEffect(() => {
+    if (!open) return
+    function alRecibir(evento: MessageEvent) {
+      if (evento.origin !== 'https://calendly.com') return
+      const data = evento.data as { event?: string } | null
+      if (data?.event === 'calendly.event_scheduled') {
+        track('generate_lead', { method: 'calendly', ...contextoRef.current })
+      }
+    }
+    window.addEventListener('message', alRecibir)
+    return () => window.removeEventListener('message', alRecibir)
+  }, [open])
 
   useEffect(() => {
     if (!open || !url) return
@@ -102,10 +137,10 @@ export function Calendly({
 
   if (!open) {
     return (
-      <div className="flex flex-wrap items-center gap-4">
+      <div ref={botonRef} className="flex flex-wrap items-center gap-4">
         <button
           type="button"
-          onClick={() => setOpen(true)}
+          onClick={abrir}
           className={`group inline-flex items-center gap-4 px-7 py-4 text-xs font-bold uppercase tracking-[0.2em] transition hover:gap-6 ${primary}`}
         >
           <CalendarDays className="size-4" />

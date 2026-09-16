@@ -161,6 +161,12 @@ export function HeroSlider({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
                 asH1={index === 0}
                 className="display text-[clamp(2.1rem,5vw,4.2rem)] text-white"
               >
+                {/* El único <h1> del home decía sólo "Resultados + IA": ni la
+                    categoría ni la ciudad por las que compite la página. El
+                    prefijo va oculto a la vista para no tocar el diseño del
+                    hero, que el cliente cerró; lo leen el buscador y el lector
+                    de pantalla, y describe con verdad lo que hay en pantalla. */}
+                {index === 0 && <span className="sr-only">{t.hero.h1Categoria} </span>}
                 {copy(slide.id).title[0]}
                 <br />
                 <span className="display-outline display-outline-accent">{copy(slide.id).title[1]}</span>

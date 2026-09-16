@@ -1,10 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Play } from 'lucide-react'
 import type { MediaType } from '@/lib/content'
 import { SectionLabel } from './brand-mark'
+import { track } from '@/lib/track'
 
 type Props = {
   mediaType: MediaType
@@ -20,6 +21,13 @@ type Props = {
  */
 export function EpisodePlayer({ mediaType, youtubeId, mediaUrl, poster, title }: Props) {
   const [active, setActive] = useState(false)
+  // Un play por visita: pausar y reanudar no es otra reproducción
+  const medido = useRef(false)
+  const alReproducir = (proveedor: string) => {
+    if (medido.current) return
+    medido.current = true
+    track('podcast_play', { video_title: title, video_provider: proveedor })
+  }
 
   if (mediaType === 'audio' && mediaUrl) {
     return (
@@ -38,7 +46,13 @@ export function EpisodePlayer({ mediaType, youtubeId, mediaUrl, poster, title }:
             <SectionLabel>Episodio en audio</SectionLabel>
             <p className="mt-3 text-lg font-bold leading-snug">{title}</p>
             {/* Controles nativos: accesibles por teclado y sin JS extra */}
-            <audio controls preload="metadata" className="mt-6 w-full" src={mediaUrl}>
+            <audio
+              controls
+              preload="metadata"
+              className="mt-6 w-full"
+              src={mediaUrl}
+              onPlay={() => alReproducir('audio')}
+            >
               Tu navegador no soporta la reproducción de audio.{' '}
               <a href={mediaUrl}>Descargar el episodio</a>.
             </audio>
@@ -57,6 +71,7 @@ export function EpisodePlayer({ mediaType, youtubeId, mediaUrl, poster, title }:
           poster={poster || undefined}
           className="size-full"
           src={mediaUrl}
+          onPlay={() => alReproducir('video')}
         >
           Tu navegador no soporta la reproducción de video.{' '}
           <a href={mediaUrl}>Descargar el episodio</a>.
@@ -87,7 +102,10 @@ export function EpisodePlayer({ mediaType, youtubeId, mediaUrl, poster, title }:
       ) : (
         <button
           type="button"
-          onClick={() => setActive(true)}
+          onClick={() => {
+            alReproducir('youtube')
+            setActive(true)
+          }}
           className="group absolute inset-0 size-full cursor-pointer"
           aria-label={`Reproducir: ${title}`}
         >

@@ -29,7 +29,16 @@ async function writeJson(file: string, data: unknown): Promise<void> {
 
 const jsonRepo = {
   async niches(): Promise<Niche[]> {
-    return (await readJson<Niche[]>('niches.json')).sort((a, b) => a.order - b.order)
+    return (await readJson<Niche[]>('niches.json'))
+      .map((n) => ({ ...n, body: n.body ?? '' }))
+      .sort((a, b) => a.order - b.order)
+  },
+  async upsertNiche(niche: Niche): Promise<void> {
+    const all = await readJson<Niche[]>('niches.json')
+    const index = all.findIndex((n) => n.id === niche.id)
+    if (index === -1) throw new Error(`Nicho no encontrado: ${niche.id}`)
+    all[index] = niche
+    await writeJson('niches.json', all)
   },
   async episodes(): Promise<Episode[]> {
     return (await readJson<Episode[]>('episodes.json')).sort((a, b) =>
@@ -88,12 +97,15 @@ function rowToNiche(row: any): Niche {
     subheadline: row.subheadline ?? '',
     description: row.description ?? '',
     intro: row.intro ?? '',
+    // `?? ''` también cubre una base sin la migración 0005 aplicada
+    body: row.body ?? '',
     keywords: row.keywords ?? [],
     capabilities: row.capabilities ?? [],
     faqs: row.faqs ?? [],
     accent: row.accent,
     translations: row.translations ?? {},
     order: row.sort_order ?? 0,
+    updatedAt: row.updated_at ? toDateString(row.updated_at) : undefined,
   }
 }
 
@@ -150,6 +162,24 @@ const pgRepo = {
   async niches(): Promise<Niche[]> {
     const rows = await sql()`select * from niches order by sort_order`
     return (rows as any[]).map(rowToNiche)
+  },
+
+  /**
+   * Sólo actualiza: los nichos no se crean ni se borran desde el panel. Cada
+   * uno es una URL heredada del WordPress, y el `slug` y el `id` quedan fuera
+   * del `update` por esa misma razón.
+   */
+  async upsertNiche(niche: Niche): Promise<void> {
+    await sql()`
+      update niches set
+        headline = ${niche.headline}, subheadline = ${niche.subheadline},
+        description = ${niche.description}, intro = ${niche.intro}, body = ${niche.body},
+        keywords = ${niche.keywords}, capabilities = ${niche.capabilities},
+        faqs = ${JSON.stringify(niche.faqs)}::jsonb,
+        translations = ${JSON.stringify(niche.translations ?? {})}::jsonb,
+        updated_at = current_date
+      where id = ${niche.id}
+    `
   },
 
   async episodes(): Promise<Episode[]> {
@@ -279,6 +309,7 @@ export const dataSource = isDatabaseEnabled ? 'postgres' : 'json'
 
 export const {
   niches: fetchNiches,
+  upsertNiche,
   episodes: fetchEpisodes,
   posts: fetchPosts,
   upsertEpisode,

@@ -6,14 +6,16 @@
     "menuLabel": "Bebidas Alcohólicas",
     "headline": "Marketing BTL para bebidas: degustación y experiencia",
     "subheadline": "Que la primera vez que prueben tu marca sea inolvidable",
-    "description": "Activaciones, degustaciones y experiencias de marca para licores y bebidas alcohólicas. Promotoría entrenada, cumplimiento normativo y medición real en punto de venta.",
+    "description": "Degustaciones, sampling y activaciones BTL para licores y bebidas alcohólicas en Colombia. Promotoría entrenada, permisos resueltos y medición de ventas.",
     "intro": "En bebidas alcohólicas la decisión se toma en segundos y casi siempre frente al lineal. Diseñamos degustaciones y activaciones que convierten ese segundo en una prueba de producto, y esa prueba en recompra.",
+    "body": "## Por qué la degustación sigue vendiendo licor\n\nEn bebidas alcohólicas la publicidad en medios masivos tiene cada vez más restricciones, y la decisión de compra se toma en segundos: frente al lineal del supermercado o en la barra. Por eso la prueba de producto sigue siendo la herramienta más directa del marketing BTL para licores. Quien prueba una marca en buenas condiciones sale con una razón concreta para elegirla la próxima vez. El reto es que la degustación no se quede en repartir muestras, sino que termine en ventas y en recompra.\n\n## Cómo diseñamos una activación para bebidas\n\nAntes de producir nada definimos qué tiene que pasar para que la activación se considere un éxito. A partir de ahí se arma el resto:\n\n- Un objetivo medible: número de pruebas, conversión en el punto de venta o recordación de marca.\n- Una mecánica que no interrumpe la compra: la persona prueba, entiende el producto y sigue su recorrido.\n- Promotoría entrenada en el producto, en protocolo de servicio y en consumo responsable.\n- Permisos y reglas de cada cadena y de cada municipio resueltos antes del montaje.\n- Barras, stands y material de marca pensados para el canal donde se va a activar.\n\n## Canales donde activamos\n\nTrabajamos en canal moderno (supermercados y grandes superficies), en canal HORECA (bares, restaurantes y hoteles) y en eventos, ferias y festivales donde la marca tiene presencia. Cada canal pide una mecánica distinta. En el supermercado la degustación acompaña la decisión de compra y la impulsadora ayuda a cerrar la venta. En el bar pesa más la experiencia de marca que la muestra. En un evento el objetivo suele ser la recordación y la construcción de base de datos.\n\n## Qué medimos en una degustación\n\nUna degustación sin medición es un gasto difícil de defender. En cada activación registramos el número de pruebas, las unidades vendidas durante la activación, la conversión por turno y por promotor, y los comentarios del consumidor sobre el producto. Ese reporte deja claro qué puntos, horarios y mensajes funcionaron, y dónde conviene invertir en la siguiente fase de la campaña.\n\n## Consumo responsable y normativa\n\nLas degustaciones de licor sólo se ofrecen a mayores de edad, en porciones controladas y respetando las restricciones de horario y de material visible que exige cada municipio y cada cadena. Cumplir la norma no es un trámite: una activación suspendida por un permiso mal gestionado le cuesta a la marca más que la activación misma.\n\n## Experiencia en el sector\n\nContraste ha producido activaciones para marcas de licor como Ron Viejo de Caldas y Aguardiente Amarillo. Operamos desde Medellín y ejecutamos degustaciones y activaciones BTL para bebidas en Bogotá, Cali, Barranquilla y otras ciudades de Colombia.",
     "keywords": [
-      "marketing BTL bebidas alcohólicas",
-      "degustación de licores en punto de venta",
-      "activación de marca aguardiente",
-      "promotoría licores Colombia",
-      "sampling bebidas Medellín"
+      "activaciones BTL para licores",
+      "degustaciones en punto de venta",
+      "impulsadoras de licores",
+      "sampling de bebidas en Medellín",
+      "marketing para marcas de licor",
+      "activaciones en bares y canal HORECA"
     ],
     "capabilities": [
       "Degustaciones y sampling en punto de venta y canal HORECA",
@@ -29,10 +31,77 @@
       {
         "q": "¿Se puede activar una marca de licor en cualquier punto de venta?",
         "a": "No. Cada cadena y cada municipio tiene reglas distintas sobre degustación de alcohol, horarios y material visible. Gestionamos los permisos antes de montar la activación."
+      },
+      {
+        "q": "¿Qué es una impulsadora de licores y qué hace?",
+        "a": "Es la persona que representa a la marca en el punto de venta: ofrece la degustación, explica el producto y acompaña la decisión de compra frente al lineal. En Contraste las impulsadoras se seleccionan por perfil, se entrenan en el producto y en consumo responsable, y reportan pruebas y ventas por turno."
+      },
+      {
+        "q": "¿En qué canales se puede hacer una degustación de licor?",
+        "a": "En canal moderno (supermercados y grandes superficies), en canal HORECA (bares, restaurantes y hoteles) y en eventos, ferias y festivales. Cada canal tiene sus propias reglas de permisos y una mecánica distinta, por eso la activación se diseña por canal y no se replica igual en todos."
+      },
+      {
+        "q": "¿Cómo se sabe si una degustación aumentó las ventas?",
+        "a": "Comparando las unidades vendidas en el punto durante la activación con un periodo de referencia sin activación, y cruzándolas con el número de pruebas realizadas. Así se obtiene la conversión real de la degustación y el costo por venta, no sólo cuántas muestras se entregaron."
+      },
+      {
+        "q": "¿Contraste hace degustaciones fuera de Medellín?",
+        "a": "Sí. La agencia tiene sede en Medellín y ejecuta degustaciones y activaciones para marcas de bebidas en Bogotá, Cali, Barranquilla y otras ciudades de Colombia, con el mismo estándar de promotoría y de reporte en todas."
       }
     ],
     "accent": "#F2653C",
-    "order": 1
+    "order": 1,
+    "translations": {
+      "en": {
+        "faqs": [
+          {
+            "a": "Three things: field staff who can actually talk about the product, a mechanic that does not interrupt the shopping trip, and measurement of trials against conversions. Without the third one you never know whether it worked.",
+            "q": "What does a liquor tasting need to be effective?"
+          },
+          {
+            "a": "No. Every chain and every municipality has different rules on alcohol tasting, opening hours and visible material. We handle the permits before the activation goes up.",
+            "q": "Can a liquor brand be activated in any point of sale?"
+          },
+          {
+            "q": "What does a liquor brand ambassador do?",
+            "a": "They represent the brand at the point of sale: they serve the tasting, explain the product and support the purchase decision at the shelf. At Contraste brand ambassadors are selected by profile, trained on the product and on responsible drinking, and report trials and sales per shift."
+          },
+          {
+            "q": "In which channels can a liquor tasting be run?",
+            "a": "In modern trade (supermarkets and hypermarkets), in the HORECA channel (bars, restaurants and hotels) and at events, fairs and festivals. Each channel has its own permit rules and a different mechanic, so the activation is designed per channel rather than copied across all of them."
+          },
+          {
+            "q": "How do you know whether a tasting increased sales?",
+            "a": "By comparing units sold at the location during the activation with a reference period without it, and crossing that with the number of trials. That gives the real conversion of the tasting and the cost per sale, not just how many samples were handed out."
+          },
+          {
+            "q": "Does Contraste run tastings outside Medellín?",
+            "a": "Yes. The agency is based in Medellín and runs tastings and activations for beverage brands in Bogotá, Cali, Barranquilla and other Colombian cities, with the same field-staff and reporting standard everywhere."
+          }
+        ],
+        "name": "Alcoholic Beverages",
+        "intro": "With alcoholic beverages the decision takes seconds, and almost always right at the shelf. We design tastings and activations that turn that second into a product trial, and that trial into a repeat purchase.",
+        "headline": "BTL marketing for beverages: tasting and experience",
+        "keywords": [
+          "BTL activations for spirits",
+          "in-store liquor tastings",
+          "liquor brand ambassadors Colombia",
+          "beverage sampling Medellín",
+          "marketing for liquor brands",
+          "on-trade and HORECA activations"
+        ],
+        "menuLabel": "Alcoholic Beverages",
+        "description": "Tastings, sampling and BTL activations for spirits and alcoholic beverages in Colombia. Trained field staff, permits handled and real sales measurement.",
+        "subheadline": "Make the first taste of your brand unforgettable",
+        "capabilities": [
+          "Tastings and sampling at retail and in the HORECA channel",
+          "Field staff trained in service protocol and liquor regulations",
+          "Production of bars, stands and brand activations",
+          "Measurement of product trials, conversion and repeat purchase"
+        ],
+        "body": "## Why tastings still sell spirits\n\nMass-media advertising for alcoholic beverages faces more restrictions every year, and the purchase decision takes seconds: in front of the supermarket shelf or at the bar. That is why product trial is still the most direct BTL marketing tool for spirits. Someone who tries a brand in the right conditions walks away with a concrete reason to choose it next time. The challenge is making sure a tasting does not stop at handing out samples, but ends in sales and repeat purchase.\n\n## How we design a beverage activation\n\nBefore producing anything we define what has to happen for the activation to count as a success. Everything else is built from there:\n\n- A measurable goal: number of trials, conversion at the point of sale or brand recall.\n- A mechanic that does not interrupt the shopping trip: people taste, understand the product and carry on.\n- Field staff trained on the product, on service protocol and on responsible drinking.\n- Permits and rules for each retail chain and each municipality sorted out before setup.\n- Bars, stands and brand materials designed for the channel where the activation runs.\n\n## Channels where we activate\n\nWe work in modern trade (supermarkets and hypermarkets), in the HORECA channel (bars, restaurants and hotels) and at events, fairs and festivals where the brand is present. Each channel calls for a different mechanic. In a supermarket the tasting supports the purchase decision and the brand ambassador helps close the sale. In a bar the brand experience matters more than the sample. At an event the goal is usually recall and building a database.\n\n## What we measure in a tasting\n\nA tasting without measurement is a cost that is hard to defend. In every activation we record the number of trials, units sold during the activation, conversion by shift and by staff member, and consumer feedback on the product. That report makes it clear which locations, time slots and messages worked, and where to invest in the next phase of the campaign.\n\n## Responsible drinking and regulations\n\nLiquor tastings are only offered to adults, in controlled servings and within the time and visible-material restrictions each municipality and each chain requires. Compliance is not paperwork: an activation shut down over a badly handled permit costs the brand more than the activation itself.\n\n## Experience in the sector\n\nContraste has produced activations for spirits brands such as Ron Viejo de Caldas and Aguardiente Amarillo. We operate from Medellín and run beverage tastings and BTL activations in Bogotá, Cali, Barranquilla and other cities across Colombia."
+      }
+    }
   },
   {
     "id": "inmobiliario",
@@ -41,14 +110,16 @@
     "menuLabel": "Desarrollo Inmobiliario",
     "headline": "Marketing BTL inmobiliario: más leads y ventas",
     "subheadline": "De la sala de ventas al cierre, con trazabilidad",
-    "description": "Activaciones, salas de ventas y experiencias para proyectos inmobiliarios. Captación de leads calificados con trazabilidad completa hasta la visita y el cierre.",
+    "description": "Activaciones BTL, salas de ventas y ferias para proyectos inmobiliarios en Colombia. Leads calificados con trazabilidad hasta la visita y el cierre.",
     "intro": "Vender vivienda no es vender un producto: es acompañar la decisión financiera más grande de una familia. Construimos experiencias en sala de ventas y en calle que generan leads reales, no bases de datos infladas.",
+    "body": "## El problema de los leads inmobiliarios\n\nMuchas campañas de vivienda miden su éxito por el número de formularios que llenó la gente. El resultado es conocido: bases de datos grandes, asesores comerciales llamando a personas que no tienen el perfil de crédito y un costo por venta que nadie sabe calcular. En marketing inmobiliario lo que importa no es cuántos contactos entran, sino cuántos llegan a la sala de ventas y cuántos terminan en la separación del inmueble.\n\n## Qué hacemos para proyectos de vivienda\n\n- Activaciones en sala de ventas para que la primera visita sea una experiencia y no un recorrido de trámite.\n- Salas itinerantes y puntos de captación en centros comerciales, empresas y zonas de influencia del proyecto.\n- Lanzamientos de proyecto y eventos para compradores e inversionistas.\n- Presencia en ferias de vivienda con stand, mecánica de captación y calificación en sitio.\n- Entrega de los leads al equipo comercial con la información que necesita para hacer seguimiento.\n\n## Cómo calificamos un lead en sitio\n\nEl promotor no se limita a pedir un nombre y un teléfono. Con pocas preguntas identifica si la persona busca vivienda para vivir o para invertir, en qué plazo piensa comprar, si tiene un crédito preaprobado o cuenta con cesantías y subsidios, y si el proyecto encaja con lo que busca. Así el equipo comercial recibe menos contactos, pero con muchas más probabilidades de convertirse en una visita agendada.\n\n## Qué medimos\n\nLa trazabilidad del lead es el centro de la operación: contactos captados, contactos que cumplen el perfil, visitas agendadas, visitas realizadas y cierres. Con ese embudo se calcula el costo por lead calificado y por visita, y se decide qué puntos de captación y qué mensajes merecen más inversión.\n\n## VIS, No VIS e inversión\n\nCada segmento se activa distinto. El comprador de vivienda de interés social necesita resolver en persona sus dudas sobre subsidios, crédito y cuota inicial, y ahí el marketing experiencial tiene una ventaja clara sobre la pauta digital. En vivienda No VIS y en proyectos para inversionistas pesan más la experiencia del proyecto, la valorización esperada y el acompañamiento en la decisión.\n\n## Dónde operamos\n\nContraste tiene sede en Medellín y ejecuta activaciones para constructoras y proyectos de vivienda en Bogotá, Cali, Barranquilla y otras ciudades de Colombia. El V-Podcast de la agencia dedica episodios al mercado inmobiliario colombiano, a la valorización y a la inversión en propiedad raíz.",
     "keywords": [
       "marketing BTL inmobiliario",
-      "activación sala de ventas",
-      "captación de leads inmobiliarios",
-      "marketing proyectos de vivienda Colombia",
-      "eventos inmobiliarios Medellín"
+      "marketing inmobiliario en Medellín",
+      "activaciones para salas de ventas",
+      "leads inmobiliarios calificados",
+      "lanzamiento de proyectos de vivienda",
+      "ferias de vivienda en Colombia"
     ],
     "capabilities": [
       "Activaciones en sala de ventas y salas itinerantes",
@@ -64,10 +135,77 @@
       {
         "q": "¿Sirve el BTL para proyectos VIS?",
         "a": "Sí, y suele rendir más que en estrato alto: el comprador VIS necesita resolver dudas de subsidio y crédito en persona, y ese es exactamente el terreno del marketing experiencial."
+      },
+      {
+        "q": "¿Qué es un lead inmobiliario calificado?",
+        "a": "Es un contacto que, además de dejar sus datos, cumple las condiciones para comprar: tiene la intención y el plazo, la capacidad de crédito o de pago y un interés real en el tipo de proyecto. Un lead calificado vale más que muchos contactos sin perfil, porque es el que termina agendando la visita."
+      },
+      {
+        "q": "¿Qué activaciones funcionan en una sala de ventas?",
+        "a": "Las que convierten la visita en una experiencia: recibimiento personalizado, recorrido guiado por el apartamento modelo, un espacio para resolver dudas de crédito y subsidios, y actividades para la familia que permiten al comprador quedarse más tiempo. La primera visita es la que más pesa en el cierre."
+      },
+      {
+        "q": "¿Sirven las ferias de vivienda para generar ventas?",
+        "a": "Sí, si se llega con una mecánica de captación y calificación en sitio y con un proceso de seguimiento acordado con el equipo comercial. Sin eso, la feria produce muchos contactos y pocas visitas. Lo que se mide es cuántos visitantes del stand terminan agendando visita al proyecto."
+      },
+      {
+        "q": "¿Contraste trabaja con constructoras fuera de Medellín?",
+        "a": "Sí. La agencia tiene sede en Medellín y ejecuta activaciones inmobiliarias, lanzamientos de proyecto y presencia en ferias de vivienda en Bogotá, Cali, Barranquilla y otras ciudades de Colombia."
       }
     ],
     "accent": "#5AA9E6",
-    "order": 2
+    "order": 2,
+    "translations": {
+      "en": {
+        "faqs": [
+          {
+            "a": "By qualified leads, not by volume of contacts. We record how many people left their details, how many matched the credit profile and how many booked a visit to the project.",
+            "q": "How do you measure a real estate activation?"
+          },
+          {
+            "a": "Yes, and it usually performs better than in the high-end segment: affordable-housing buyers need to resolve subsidy and credit questions face to face, and that is exactly where experiential marketing works.",
+            "q": "Does BTL work for affordable housing projects?"
+          },
+          {
+            "q": "What is a qualified real estate lead?",
+            "a": "A contact who, besides leaving their details, meets the conditions to buy: the intent and timing, the credit or payment capacity and a real interest in that type of project. One qualified lead is worth more than many contacts without the profile, because it is the one that ends up booking a visit."
+          },
+          {
+            "q": "Which activations work in a sales room?",
+            "a": "The ones that turn the visit into an experience: a personal welcome, a guided tour of the show apartment, a space to resolve credit and subsidy questions, and activities for the family so the buyer can stay longer. The first visit is the one that weighs most in the close."
+          },
+          {
+            "q": "Do housing fairs generate sales?",
+            "a": "Yes, if you arrive with an on-site capture and qualification mechanic and a follow-up process agreed with the sales team. Without that, a fair produces many contacts and few visits. What gets measured is how many stand visitors end up booking a visit to the project."
+          },
+          {
+            "q": "Does Contraste work with developers outside Medellín?",
+            "a": "Yes. The agency is based in Medellín and runs real estate activations, project launches and housing fair stands in Bogotá, Cali, Barranquilla and other Colombian cities."
+          }
+        ],
+        "name": "Real Estate Development",
+        "intro": "Selling a home is not selling a product: it is guiding the biggest financial decision a family makes. We build experiences in the sales room and on the street that generate real leads, not inflated databases.",
+        "headline": "BTL marketing for real estate: more leads and sales",
+        "keywords": [
+          "real estate BTL marketing",
+          "real estate marketing Medellín",
+          "sales room activations",
+          "qualified real estate leads",
+          "housing project launch",
+          "housing fairs Colombia"
+        ],
+        "menuLabel": "Real Estate Development",
+        "description": "BTL activations, sales rooms and housing fairs for real estate projects in Colombia. Qualified leads, traceable through to the visit and the close.",
+        "subheadline": "From the sales room to closing, fully traceable",
+        "capabilities": [
+          "Activations in sales rooms and travelling showrooms",
+          "Lead capture with on-site qualification",
+          "Trade shows, launches and project events",
+          "Lead traceability: contact, scheduled visit and close"
+        ],
+        "body": "## The problem with real estate leads\n\nMany housing campaigns measure success by how many forms people filled in. The result is familiar: large databases, sales advisors calling people who do not meet the credit profile, and a cost per sale nobody can calculate. In real estate marketing what matters is not how many contacts come in, but how many reach the sales room and how many end with a unit reserved.\n\n## What we do for housing projects\n\n- Sales room activations so the first visit is an experience rather than a box-ticking tour.\n- Travelling showrooms and lead capture points in malls, companies and the project's catchment area.\n- Project launches and events for buyers and investors.\n- Presence at housing fairs with a stand, a capture mechanic and on-site qualification.\n- Lead handover to the sales team with the information it needs to follow up.\n\n## How we qualify a lead on site\n\nThe promoter does not just ask for a name and a phone number. With a few questions they find out whether the person is buying to live or to invest, when they plan to buy, whether they have pre-approved credit, severance savings or subsidies, and whether the project fits what they are looking for. The sales team receives fewer contacts, but ones far more likely to turn into a booked visit.\n\n## What we measure\n\nLead traceability is the core of the operation: contacts captured, contacts that match the profile, visits booked, visits completed and closes. That funnel gives the cost per qualified lead and per visit, and shows which capture points and messages deserve more investment.\n\n## Affordable housing, mid-to-high end and investors\n\nEach segment activates differently. Affordable-housing buyers need to resolve their questions about subsidies, credit and down payment in person, and that is where experiential marketing has a clear edge over digital ads. In mid-to-high-end housing and investor projects, the project experience, expected appreciation and support through the decision matter more.\n\n## Where we operate\n\nContraste is based in Medellín and runs activations for developers and housing projects in Bogotá, Cali, Barranquilla and other Colombian cities. The agency's V-Podcast has episodes on the Colombian real estate market, appreciation and property investment."
+      }
+    }
   },
   {
     "id": "consumo-masivo",
@@ -76,14 +214,16 @@
     "menuLabel": "Consumo Masivo",
     "headline": "Marketing BTL consumo masivo: más tráfico y ventas",
     "subheadline": "Ganar el lineal, turno por turno",
-    "description": "Trade marketing y activaciones para consumo masivo. Impulso en punto de venta, sampling y gestión de promotores con reporte por punto, turno y referencia.",
+    "description": "Trade marketing y activaciones BTL para consumo masivo: impulso, sampling, mercaderistas y material POP con reporte por punto, turno y referencia.",
     "intro": "En consumo masivo la marca se gana o se pierde en el lineal. Operamos impulso, sampling y material POP en varias ciudades a la vez, con reporte diario de lo que realmente pasó en cada punto.",
+    "body": "## El lineal es donde se gana la marca\n\nEn consumo masivo muchas decisiones de compra se toman frente a la góndola, en segundos y con varias marcas compitiendo a la vista. Por eso el trade marketing no es un complemento de la publicidad: es el punto donde la inversión de marca se convierte, o no, en unidades vendidas. Nuestro trabajo es que la marca esté bien exhibida, bien explicada y bien representada en cada punto de venta, todos los días que dure la campaña.\n\n## Qué operamos\n\n- Impulso en punto de venta con impulsadoras e impulsadores entrenados en el producto y en argumentación de venta.\n- Sampling y demostraciones de producto para generar prueba y recompra.\n- Mercaderistas para exhibición, surtido y rotación en el lineal.\n- Implementación y auditoría de material POP en cadenas y canal tradicional.\n- Activaciones de marca en supermercados, centros comerciales y eventos.\n\n## Canal moderno y canal tradicional\n\nEn cadenas, grandes superficies y tiendas de descuento la activación tiene que ajustarse a las reglas de cada cliente: horarios, espacios negociados y material permitido. En canal tradicional, tiendas de barrio y minimercados, el reto es la cobertura y el control: muchos puntos pequeños, dispersos y difíciles de verificar. Diseñamos la operación según el canal, porque replicar la misma mecánica en los dos suele desperdiciar presupuesto.\n\n## Control de la operación\n\nLo que separa una operación seria de una que sólo factura horas es el control. Cada promotor registra entrada y salida por turno, toma evidencia fotográfica del lineal y reporta las unidades movidas por referencia. La supervisión en calle verifica exhibición, precio y material POP. La marca recibe reporte por punto, por turno, por promotor y por referencia, y puede ver qué ciudades y qué puntos responden mejor a la activación.\n\n## Operación en varias ciudades\n\nContraste opera desde Medellín y ejecuta campañas de impulso, sampling y trade marketing en Bogotá, Cali, Barranquilla y otras ciudades de Colombia a la vez, con el mismo estándar de selección, entrenamiento y reporte en todas. Así una marca puede lanzar un producto en varias plazas con una sola agencia y una sola lectura de resultados.",
     "keywords": [
-      "trade marketing Colombia",
+      "trade marketing en Colombia",
       "impulso en punto de venta",
-      "sampling consumo masivo",
-      "gestión de promotores retail",
-      "activación de marca supermercados"
+      "agencia de impulsadoras en Medellín",
+      "sampling de producto",
+      "implementación de material POP",
+      "activaciones en supermercados"
     ],
     "capabilities": [
       "Impulso y mercaderistas en cadenas y canal tradicional",
@@ -99,10 +239,77 @@
       {
         "q": "¿Cómo se controla que el promotor sí esté en el punto?",
         "a": "Con registro de entrada y salida por turno, evidencia fotográfica del lineal y reporte de unidades movidas. Ese control es lo que separa una operación seria de una que solo factura horas."
+      },
+      {
+        "q": "¿Qué es el trade marketing?",
+        "a": "Es el conjunto de acciones que hace una marca en el canal de venta para mover su producto: exhibición, impulso, sampling, material POP y negociación de espacios con las cadenas. A diferencia de la publicidad, actúa en el punto donde el consumidor decide la compra y se mide en unidades vendidas."
+      },
+      {
+        "q": "¿Qué hace un mercaderista?",
+        "a": "Se encarga de que el producto esté disponible y bien exhibido: surte el lineal, ordena las caras de la marca, revisa precios y fechas y reporta los agotados. A diferencia de la impulsadora, no le vende directamente al consumidor, pero sin su trabajo la venta no puede ocurrir."
+      },
+      {
+        "q": "¿Qué es el material POP y cómo se controla su implementación?",
+        "a": "El material POP (point of purchase) son las piezas de marca en el punto de venta: exhibidores, cenefas, habladores, stoppers y displays. Se controla con auditorías en calle y evidencia fotográfica por punto, porque parte del material que se envía nunca llega a instalarse o se instala mal."
+      },
+      {
+        "q": "¿Pueden hacer una campaña de impulso en varias ciudades a la vez?",
+        "a": "Sí. Contraste ejecuta campañas simultáneas en Medellín, Bogotá, Cali, Barranquilla y otras ciudades, con selección y entrenamiento del equipo en cada plaza y un único reporte consolidado por punto, turno y referencia."
       }
     ],
     "accent": "#4ECDA4",
-    "order": 3
+    "order": 3,
+    "translations": {
+      "en": {
+        "faqs": [
+          {
+            "a": "In-store push aims to close the sale on the spot, with a promoter making the case right at the shelf. Sampling aims for product trial to drive future repeat purchase. They are often combined, but they are measured differently.",
+            "q": "What is the difference between in-store push and sampling?"
+          },
+          {
+            "a": "With clock-in and clock-out per shift, photographic evidence of the shelf and reporting of units moved. That control is what separates a serious operation from one that just bills hours.",
+            "q": "How do you make sure the promoter is actually at the location?"
+          },
+          {
+            "q": "What is trade marketing?",
+            "a": "The set of actions a brand carries out in the sales channel to move its product: display, in-store promotion, sampling, POP material and negotiating space with retailers. Unlike advertising, it works at the point where the shopper decides and is measured in units sold."
+          },
+          {
+            "q": "What does a merchandiser do?",
+            "a": "They make sure the product is available and well displayed: they restock the shelf, arrange the brand facings, check prices and dates and report out-of-stocks. Unlike a brand ambassador they do not sell directly to shoppers, but without their work the sale cannot happen."
+          },
+          {
+            "q": "What is POP material and how is its rollout controlled?",
+            "a": "POP (point of purchase) material is the branded pieces at the point of sale: displays, shelf strips, shelf talkers, stoppers and stands. It is controlled with field audits and photographic evidence per store, because part of the material shipped never gets installed or is installed badly."
+          },
+          {
+            "q": "Can you run an in-store campaign in several cities at once?",
+            "a": "Yes. Contraste runs simultaneous campaigns in Medellín, Bogotá, Cali, Barranquilla and other cities, with team selection and training in each market and a single consolidated report by store, shift and SKU."
+          }
+        ],
+        "name": "Consumer Goods",
+        "intro": "In consumer goods the brand is won or lost at the shelf. We run in-store push, sampling and POP material across several cities at once, with daily reporting on what actually happened at each location.",
+        "headline": "BTL marketing for consumer goods: more traffic and sales",
+        "keywords": [
+          "trade marketing Colombia",
+          "in-store promotion",
+          "brand ambassador agency Medellín",
+          "product sampling",
+          "POP material rollout",
+          "supermarket activations"
+        ],
+        "menuLabel": "Consumer Goods",
+        "description": "Trade marketing and BTL activations for consumer goods: in-store promotion, sampling, merchandisers and POP material, reported by store, shift and SKU.",
+        "subheadline": "Winning the shelf, shift by shift",
+        "capabilities": [
+          "In-store push and merchandisers in chains and traditional trade",
+          "Sampling and product demonstration",
+          "POP material rollout and audit",
+          "Reporting by location, shift, staff member and SKU"
+        ],
+        "body": "## The shelf is where the brand is won\n\nIn consumer goods many purchase decisions are made in front of the shelf, in seconds and with several brands competing in plain sight. That is why trade marketing is not an add-on to advertising: it is where brand investment turns, or fails to turn, into units sold. Our job is to make sure the brand is well displayed, well explained and well represented at every point of sale, every day the campaign runs.\n\n## What we operate\n\n- In-store promotion with brand ambassadors trained on the product and on sales arguments.\n- Sampling and product demonstrations to drive trial and repeat purchase.\n- Merchandisers for display, assortment and rotation on the shelf.\n- POP material rollout and audits in retail chains and traditional trade.\n- Brand activations in supermarkets, malls and events.\n\n## Modern trade and traditional trade\n\nIn chains, hypermarkets and discount stores the activation has to fit each retailer's rules: time slots, negotiated space and permitted materials. In traditional trade, neighbourhood shops and mini-markets, the challenge is coverage and control: many small, scattered points that are hard to verify. We design the operation per channel, because copying the same mechanic across both usually wastes budget.\n\n## Operational control\n\nWhat separates a serious operation from one that just bills hours is control. Every promoter clocks in and out per shift, takes photographic evidence of the shelf and reports units moved by SKU. Field supervisors check display, price and POP material. The brand receives reporting by store, shift, promoter and SKU, and can see which cities and locations respond best to the activation.\n\n## Multi-city operation\n\nContraste operates from Medellín and runs in-store promotion, sampling and trade marketing campaigns in Bogotá, Cali, Barranquilla and other Colombian cities at the same time, with the same selection, training and reporting standard everywhere. A brand can launch a product in several markets with one agency and one read of the results."
+      }
+    }
   },
   {
     "id": "tecnologia",
@@ -111,14 +318,16 @@
     "menuLabel": "Tecnología",
     "headline": "Activaciones BTL de tecnología: alto impacto",
     "subheadline": "Hacer tangible lo que se explica en una diapositiva",
-    "description": "Activaciones y experiencias para marcas de tecnología: lanzamientos, demostraciones de producto y experiencias interactivas que hacen entender el producto usándolo.",
+    "description": "Activaciones BTL para marcas de tecnología: lanzamientos de producto, demostraciones, stands para ferias y experiencias interactivas que se miden.",
     "intro": "Un producto tecnológico rara vez se vende explicándolo. Se vende cuando la persona lo usa. Diseñamos demostraciones y experiencias interactivas donde el asistente prueba, no escucha.",
+    "body": "## Un producto tecnológico se entiende usándolo\n\nLas marcas de tecnología suelen tener un problema de explicación: el producto hace mucho, pero cuesta contarlo en una valla o en una presentación. El marketing experiencial lo resuelve poniendo el producto en las manos de la persona. Una demostración bien diseñada logra en pocos minutos lo que no consiguen muchas diapositivas: que el cliente entienda para qué sirve y se lo imagine en su día a día o en su empresa.\n\n## Qué hacemos para marcas de tecnología\n\n- Lanzamientos de producto para clientes, prensa, aliados y canal de distribución.\n- Demostraciones guiadas con recorrido, guion y personal entrenado en el producto.\n- Experiencias interactivas que invitan a probar en vez de sólo escuchar.\n- Stands y espacios de marca para ferias, congresos y eventos del sector.\n- Activaciones en puntos de venta y centros comerciales para tecnología de consumo.\n\n## Tecnología B2B y de consumo\n\nEn tecnología para empresas el objetivo de una activación es abrir reuniones y oportunidades comerciales, y el público es pequeño y difícil de reunir. Ahí funcionan los eventos privados, las demostraciones en ferias especializadas y las experiencias diseñadas para quienes toman la decisión de compra. En tecnología de consumo el objetivo es la prueba y la intención de compra, y pesan más el punto de venta, el alcance y la facilidad para probar el producto.\n\n## Personal que sabe del producto\n\nUn asistente que hace una pregunta técnica y recibe una respuesta vaga no vuelve. Por eso el equipo que representa a la marca se entrena en el producto antes de la activación, con un guion de demostración, las preguntas frecuentes del público y el momento exacto en el que debe pasar el contacto a un asesor comercial.\n\n## Qué medimos\n\nInteracciones completadas, tiempo de uso por persona, preguntas recogidas en sitio, intención de compra declarada y contactos entregados al equipo comercial. Esos datos sirven para evaluar la activación y, además, le dan al equipo de producto información de primera mano sobre cómo reacciona la gente al usarlo.\n\n## Experiencia y cobertura\n\nContraste ha trabajado con marcas como IBM y Cabify, y ejecuta lanzamientos, demostraciones y activaciones para marcas de tecnología desde Medellín en Bogotá, Cali, Barranquilla y Ciudad de México.",
     "keywords": [
-      "activaciones BTL tecnología",
-      "lanzamiento de producto tecnológico",
+      "activaciones BTL de tecnología",
+      "lanzamiento de productos tecnológicos",
       "experiencias interactivas de marca",
-      "demo de producto en evento",
-      "marketing experiencial tecnología Colombia"
+      "stands para ferias de tecnología",
+      "demostraciones de producto en eventos",
+      "marketing experiencial B2B"
     ],
     "capabilities": [
       "Lanzamientos y presentaciones de producto",
@@ -134,9 +343,76 @@
       {
         "q": "¿Se puede medir una activación de tecnología?",
         "a": "Sí: interacciones completadas, tiempo de uso por persona, preguntas frecuentes recogidas en sitio e intención de compra declarada. Esos datos además alimentan el roadmap de producto."
+      },
+      {
+        "q": "¿Cómo se diseña un stand para una feria de tecnología?",
+        "a": "Partiendo de lo que el visitante tiene que hacer, no de cómo se ve: un punto de demostración visible desde el pasillo, recorridos cortos, pantallas que muestren el producto funcionando y un lugar para conversar con quien tiene interés real. El stand se mide por demostraciones completadas y contactos calificados, no por visitantes."
+      },
+      {
+        "q": "¿Qué diferencia hay entre un lanzamiento B2B y uno de consumo?",
+        "a": "En B2B el público es reducido y el objetivo es abrir conversaciones comerciales, así que funcionan los eventos privados y las demostraciones para quienes deciden la compra. En consumo el objetivo es la prueba y la intención de compra, y pesan más el alcance, el punto de venta y la facilidad para probar."
+      },
+      {
+        "q": "¿Qué es una experiencia interactiva de marca?",
+        "a": "Es una activación en la que el público participa en lugar de sólo mirar: prueba el producto, completa un reto o vive una demostración guiada. Funciona especialmente bien en tecnología porque convierte características difíciles de explicar en algo que la persona experimenta por sí misma."
+      },
+      {
+        "q": "¿Contraste hace lanzamientos de tecnología fuera de Colombia?",
+        "a": "La agencia opera desde Medellín y ejecuta activaciones en Bogotá, Cali, Barranquilla y Ciudad de México. En los lanzamientos regionales la producción de cada ciudad se coordina con el mismo estándar de marca y de medición."
       }
     ],
     "accent": "#9B85FF",
-    "order": 4
+    "order": 4,
+    "translations": {
+      "en": {
+        "faqs": [
+          {
+            "a": "The one that lets people touch it. A three-minute guided demo converts better than a thirty-minute presentation, because the memory of using something outweighs the memory of being told about it.",
+            "q": "What format works best for launching a technology product?"
+          },
+          {
+            "a": "Yes: completed interactions, time of use per person, questions collected on site and stated purchase intent. That data also feeds the product roadmap.",
+            "q": "Can a technology activation be measured?"
+          },
+          {
+            "q": "How do you design a stand for a technology trade show?",
+            "a": "Starting from what the visitor has to do, not from how it looks: a demo point visible from the aisle, short routes, screens showing the product working and a place to talk with people who have real interest. The stand is measured by completed demos and qualified contacts, not by footfall."
+          },
+          {
+            "q": "What is the difference between a B2B launch and a consumer launch?",
+            "a": "In B2B the audience is small and the goal is to open sales conversations, so private events and demos for decision-makers work. In consumer launches the goal is trial and purchase intent, and reach, retail presence and ease of trying the product matter more."
+          },
+          {
+            "q": "What is an interactive brand experience?",
+            "a": "An activation where the audience takes part instead of just watching: they try the product, complete a challenge or go through a guided demo. It works especially well in technology because it turns features that are hard to explain into something people experience for themselves."
+          },
+          {
+            "q": "Does Contraste run technology launches outside Colombia?",
+            "a": "The agency operates from Medellín and runs activations in Bogotá, Cali, Barranquilla and Mexico City. For regional launches, production in each city is coordinated to the same brand and measurement standard."
+          }
+        ],
+        "name": "Technology",
+        "intro": "A technology product rarely sells by being explained. It sells when someone uses it. We design demonstrations and interactive experiences where the attendee tries it rather than listens to it.",
+        "headline": "BTL activations for technology: high impact",
+        "keywords": [
+          "technology BTL activations",
+          "tech product launch",
+          "interactive brand experiences",
+          "technology trade show stands",
+          "product demos at events",
+          "B2B experiential marketing"
+        ],
+        "menuLabel": "Technology",
+        "description": "BTL activations for technology brands: product launches, demos, trade show stands and interactive experiences that are measured, not guessed.",
+        "subheadline": "Make tangible what a slide only explains",
+        "capabilities": [
+          "Launches and product presentations",
+          "Guided demos and interactive experiences",
+          "Stands and brand spaces for industry trade shows",
+          "Interaction capture and purchase-intent measurement"
+        ],
+        "body": "## A technology product is understood by using it\n\nTechnology brands often have an explanation problem: the product does a lot, but it is hard to get across on a billboard or in a presentation. Experiential marketing solves that by putting the product in people's hands. A well-designed demo achieves in a few minutes what many slides cannot: the customer understands what it is for and pictures it in their day or in their company.\n\n## What we do for technology brands\n\n- Product launches for customers, press, partners and the distribution channel.\n- Guided demos with a route, a script and staff trained on the product.\n- Interactive experiences that invite people to try rather than just listen.\n- Stands and brand spaces for trade shows, conferences and industry events.\n- Activations at retail and in malls for consumer technology.\n\n## B2B and consumer technology\n\nIn technology for businesses the goal of an activation is to open meetings and sales opportunities, and the audience is small and hard to gather. Private events, demos at specialised trade shows and experiences designed for decision-makers work there. In consumer technology the goal is trial and purchase intent, and retail presence, reach and how easy it is to try the product matter more.\n\n## Staff who know the product\n\nAn attendee who asks a technical question and gets a vague answer does not come back. That is why the team representing the brand is trained on the product before the activation, with a demo script, the audience's frequent questions and the exact moment to hand the contact over to a sales advisor.\n\n## What we measure\n\nCompleted interactions, time of use per person, questions collected on site, stated purchase intent and contacts handed to the sales team. That data is used to evaluate the activation and also gives the product team first-hand insight into how people react when they use it.\n\n## Experience and coverage\n\nContraste has worked with brands such as IBM and Cabify, and runs launches, demos and activations for technology brands from Medellín in Bogotá, Cali, Barranquilla and Mexico City."
+      }
+    }
   }
 ]

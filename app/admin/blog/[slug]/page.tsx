@@ -1,8 +1,15 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, Check, ExternalLink, Trash2 } from 'lucide-react'
-import { auditPost, getPost, getNiches, wordCount } from '@/lib/content'
+import { AlertTriangle, ArrowLeft, Check, ExternalLink, Trash2 } from 'lucide-react'
+import {
+  MIN_INDEXABLE_WORDS,
+  auditPost,
+  getPost,
+  getNiches,
+  isIndexablePost,
+  wordCount,
+} from '@/lib/content'
 import { deletePost, updatePost } from '../../post-actions'
 import { SectionLabel } from '@/components/site/brand-mark'
 
@@ -85,6 +92,17 @@ export default async function PostEditor({ params, searchParams }: Props) {
         <p className="mt-6 flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400">
           <Check className="size-4" />
           Cambios guardados. Las páginas públicas ya se regeneraron.
+        </p>
+      )}
+
+      {post.status === 'published' && !isIndexablePost(post) && (
+        <p className="mt-6 flex items-start gap-3 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm leading-relaxed text-red-300">
+          <AlertTriangle className="mt-0.5 size-4 shrink-0" />
+          <span>
+            Publicado, pero con {wordCount(post.body)} palabras. Hasta llegar a {MIN_INDEXABLE_WORDS} se
+            muestra en el blog con <code className="font-mono">noindex</code> y fuera del sitemap: Google
+            no lo indexa, para que una página vacía no cuente como contenido pobre del sitio.
+          </span>
         </p>
       )}
 

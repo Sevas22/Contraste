@@ -52,8 +52,23 @@ export function stripLocale(path: string): string {
  * más completa; es lo que Google sirve cuando no puede deducir el idioma del
  * visitante.
  */
-export function alternatesFor(path: string) {
+export function alternatesFor(path: string, { traducida = true }: { traducida?: boolean } = {}) {
   const base = stripLocale(path)
+  /**
+   * Sin traducción no se declara pareja inglesa.
+   *
+   * Un post o un episodio que sólo existe en español se sirve igual en /en,
+   * pero con el texto en español. Anunciarlo como `hreflang="en"` le decía a
+   * Google que era la versión inglesa de sí mismo: dos URLs con el mismo texto
+   * y una etiqueta de idioma falsa. Mientras no haya traducción, la página
+   * española no apunta a la inglesa y la inglesa sale con `noindex`.
+   */
+  if (!traducida) {
+    return {
+      canonical: path,
+      languages: { 'es-CO': localePath('es', base), 'x-default': localePath('es', base) },
+    }
+  }
   return {
     /**
      * El canónico es la URL DE ESTA página, no la española.

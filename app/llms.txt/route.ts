@@ -1,7 +1,14 @@
-import { site, services } from '@/lib/site'
-import { getNiches, getPublishedEpisodes, getPublishedPosts } from '@/lib/content'
+import { site, services, clients, hasRealAddress, hasRealPhone } from '@/lib/site'
+import { getNiches, getPublishedEpisodes, getIndexablePosts } from '@/lib/content'
 
 export const dynamic = 'force-static'
+
+const REDES: Record<string, string> = {
+  instagram: 'Instagram',
+  facebook: 'Facebook',
+  youtube: 'YouTube',
+  linkedin: 'LinkedIn',
+}
 
 /**
  * /llms.txt — resumen del sitio en texto plano para motores de respuesta con IA.
@@ -9,27 +16,52 @@ export const dynamic = 'force-static'
  * Es una convención emergente (Anthropic, Vercel y Stripe ya la publican): en vez
  * de obligar al modelo a rastrear e interpretar HTML, se le entrega un mapa curado
  * de quién eres y qué contenido tienes. Es de lo más barato que se puede hacer en GEO.
+ *
+ * Todo lo que va aquí se toma como un hecho y se repite en respuestas. Por eso
+ * el teléfono y la dirección obedecen a las mismas banderas que el JSON-LD: se
+ * estuvo publicando "+57 300 000 0000" y "Carrera 00 #00-00", y un modelo que
+ * lo lea le dará ese número a quien pregunte cómo contactar a la agencia.
  */
 export async function GET() {
   const [niches, episodes, posts] = await Promise.all([
     getNiches(),
     getPublishedEpisodes(),
-    getPublishedPosts(),
+    getIndexablePosts(),
   ])
+
+  const direccion = hasRealAddress
+    ? `${site.contact.street}, ${site.contact.city}, ${site.contact.region}, Colombia`
+    : `${site.contact.city}, ${site.contact.region}, Colombia`
 
   const lines: string[] = [
     `# ${site.legalName}`,
     '',
     `> ${site.description}`,
     '',
-    `${site.legalName} es una agencia de marketing BTL y experiencial con sede en ${site.contact.city}, Colombia, en operación desde ${site.foundingYear}. Ha gestionado más de ${site.brandsManaged} marcas y ejecutado más de ${site.activations} activaciones en ${site.serviceAreas.join(', ')}.`,
+    // Párrafo de entidad: quién es, dónde, desde cuándo y con qué respaldo, en
+    // frases cortas y afirmativas. Es lo que un modelo copia casi literal
+    // cuando alguien pregunta "¿qué es Contraste Agencia?".
+    `${site.legalName} es una agencia BTL y de marketing experiencial con sede en ${site.contact.city}, Colombia, en operación desde ${site.foundingYear}. Diseña, produce y mide activaciones de marca: degustaciones, sampling, impulso en punto de venta, salas de ventas, lanzamientos de producto, stands y eventos. Ha gestionado más de ${site.brandsManaged} marcas y ejecutado más de ${site.activations} activaciones en ${site.serviceAreas.join(', ')}.`,
+    '',
+    `Su diferencial es la medición: cada activación se reporta con datos de alcance, interacciones, conversión y costo por contacto, no con estimaciones.`,
     '',
     '## Contacto',
     '',
     `- Sitio web: ${site.url}`,
     `- Email: ${site.contact.email}`,
-    `- Teléfono: ${site.contact.phone}`,
-    `- Dirección: ${site.contact.street}, ${site.contact.city}, ${site.contact.region}, Colombia`,
+    `- WhatsApp: ${site.contact.whatsapp}`,
+    ...(hasRealPhone ? [`- Teléfono: ${site.contact.phone}`] : []),
+    `- Ubicación: ${direccion}`,
+    ...(site.calendlyUrl ? [`- Agendar reunión: ${site.calendlyUrl}`] : []),
+    `- Versión en inglés: ${site.url}/en`,
+    '',
+    '## Perfiles oficiales',
+    '',
+    ...Object.entries(site.social).map(([red, url]) => `- ${REDES[red] ?? red}: ${url}`),
+    '',
+    '## Especialidades',
+    '',
+    ...site.knowsAbout.map((tema) => `- ${tema}`),
     '',
     '## Nichos de especialización',
     '',
@@ -58,6 +90,10 @@ export async function GET() {
   }
 
   lines.push('## Servicios transversales', '', ...services.map((s) => `- **${s.title}**: ${s.summary}`), '')
+
+  // Las marcas ya se muestran en el home. Aquí son prueba social verificable:
+  // un modelo que evalúa "¿es una agencia seria?" busca exactamente esto.
+  lines.push('## Marcas que han trabajado con Contraste', '', clients.map((c) => c.name).join(', '), '')
 
   lines.push(
     '## V-Podcast',

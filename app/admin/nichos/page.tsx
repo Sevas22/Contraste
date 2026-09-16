@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { ExternalLink } from 'lucide-react'
-import { auditAll, getNiches } from '@/lib/content'
+import { ExternalLink, PenLine } from 'lucide-react'
+import { auditAll, auditNiche, getNiches } from '@/lib/content'
 import { SectionLabel } from '@/components/site/brand-mark'
 
 export default async function NichesAdmin() {
@@ -22,6 +22,7 @@ export default async function NichesAdmin() {
           const average = items.length
             ? Math.round(items.reduce((sum, a) => sum + a.score, 0) / items.length)
             : 0
+          const landing = auditNiche(niche)
 
           return (
             <li key={niche.id} className="rounded-2xl border border-border bg-card p-6">
@@ -45,6 +46,18 @@ export default async function NichesAdmin() {
 
                 <div className="flex shrink-0 items-center gap-5">
                   <div className="text-right">
+                    <p
+                      className={`font-mono text-2xl ${
+                        landing.score >= 80 ? 'text-emerald-400' : landing.score >= 45 ? 'text-accent-text' : 'text-red-400'
+                      }`}
+                    >
+                      {landing.score}
+                    </p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                      landing
+                    </p>
+                  </div>
+                  <div className="text-right">
                     <p className="font-mono text-2xl">{items.length}</p>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
                       episodios
@@ -53,9 +66,16 @@ export default async function NichesAdmin() {
                   <div className="text-right">
                     <p className="font-mono text-2xl">{average}</p>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                      score medio
+                      score episodios
                     </p>
                   </div>
+                  <Link
+                    href={`/admin/nichos/${niche.id}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-xs font-bold text-accent-foreground transition hover:brightness-110"
+                  >
+                    <PenLine className="size-3.5" />
+                    Editar
+                  </Link>
                   <Link
                     href={`/${niche.slug}`}
                     target="_blank"
@@ -83,8 +103,8 @@ export default async function NichesAdmin() {
       </ul>
 
       <p className="mt-8 rounded-xl border border-dashed border-border p-5 text-xs leading-relaxed text-muted-foreground">
-        Los nichos se editan en <code className="font-mono">content/niches.json</code>. Si quieres
-        crearlos y editarlos desde aquí, es el siguiente paso natural del panel.
+        El nombre, la URL y el color de cada nicho no se editan desde aquí: la URL es la heredada
+        del WordPress y cambiarla haría perder la posición ganada en Google.
       </p>
     </div>
   )

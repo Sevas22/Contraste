@@ -1,15 +1,18 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { ArrowUpRight, Check } from 'lucide-react'
 import { Header } from '@/components/site/header'
 import { Footer } from '@/components/site/footer'
+import { Prose } from '@/components/site/prose'
 import { JsonLd, breadcrumbSchema, nicheSchema } from '@/lib/schema'
-import { site } from '@/lib/site'
+import { site, pageTitle } from '@/lib/site'
 import {
   getNiche,
   getNiches,
+  getEpisodes,
+  getPosts,
   getEpisodesByNiche,
   formatDuration,
   episodeCover,
@@ -24,10 +27,34 @@ import { SplitHeadline } from '@/components/site/split-headline'
 import { nicheImage, nicheVideo } from '@/lib/niche-media'
 import { getDictionary, fill } from '@/lib/dictionaries'
 import { translateEpisode, translateEpisodes, translateNiche, translateNiches, translatePost, translatePosts, contentLang } from '@/lib/translate-content'
-import { DEFAULT_LOCALE, localePath, nicheName, type Locale } from '@/lib/i18n'
+import { DEFAULT_LOCALE, LOCALE_TAGS, alternatesFor, localePath, nicheName, type Locale } from '@/lib/i18n'
 import { YouTubeEmbed } from '@/components/site/youtube-embed'
 
 type Props = { params: Promise<{ nicho: string }> }
+
+/**
+ * ¿Es una URL del WordPress viejo?
+ *
+ * Allí los episodios y los posts vivían en la raíz (`/hacia-donde-va-el-…`) y
+ * aquí cuelgan de `/v-podcast` y `/blog`. Como esta ruta dinámica recibe
+ * cualquier slug de un solo segmento, es el sitio natural para rescatarlas:
+ * en vez de un 404 que tira el enlace y su autoridad, un 308 al contenido.
+ *
+ * Acepta el slug exacto o uno que el nuevo alarga (el WordPress cortaba
+ * "…-inmobiliario" donde aquí es "…-inmobiliario-en-colombia"). El mínimo de
+ * longitud evita que un slug corto y genérico caiga en cualquier episodio.
+ */
+async function legacyDestination(slug: string): Promise<string | null> {
+  if (slug.length < 12) return null
+  const coincide = (candidato: string) => candidato === slug || candidato.startsWith(`${slug}-`)
+
+  const [episodes, posts] = await Promise.all([getEpisodes(), getPosts()])
+  const episode = episodes.find((e) => e.status === 'published' && coincide(e.slug))
+  if (episode) return `/v-podcast/${episode.slug}`
+  const post = posts.find((p) => p.status === 'published' && coincide(p.slug))
+  if (post) return `/blog/${post.slug}`
+  return null
+}
 
 /**
  * Landings de nicho.
@@ -46,17 +73,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const niche = await getNiche(slug)
   if (!niche) return {}
 
+  const imagen = nicheImage(niche.slug)
+
   return {
-    title: niche.headline,
+    title: { absolute: pageTitle(niche.headline) },
     description: niche.description,
     keywords: niche.keywords,
-    alternates: { canonical: `/${niche.slug}` },
+    // Con hreflang: antes sólo llevaba el canónico, así que la versión
+    // española no declaraba su pareja inglesa (la inglesa sí lo hacía).
+    alternates: alternatesFor(`/${niche.slug}`),
     openGraph: {
       type: 'website',
       title: niche.headline,
       description: niche.description,
       url: `/${niche.slug}`,
+      // Hay que repetirla: un `openGraph` de página REEMPLAZA al del layout,
+      // no lo mezcla, y sin esto la landing se compartía sin imagen.
+      images: [{ url: imagen, alt: niche.headline }],
     },
+    twitter: { card: 'summary_large_image', title: niche.headline, images: [imagen] },
   }
 }
 
@@ -65,8 +100,13 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
   const ruta = (path: string) => localePath(locale, path)
   const { nicho: slug } = await params
   const nicheRaw = await getNiche(slug)
-  if (!nicheRaw) notFound()
+  if (!nicheRaw) {
+    const destino = await legacyDestination(slug)
+    if (destino) permanentRedirect(ruta(destino))
+    notFound()
+  }
   const niche = translateNiche(nicheRaw, locale)
+  const idiomaCuerpo = contentLang(nicheRaw, locale, 'body')
 
   const [episodes, allNiches] = await Promise.all([
     getEpisodesByNiche(niche.id),
@@ -80,7 +120,7 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
 
   return (
     <>
-      <JsonLd data={nicheSchema(niche)} />
+      <JsonLd data={nicheSchema(niche, ruta(`/${niche.slug}`))} />
       <JsonLd
         data={breadcrumbSchema([
           { name: 'Inicio', url: '/' },
@@ -89,7 +129,9 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
       />
       <Header locale={locale} />
 
-      <main className="grain pt-32 lg:pt-40">
+      {/* `data-niche`: los eventos de conversión lo leen para atribuir cada
+          WhatsApp o cita a su landing (ver lib/track.ts). */}
+      <main className="grain pt-32 lg:pt-40" data-niche={niche.id}>
         {/* ── Encabezado ─────────────────────────────────────── */}
         <section className="relative overflow-hidden pb-16">
           {/* Mural detrás del titular: da profundidad sin competir con el texto,
@@ -211,6 +253,27 @@ export default async function NichePage({ params, locale = DEFAULT_LOCALE }: Pro
             capacidades porque ya son frases cortas y no hay que recortarlas
             a media palabra. */}
         <Marquee words={niche.keywords} />
+
+        {/* ── Texto largo del nicho ─────────────────────────────
+            Es el contenido que hace competir a la landing por la búsqueda del
+            sector. Misma rejilla que las preguntas frecuentes (etiqueta fija a
+            la izquierda, lectura a la derecha) para que no parezca una sección
+            de otro sitio. */}
+        {niche.body.trim() && (
+          <section className="shell py-20 lg:py-28">
+            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+              <div className="movil-centrado lg:sticky lg:top-32 lg:self-start">
+                <SectionLabel>{t.nichos.metodo}</SectionLabel>
+                <p className="display mt-5 text-[clamp(1.7rem,3.2vw,2.5rem)]">
+                  {fill(t.nichos.metodoTitular, { nicho: nombre.toLowerCase() })}
+                </p>
+              </div>
+              <div className="max-w-2xl" lang={LOCALE_TAGS[idiomaCuerpo]}>
+                <Prose body={niche.body} />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ── Episodios del nicho ────────────────────────────── */}
         {episodes.length > 0 && (

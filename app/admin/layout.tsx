@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
-import { ExternalLink, Gauge, Mic, Layers, FileText, LogOut } from 'lucide-react'
+import { ExternalLink, Gauge, Mic, Layers, FileText, LogOut, ChartColumn } from 'lucide-react'
 import { Logo } from '@/components/site/logo'
 import { InstagramIcon } from '@/components/site/social-icons'
 import { getSession } from '@/lib/auth'
@@ -19,6 +19,7 @@ const menu = [
   { href: '/admin/episodios', label: 'Podcasts', Icon: Mic },
   { href: '/admin/nichos', label: 'Nichos', Icon: Layers },
   { href: '/admin/instagram', label: 'Instagram', Icon: InstagramIcon },
+  { href: '/admin/medicion', label: 'Medición', Icon: ChartColumn },
 ]
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {

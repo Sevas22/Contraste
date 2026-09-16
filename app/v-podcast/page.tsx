@@ -15,7 +15,7 @@ import {
 import { SectionLabel } from '@/components/site/brand-mark'
 import { getDictionary } from '@/lib/dictionaries'
 import { translateEpisode, translateEpisodes, translateNiche, translateNiches, translatePost, translatePosts, contentLang } from '@/lib/translate-content'
-import { DEFAULT_LOCALE, localePath, nicheName, type Locale } from '@/lib/i18n'
+import { DEFAULT_LOCALE, alternatesFor, localePath, nicheName, type Locale } from '@/lib/i18n'
 import { SplitHeadline } from '@/components/site/split-headline'
 import { WordmarkMural } from '@/components/site/wordmark-mural'
 
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: 'V-Podcast — conversaciones de negocio por sector',
   description:
     'El videopodcast de Contraste: mercado inmobiliario, bebidas, consumo masivo y tecnología. Cada episodio con resumen, capítulos y preguntas frecuentes.',
-  alternates: { canonical: '/v-podcast' },
+  alternates: alternatesFor('/v-podcast'),
   openGraph: {
     type: 'website',
     title: 'V-Podcast | Contraste',

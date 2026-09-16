@@ -7,10 +7,11 @@ import { Header } from '@/components/site/header'
 import { Footer } from '@/components/site/footer'
 import { Prose } from '@/components/site/prose'
 import { JsonLd, breadcrumbSchema, postSchema } from '@/lib/schema'
-import { getNiches, getPost, getPosts, getPublishedPosts, formatDate } from '@/lib/content'
+import { getNiches, getPost, getPosts, getPublishedPosts, formatDate, isIndexablePost } from '@/lib/content'
 import { getDictionary, fill } from '@/lib/dictionaries'
-import { translateEpisode, translateEpisodes, translateNiche, translateNiches, translatePost, translatePosts, contentLang } from '@/lib/translate-content'
-import { DEFAULT_LOCALE, localePath, type Locale } from '@/lib/i18n'
+import { translateEpisode, translateEpisodes, translateNiche, translateNiches, translatePost, translatePosts, contentLang, hasEnglish } from '@/lib/translate-content'
+import { DEFAULT_LOCALE, alternatesFor, localePath, type Locale } from '@/lib/i18n'
+import { pageTitle } from '@/lib/site'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -26,10 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = post.metaDescription || post.excerpt || post.title
 
   return {
-    title: post.title,
+    // Sin marca si con ella pasa de 60 caracteres (ver pageTitle)
+    title: { absolute: pageTitle(post.title) },
     description,
     keywords: post.keywords,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: alternatesFor(`/blog/${slug}`, { traducida: hasEnglish(post) }),
     openGraph: {
       type: 'article',
       title: post.title,
@@ -39,7 +41,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.updatedAt,
       images: post.coverUrl ? [post.coverUrl] : undefined,
     },
-    robots: post.status === 'draft' ? { index: false, follow: false } : undefined,
+    // Borrador: fuera del todo. Publicado pero sin texto suficiente: se sigue
+    // viendo, pero Google no lo indexa ni lo cuenta como contenido pobre.
+    robots:
+      post.status === 'draft'
+        ? { index: false, follow: false }
+        : isIndexablePost(post)
+          ? undefined
+          : { index: false, follow: true },
   }
 }
 

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import PostPage from '../../../blog/[slug]/page'
-import { getPost, getPublishedPosts } from '@/lib/content'
+import { getPost, getPublishedPosts, isIndexablePost } from '@/lib/content'
 import { alternatesFor, LOCALE_TAGS, OG_LOCALES } from '@/lib/i18n'
-import { translatePost } from '@/lib/translate-content'
+import { hasEnglish, translatePost } from '@/lib/translate-content'
+import { pageTitle } from '@/lib/site'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -18,9 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = translatePost(raw, 'en')
 
   return {
-    title: post.title,
+    title: { absolute: pageTitle(post.title) },
     description: post.metaDescription || post.excerpt.slice(0, 160),
-    alternates: alternatesFor(`/en/blog/${post.slug}`),
+    alternates: alternatesFor(`/en/blog/${post.slug}`, { traducida: hasEnglish(raw) }),
+    // Sin traducir es el mismo texto que /blog/…: se sirve, pero no se indexa
+    robots: isIndexablePost(raw) && hasEnglish(raw) ? undefined : { index: false, follow: true },
     openGraph: {
       type: 'article',
       locale: OG_LOCALES.en,

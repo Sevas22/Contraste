@@ -17,7 +17,7 @@ import { CircularText } from '@/components/site/circular-text'
 import { WordmarkMural } from '@/components/site/wordmark-mural'
 import { SectionLabel } from '@/components/site/brand-mark'
 import { site, services } from '@/lib/site'
-import { JsonLd, serviceCatalogSchema } from '@/lib/schema'
+import { JsonLd, faqSchema, serviceCatalogSchema } from '@/lib/schema'
 import { getDictionary, fill } from '@/lib/dictionaries'
 import { translateEpisode, translateEpisodes, translateNiche, translateNiches, translatePost, translatePosts, contentLang } from '@/lib/translate-content'
 import { DEFAULT_LOCALE, localePath, alternatesFor, LOCALE_TAGS, type Locale } from '@/lib/i18n'
@@ -45,6 +45,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
   return (
     <>
       <JsonLd data={serviceCatalogSchema(services)} />
+      <JsonLd data={faqSchema(t.faq_home, localePath(locale, '/'))} />
       <Header locale={locale} />
 
       <main id="contenido" className="grain">
@@ -127,8 +128,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
               </Reveal>
               <Reveal delay={140}>
                 <p className="mt-10 max-w-lg text-sm leading-relaxed text-muted-foreground lg:text-base">
-                  No aplicamos la misma receta a un licor que a un proyecto de vivienda. Estas son
-                  las cuatro verticales donde tenemos operación, equipo y método propio.
+                  {t.nichos.intro}
                 </p>
                 <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
                   {fill(t.nichos.pista, { n: String(niches.length).padStart(2, '0') })}
@@ -292,7 +292,7 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
                 {latest.map((episode, i) => (
                   <Reveal as="li" key={episode.slug} delay={i * 60}>
                     <Link
-                      href={`/v-podcast/${episode.slug}`}
+                      href={ruta(`/v-podcast/${episode.slug}`)}
                       className="group grid gap-5 border-b border-border py-7 md:grid-cols-[80px_180px_1fr_auto] md:items-center md:gap-8"
                     >
                       <span className="font-mono text-xs text-accent">
@@ -332,6 +332,42 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
         </section>
 
         <InstagramFeed posts={instagram} locale={locale} />
+
+        {/* ── Preguntas frecuentes de la agencia ─────────────────
+            Mismo diseño que las de cada nicho. Aquí van las de categoría
+            ("¿qué es una agencia BTL?"): son las búsquedas de quien todavía
+            no ha elegido agencia, y lo que los motores de IA responden
+            citando a una fuente. */}
+        <section id="preguntas" className="scroll-mt-24 border-t border-border py-20 lg:py-28">
+          <div className="shell movil-centrado grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <div>
+              <SectionLabel>{t.faq.etiqueta}</SectionLabel>
+              <h2 className="display mt-5 text-[clamp(1.7rem,3.2vw,2.5rem)]">
+                {t.faq.titular.a}
+                <br />
+                {t.faq.titular.b}
+              </h2>
+            </div>
+            <div className="flex flex-col gap-3">
+              {t.faq_home.map((faq) => (
+                <details
+                  key={faq.q}
+                  className="group rounded-xl border border-border bg-card px-6 py-5"
+                >
+                  <summary className="cursor-pointer list-none text-base font-bold marker:hidden">
+                    <span className="flex items-start justify-between gap-6">
+                      {faq.q}
+                      <span className="mt-1 shrink-0 text-accent-text transition-transform group-open:rotate-45">
+                        +
+                      </span>
+                    </span>
+                  </summary>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">{faq.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* ── Contacto ────────────────────────────────────────── */}
         <section

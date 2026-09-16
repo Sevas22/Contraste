@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { Play } from 'lucide-react'
+import { track } from '@/lib/track'
 
 /**
  * Fachada de YouTube: muestra la miniatura y sólo carga el iframe al hacer clic.
@@ -41,7 +42,10 @@ export function YouTubeEmbed({
       ) : (
         <button
           type="button"
-          onClick={() => setActive(true)}
+          onClick={() => {
+            track('podcast_play', { video_title: title, video_provider: 'youtube' })
+            setActive(true)
+          }}
           className="group absolute inset-0 size-full cursor-pointer"
           aria-label={`Reproducir: ${title}`}
         >

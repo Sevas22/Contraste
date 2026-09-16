@@ -9,13 +9,13 @@ import { getNiches, getPublishedPosts, formatDate } from '@/lib/content'
 import { SectionLabel } from '@/components/site/brand-mark'
 import { getDictionary } from '@/lib/dictionaries'
 import { translateEpisode, translateEpisodes, translateNiche, translateNiches, translatePost, translatePosts, contentLang } from '@/lib/translate-content'
-import { DEFAULT_LOCALE, localePath, nicheName, type Locale } from '@/lib/i18n'
+import { DEFAULT_LOCALE, alternatesFor, localePath, nicheName, type Locale } from '@/lib/i18n'
 
 export const metadata: Metadata = {
   title: 'Blog — marketing BTL, activaciones y datos',
   description:
     'Artículos sobre marketing experiencial, activaciones BTL, trade marketing y medición real, escritos desde la operación en Colombia.',
-  alternates: { canonical: '/blog' },
+  alternates: alternatesFor('/blog'),
 }
 
 export default async function BlogIndex({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import EpisodePage from '../../../v-podcast/[slug]/page'
 import { getEpisode, getPublishedEpisodes } from '@/lib/content'
 import { alternatesFor, LOCALE_TAGS, OG_LOCALES } from '@/lib/i18n'
-import { translateEpisode } from '@/lib/translate-content'
+import { hasEnglish, translateEpisode } from '@/lib/translate-content'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -28,7 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: episode.title,
     description: episode.metaDescription || episode.summary.slice(0, 160),
-    alternates: alternatesFor(`/en/v-podcast/${episode.slug}`),
+    alternates: alternatesFor(`/en/v-podcast/${episode.slug}`, { traducida: hasEnglish(raw) }),
+    ...(hasEnglish(raw) ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type: 'article',
       locale: OG_LOCALES.en,

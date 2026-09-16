@@ -20,7 +20,14 @@ import { neon } from '@neondatabase/serverless'
  * porque reintentarlo daría el mismo resultado tres veces.
  */
 
-const connectionString = process.env.DATABASE_URL
+/**
+ * `CONTENT_SOURCE=json` fuerza el respaldo de `content/*.json` aunque haya
+ * `DATABASE_URL`. Sirve para probar en local contenido nuevo antes de cargarlo
+ * a Neon, que es la misma base que lee producción. Vaciar `DATABASE_URL` no
+ * basta: Next vuelve a rellenarla desde `.env.local`.
+ */
+const connectionString =
+  process.env.CONTENT_SOURCE === 'json' ? undefined : process.env.DATABASE_URL
 
 export const isDatabaseEnabled = Boolean(connectionString)
 

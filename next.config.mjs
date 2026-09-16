@@ -47,6 +47,42 @@ const nextConfig = {
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }]
   },
+  async redirects() {
+    return [
+      /**
+       * www → dominio sin www.
+       *
+       * Medido el 2026-09-15: www.contrasteagencia.com respondía 200 con el
+       * sitio entero. El canónico apunta al dominio desnudo y eso evita lo
+       * peor, pero los enlaces que otros pongan con www reparten autoridad
+       * entre dos hosts. Un 308 la concentra en uno.
+       *
+       * Lo ideal es configurarlo también en Vercel → Settings → Domains
+       * (www → "Redirect to contrasteagencia.com"); esto lo cubre mientras.
+       */
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.contrasteagencia.com' }],
+        destination: 'https://contrasteagencia.com/:path*',
+        permanent: true,
+      },
+      /**
+       * URLs del WordPress viejo que cambiaron de sitio.
+       *
+       * Sólo las que se conocen con certeza. Las de episodios y posts que
+       * vivían en la raíz las recoge además `app/[nicho]/page.tsx`, que manda
+       * al episodio o post con ese slug en vez de dar 404.
+       *
+       * La lista completa sale de Search Console → Indexación → Páginas →
+       * "No se ha encontrado (404)" una vez verificada la propiedad.
+       */
+      {
+        source: '/hacia-donde-va-el-mercado-inmobiliario',
+        destination: '/v-podcast/hacia-donde-va-el-mercado-inmobiliario-en-colombia',
+        permanent: true,
+      },
+    ]
+  },
   experimental: {
     serverActions: {
       // Un MP3 de 30 min pesa ~30 MB y un MP4 en 1080p mucho más.

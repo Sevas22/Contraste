@@ -116,6 +116,8 @@ export const es = {
 
   hero: {
     etiquetaLateral: 'Medellín · Colombia · Latam',
+    // Prefijo del <h1> del home, oculto a la vista. Ver hero-slider.tsx.
+    h1Categoria: 'Contraste Agencia, agencia BTL y de marketing experiencial en Medellín:',
     // Texto de los sellos circulares. Lleva separador y espacio al final
     // porque se repite en bucle sobre la circunferencia.
     selloMarca: 'Contraste · Marketing experiencial · ',
@@ -135,8 +137,11 @@ export const es = {
     desde: 'Desde 2011',
     lugar: 'Medellín, Colombia',
     titular: { a: 'No hacemos', b: 'ruido.', c: 'Hacemos', d: 'impacto.' },
+    // Nombra la categoría y la ciudad en el primer texto visible del home. Antes
+    // no aparecían ni "BTL" ni "Medellín" en ningún párrafo de la página que
+    // compite justo por "agencia BTL Medellín": sólo en el <title>.
     cuerpo:
-      'Somos Contraste, la agencia donde la emoción y los datos trabajan juntos para transformar cada activación en resultados medibles y memorables.',
+      'Somos Contraste, agencia BTL y de marketing experiencial en Medellín. La emoción y los datos trabajan juntos para transformar cada activación de marca en resultados medibles y memorables.',
     aniosOperacion: 'años en operación',
     marcasGestionadas: 'marcas gestionadas',
     activacionesEjecutadas: 'activaciones ejecutadas',
@@ -153,6 +158,11 @@ export const es = {
     verTodoPodcast: 'Ver todo el V-Podcast',
     nicho: 'Nicho',
     pista: '{n} nichos · baja para recorrerlos',
+    // Vivía escrito a mano en app/page.tsx y salía en español en /en
+    intro:
+      'No aplicamos la misma receta a un licor que a un proyecto de vivienda. Estas son las cuatro verticales donde hacemos marketing BTL con operación, equipo y método propio.',
+    metodo: 'Cómo lo hacemos',
+    metodoTitular: 'Activaciones BTL en {nicho}: cómo trabajamos.',
   },
 
   servicios: {
@@ -258,6 +268,43 @@ export const es = {
     etiqueta: 'Preguntas frecuentes',
     titular: { a: 'Lo que más', b: 'nos preguntan.' },
   },
+
+  /**
+   * Preguntas del home: las de categoría ("¿qué es una agencia BTL?"), no las
+   * de un sector. Son las búsquedas informativas que hace quien todavía no
+   * sabe qué agencia contratar, y el formato que los motores de IA copian
+   * para responder. Salen en pantalla y como FAQPage en el JSON-LD.
+   *
+   * Todo lo que afirman sale de datos que el sitio ya publica (año, ciudades,
+   * nichos, marcas). Nada de cifras nuevas: una respuesta citada por ChatGPT
+   * con un dato inventado es peor que no ser citado.
+   */
+  faq_home: [
+    {
+      q: '¿Qué es una agencia BTL?',
+      a: 'Una agencia BTL (below the line) diseña y ejecuta acciones de marca en contacto directo con el público: activaciones, degustaciones, sampling, impulso en punto de venta, stands y eventos. A diferencia de la publicidad en medios masivos, cada acción llega a una audiencia concreta y se puede medir. Contraste es una agencia BTL con sede en Medellín, en operación desde 2011.',
+    },
+    {
+      q: '¿Qué diferencia hay entre marketing BTL y marketing experiencial?',
+      a: 'El BTL es el canal: acciones fuera de los medios masivos. El marketing experiencial es el enfoque: que la persona viva la marca en vez de sólo ver un anuncio. En Contraste se trabajan juntos: cada activación BTL se diseña como una experiencia y se mide con datos.',
+    },
+    {
+      q: '¿En qué ciudades hace activaciones Contraste?',
+      a: 'La agencia tiene sede en Medellín y ejecuta activaciones de marca en Bogotá, Cali, Barranquilla y Ciudad de México. Puede operar en varias ciudades a la vez con el mismo estándar de producción y de reporte.',
+    },
+    {
+      q: '¿Cómo se mide el resultado de una activación BTL?',
+      a: 'Con datos y no con estimaciones: alcance, interacciones, pruebas de producto, leads o ventas según el objetivo, y costo por contacto. Contraste reporta por punto, por turno y por promotor, para saber qué funcionó y dónde.',
+    },
+    {
+      q: '¿Con qué sectores trabaja Contraste?',
+      a: 'Tiene cuatro nichos de especialización: bebidas alcohólicas, desarrollo inmobiliario, consumo masivo y tecnología. Ha trabajado con marcas como Ron Viejo de Caldas, Aguardiente Amarillo, IBM, Cabify y la Cámara de Comercio de Medellín.',
+    },
+    {
+      q: '¿Cuánto cuesta una activación BTL?',
+      a: 'Depende del número de puntos, ciudades y días, del equipo de promotores y de la producción que requiera la experiencia. Por eso Contraste cotiza después de una reunión para entender el objetivo de la marca: sin ese dato cualquier precio sería una suposición.',
+    },
+  ],
 
   comun: {
     inicio: 'Inicio',
@@ -373,6 +420,7 @@ export const en: Dictionary = {
 
   hero: {
     etiquetaLateral: 'Medellín · Colombia · Latam',
+    h1Categoria: 'Contraste Agencia, BTL and experiential marketing agency in Medellín:',
     selloMarca: 'Contraste · Experiential marketing · ',
     selloCiudad: 'Experiential marketing · Medellín · ',
     agendarCita: 'Book a call',
@@ -391,7 +439,7 @@ export const en: Dictionary = {
     lugar: 'Medellín, Colombia',
     titular: { a: "We don't make", b: 'noise.', c: 'We make', d: 'impact.' },
     cuerpo:
-      'We are Contraste, the agency where emotion and data work together to turn every activation into results you can measure and remember.',
+      'We are Contraste, a BTL and experiential marketing agency based in Medellín. Emotion and data work together to turn every brand activation into results you can measure and remember.',
     aniosOperacion: 'years in business',
     marcasGestionadas: 'brands handled',
     activacionesEjecutadas: 'activations delivered',
@@ -408,6 +456,10 @@ export const en: Dictionary = {
     verTodoPodcast: 'See the whole V-Podcast',
     nicho: 'Sector',
     pista: '{n} sectors · scroll to explore',
+    intro:
+      "We don't use the same recipe for a spirit as for a housing project. These are the four verticals where we run BTL marketing with our own operation, team and method.",
+    metodo: 'How we work',
+    metodoTitular: 'BTL activations in {nicho}: how we work.',
   },
 
   servicios: {
@@ -510,6 +562,33 @@ export const en: Dictionary = {
     etiqueta: 'Frequently asked',
     titular: { a: 'What people', b: 'ask us most.' },
   },
+
+  faq_home: [
+    {
+      q: 'What is a BTL agency?',
+      a: 'A BTL (below the line) agency designs and runs brand actions in direct contact with people: activations, tastings, sampling, in-store promotion, stands and events. Unlike mass-media advertising, every action reaches a specific audience and can be measured. Contraste is a BTL agency based in Medellín, Colombia, operating since 2011.',
+    },
+    {
+      q: 'What is the difference between BTL and experiential marketing?',
+      a: 'BTL is the channel: actions outside mass media. Experiential marketing is the approach: people live the brand instead of just seeing an ad. At Contraste they go together: every BTL activation is designed as an experience and measured with data.',
+    },
+    {
+      q: 'In which cities does Contraste run activations?',
+      a: 'The agency is based in Medellín and runs brand activations in Bogotá, Cali, Barranquilla and Mexico City. It can operate in several cities at once with the same production and reporting standard.',
+    },
+    {
+      q: 'How do you measure the results of a BTL activation?',
+      a: 'With data, not estimates: reach, interactions, product trials, leads or sales depending on the goal, and cost per contact. Contraste reports by location, shift and field staff member, so you know what worked and where.',
+    },
+    {
+      q: 'Which industries does Contraste work with?',
+      a: 'It specializes in four sectors: alcoholic beverages, real estate development, consumer goods and technology. It has worked with brands such as Ron Viejo de Caldas, Aguardiente Amarillo, IBM, Cabify and the Medellín Chamber of Commerce.',
+    },
+    {
+      q: 'How much does a BTL activation cost?',
+      a: 'It depends on the number of locations, cities and days, the field team and the production the experience needs. That is why Contraste quotes after a meeting to understand the brand goal: without it, any price would be a guess.',
+    },
+  ],
 
   comun: {
     inicio: 'Home',

@@ -3,6 +3,9 @@ import NichePage from '../../[nicho]/page'
 import { getNiche, getNiches } from '@/lib/content'
 import { alternatesFor, LOCALE_TAGS, OG_LOCALES } from '@/lib/i18n'
 import { en } from '@/lib/dictionaries'
+import { translateNiche } from '@/lib/translate-content'
+import { nicheImage } from '@/lib/niche-media'
+import { pageTitle } from '@/lib/site'
 
 type Props = { params: Promise<{ nicho: string }> }
 
@@ -21,16 +24,18 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { nicho: slug } = await params
-  const niche = await getNiche(slug)
-  if (!niche) return {}
+  const raw = await getNiche(slug)
+  if (!raw) return {}
 
+  // El <head> tiene que salir en inglés: antes el título sí, pero la
+  // description se servía en español y es lo que Google enseña bajo el enlace.
+  const niche = translateNiche(raw, 'en')
   const nombre = (en.nichos_nombres as Record<string, string>)[slug] ?? niche.name
+  const titular = raw.translations?.en?.headline ? niche.headline : `${nombre} — BTL activations`
+  const imagen = nicheImage(slug)
 
   return {
-    // El titular largo del nicho vive en la base y aún no está traducido, así
-    // que el título en inglés se arma con lo que sí lo está: el nombre del
-    // sector. Vale más un título corto correcto que uno largo en otro idioma.
-    title: `${nombre} — BTL activations`,
+    title: { absolute: pageTitle(titular) },
     description: niche.description,
     keywords: niche.keywords,
     alternates: alternatesFor(`/en/${niche.slug}`),
@@ -38,9 +43,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       locale: OG_LOCALES.en,
       alternateLocale: OG_LOCALES.es,
-      title: `${nombre} — BTL activations | Contraste`,
+      title: titular,
       description: niche.description,
       url: `/en/${niche.slug}`,
+      images: [{ url: imagen, alt: titular }],
     },
   }
 }

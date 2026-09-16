@@ -20,11 +20,19 @@ export type Niche = {
   subheadline: string
   description: string
   intro: string
+  /**
+   * Texto largo de la landing, en el mismo Markdown ligero que los posts.
+   * Es lo que la hace competir por la búsqueda del sector: con sólo la intro
+   * y cuatro viñetas la página no llegaba a 300 palabras propias.
+   */
+  body: string
   keywords: string[]
   capabilities: string[]
   faqs: Faq[]
   accent: string
   order: number
+  /** Última edición de la landing (YYYY-MM-DD). Opcional: el JSON de respaldo no la trae. */
+  updatedAt?: string
   /**
    * Traducciones por idioma: { en: { title, summary, … } }.
    * Sólo lleva los campos realmente traducidos; el resto cae al español.

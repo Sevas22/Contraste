@@ -2,6 +2,7 @@ import { cache } from 'react'
 import { unstable_cache } from 'next/cache'
 import {
   fetchNiches,
+  upsertNiche,
   fetchEpisodes,
   fetchPosts,
   upsertEpisode,
@@ -13,6 +14,7 @@ import {
   removeInstagramPost,
 } from './repo'
 import type { Episode, InstagramPost, Niche, Post } from './types'
+import { TITLE_MAX } from './site'
 
 export type {
   Chapter,
@@ -68,6 +70,10 @@ export async function getNicheById(id: string): Promise<Niche | undefined> {
   return (await getNiches()).find((n) => n.id === id)
 }
 
+export async function saveNiche(niche: Niche): Promise<void> {
+  return upsertNiche(niche)
+}
+
 export const getEpisodes = cache(async (): Promise<Episode[]> => cachedEpisodes())
 
 export async function getPublishedEpisodes(): Promise<Episode[]> {
@@ -96,6 +102,25 @@ export const getPosts = cache(async (): Promise<Post[]> => cachedPosts())
 
 export async function getPublishedPosts(): Promise<Post[]> {
   return (await getPosts()).filter((p) => p.status === 'published')
+}
+
+/**
+ * Palabras mínimas para ofrecer un post a los buscadores.
+ *
+ * Existe porque pasó: "Cómo medir una activación BTL sin métricas de vanidad"
+ * se publicó con el cuerpo vacío y entró al sitemap. Una página publicada sin
+ * texto no es neutra — Google la cuenta como contenido pobre del dominio
+ * entero. Mientras no llegue a este mínimo sigue visible en el blog, pero sale
+ * con `noindex`, fuera del sitemap y fuera del llms.txt.
+ */
+export const MIN_INDEXABLE_WORDS = 150
+
+export function isIndexablePost(post: Post): boolean {
+  return post.status === 'published' && wordCount(post.body) >= MIN_INDEXABLE_WORDS
+}
+
+export async function getIndexablePosts(): Promise<Post[]> {
+  return (await getPublishedPosts()).filter(isIndexablePost)
 }
 
 export async function getPostsByNiche(nicheId: string, includeDrafts = false): Promise<Post[]> {
@@ -359,6 +384,98 @@ export function auditPost(post: Post): { score: number; rules: Rule[]; pending: 
       weight: 5,
       kind: 'seo',
       done: post.niches.length > 0,
+    },
+  ]
+
+  const total = rules.reduce((sum, r) => sum + r.weight, 0)
+  const earned = rules.reduce((sum, r) => sum + (r.done ? r.weight : 0), 0)
+
+  return {
+    score: Math.round((earned / total) * 100),
+    rules,
+    pending: rules.filter((r) => !r.done),
+  }
+}
+
+/**
+ * Auditoría de una landing de nicho.
+ *
+ * Pesa más que la de un post porque son las páginas que venden: compiten por
+ * búsquedas con intención comercial ("agencia BTL inmobiliaria") y son las que
+ * un motor de IA cita cuando alguien pregunta por una agencia del sector.
+ */
+export function auditNiche(niche: Niche): { score: number; rules: Rule[]; pending: Rule[] } {
+  // Todo el texto que se ve en la landing, preguntas frecuentes incluidas
+  const words = wordCount(
+    [niche.intro, niche.body, ...niche.capabilities, ...niche.faqs.flatMap((f) => [f.q, f.a])].join(' '),
+  )
+  const bodyLower = niche.body.toLowerCase()
+  const cities = ['medellín', 'bogotá', 'cali', 'barranquilla', 'colombia']
+
+  const rules: Rule[] = [
+    {
+      id: 'title',
+      label: `Titular de máximo ${TITLE_MAX} caracteres — vas en ${niche.headline.length}`,
+      why: 'El titular es también el <title>. Si pasa de 60 caracteres Google lo recorta y se pierde el final.',
+      weight: 10,
+      kind: 'seo',
+      done: niche.headline.length <= TITLE_MAX,
+    },
+    {
+      id: 'meta',
+      label: 'Meta description de 120–160 caracteres',
+      why: 'Es el texto bajo el título en Google. Es lo que decide el clic frente a la competencia.',
+      weight: 10,
+      kind: 'seo',
+      done: niche.description.length >= 120 && niche.description.length <= 160,
+    },
+    {
+      id: 'words',
+      label: `Mínimo 600 palabras propias — vas en ${words}`,
+      why: 'Una landing comercial de 300 palabras no compite contra las que explican el servicio a fondo.',
+      weight: 20,
+      kind: 'seo',
+      done: words >= 600,
+    },
+    {
+      id: 'headings',
+      label: 'Al menos 3 subtítulos (##) en el texto largo',
+      why: 'Cada subtítulo es una búsqueda secundaria por la que la página puede aparecer.',
+      weight: 10,
+      kind: 'seo',
+      done: (niche.body.match(/^##\s+/gm) || []).length >= 3,
+    },
+    {
+      id: 'local',
+      label: 'Menciona ciudades donde operan',
+      why: 'Sin señal geográfica en el texto, la página compite contra todo el mundo hispanohablante.',
+      weight: 10,
+      kind: 'seo',
+      done: cities.some((c) => bodyLower.includes(c)),
+    },
+    {
+      id: 'keywords',
+      label: 'Al menos 5 keywords objetivo',
+      why: 'Son las búsquedas por las que se decide competir. Alimentan el panel y la marquesina de la landing.',
+      weight: 5,
+      kind: 'seo',
+      done: niche.keywords.length >= 5,
+    },
+    {
+      id: 'faqs',
+      label: `Preguntas frecuentes (mín. 5 — vas en ${niche.faqs.length})`,
+      why: 'Es el formato que ChatGPT, Perplexity y los resúmenes de IA de Google extraen para responder.',
+      weight: 25,
+      kind: 'geo',
+      done: niche.faqs.length >= 5,
+    },
+    {
+      id: 'translation',
+      label: 'Texto largo traducido al inglés',
+      why: 'Sin traducción, /en muestra el texto en español y compite mal por búsquedas en inglés.',
+      weight: 10,
+      kind: 'geo',
+      done: Boolean(String(niche.translations?.en?.body ?? '').trim()),
     },
   ]
 

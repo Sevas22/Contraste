@@ -61,6 +61,11 @@ export const translatePosts = (posts: Post[], locale: Locale): Post[] =>
  * español dentro del sitio inglés, decirlo es lo correcto para el buscador y
  * para un lector de pantalla, que si no lo pronunciaría con fonética inglesa.
  */
+/** ¿Tiene esta ficha versión real en inglés? Se decide por el título traducido. */
+export function hasEnglish(item: ConTraducciones): boolean {
+  return tieneContenido(item.translations?.en?.title)
+}
+
 export function contentLang(item: ConTraducciones, locale: Locale, campo = 'title'): Locale {
   if (locale === 'es') return 'es'
   return tieneContenido(item.translations?.[locale]?.[campo]) ? locale : 'es'

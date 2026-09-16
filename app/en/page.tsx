@@ -14,10 +14,10 @@ import { site } from '@/lib/site'
  * medio, el idioma sale de la ruta.
  */
 export const metadata: Metadata = {
-  // `absolute` salta la plantilla del layout raíz ("%s | Contraste Agencia"),
-  // que si no dejaba el título como "Contraste Agencia | … | Contraste Agencia".
+  // `absolute` salta la plantilla del layout raíz ("%s | Contraste").
+  // Misma lógica que el español: keyword delante, marca detrás, ≤ 60 caracteres.
   title: {
-    absolute: `${site.legalName} | BTL and experiential marketing agency in Medellín`,
+    absolute: `BTL agency in Medellín & brand activations | ${site.name}`,
   },
   description:
     'BTL and experiential marketing agency in Medellín. Brand activations, 360 production, field staff management and real AI-backed measurement for brands across Colombia and Latin America.',

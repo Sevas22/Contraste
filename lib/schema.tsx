@@ -1,4 +1,5 @@
 import { site, hasRealAddress, hasRealPhone } from './site'
+import { nicheImage } from './niche-media'
 import {
   isoDuration,
   youtubeThumb,
@@ -26,16 +27,36 @@ function absoluteUrl(pathOrUrl: string): string {
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['Organization', 'LocalBusiness'],
+    // ProfessionalService es un subtipo de LocalBusiness: sigue siendo elegible
+    // para SEO local y le dice a Google a qué se dedica, cosa que el genérico
+    // LocalBusiness no hace.
+    '@type': ['Organization', 'ProfessionalService'],
     '@id': `${site.url}/#organization`,
     name: site.legalName,
-    alternateName: site.name,
+    alternateName: [site.name, 'Contraste BTL'],
     url: site.url,
-    logo: `${site.url}/brand/logo-contraste.png`,
+    logo: {
+      '@type': 'ImageObject',
+      '@id': `${site.url}/#logo`,
+      url: `${site.url}/brand/logo-contraste.png`,
+      caption: site.legalName,
+    },
     image: `${site.url}/media/hero-agencia.jpg`,
     description: site.description,
     foundingDate: String(site.foundingYear),
     email: site.contact.email,
+    // Qué temas domina la entidad. Es de las pocas señales explícitas que
+    // existen para que un motor de IA asocie "agencia BTL" con esta marca.
+    knowsAbout: site.knowsAbout,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: site.contact.email,
+      url: site.contact.whatsapp,
+      areaServed: ['CO', 'MX'],
+      availableLanguage: ['es', 'en'],
+      ...(hasRealPhone ? { telephone: site.contact.phone } : {}),
+    },
     // Teléfono y dirección sólo salen si son los de verdad. Publicar el relleno
     // le daría a Google un NAP que no coincide con el Perfil de Empresa, que es
     // exactamente lo que hunde el posicionamiento local. La ciudad sí se
@@ -66,6 +87,39 @@ export function organizationSchema() {
   }
 }
 
+/**
+ * El sitio como entidad propia, enlazada a la organización por `@id`.
+ * Es lo que Google usa para el nombre del sitio que muestra encima de cada
+ * resultado; sin él a veces enseña el dominio en vez de "Contraste Agencia".
+ */
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${site.url}/#website`,
+    url: site.url,
+    name: site.legalName,
+    alternateName: site.name,
+    description: site.description,
+    inLanguage: ['es-CO', 'en'],
+    publisher: { '@id': `${site.url}/#organization` },
+  }
+}
+
+/** FAQPage suelto, para páginas que no llevan un @graph propio (el home). */
+export function faqSchema(faqs: readonly { q: string; a: string }[], path: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${site.url}${path === '/' ? '' : path}/#faq`,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
+}
+
 export function serviceCatalogSchema(services: readonly { title: string; summary: string }[]) {
   return {
     '@context': 'https://schema.org',
@@ -87,17 +141,31 @@ export function serviceCatalogSchema(services: readonly { title: string; summary
 
 /** Landing de nicho: Service + FAQPage. Es lo que la hace elegible para
  *  resultados enriquecidos y para que una IA la cite como fuente del sector. */
-export function nicheSchema(niche: Niche) {
-  const url = `${site.url}/${niche.slug}`
+export function nicheSchema(niche: Niche, path = `/${niche.slug}`) {
+  const url = `${site.url}${path}`
   const graph: Record<string, unknown>[] = [
+    {
+      '@type': 'WebPage',
+      '@id': `${url}/#webpage`,
+      url,
+      name: niche.headline,
+      description: niche.description,
+      isPartOf: { '@id': `${site.url}/#website` },
+      about: { '@id': `${url}/#service` },
+      primaryImageOfPage: { '@type': 'ImageObject', url: `${site.url}${nicheImage(niche.slug)}` },
+      ...(niche.faqs.length ? { mainEntity: { '@id': `${url}/#faq` } } : {}),
+    },
     {
       '@type': 'Service',
       '@id': `${url}/#service`,
       name: niche.headline,
-      serviceType: niche.name,
+      serviceType: ['Marketing BTL', 'Activaciones de marca', niche.name],
+      category: niche.name,
       description: niche.description,
       url,
       provider: { '@id': `${site.url}/#organization` },
+      // A quién va dirigido: marcas del sector, no el consumidor final
+      audience: { '@type': 'BusinessAudience', audienceType: `Marcas de ${niche.name.toLowerCase()}` },
       areaServed: site.serviceAreas.map((city) => ({ '@type': 'City', name: city })),
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
@@ -256,6 +324,44 @@ export function postSchema(post: Post, niches: Niche[]) {
   const url = `${site.url}/blog/${post.slug}`
   const related = niches.filter((n) => post.niches.includes(n.id))
 
+  /**
+   * Fuentes del artículo, sacadas de sus enlaces.
+   *
+   * Los artículos que salen de un episodio o de una publicación de Instagram
+   * lo dicen en el JSON-LD: `isBasedOn` para los episodios del V-Podcast y
+   * `citation` para lo que vive fuera (YouTube, Instagram). Es la forma de que
+   * Google y los motores de IA vean que el contenido tiene origen verificable
+   * y que los perfiles sociales pertenecen a la misma marca.
+   */
+  const enlaces = [...post.body.matchAll(/\[([^\]]+)\]\(([^)\s]+)\)/g)].map(([, label, href]) => ({
+    label,
+    href,
+  }))
+  const textoPlano = post.body.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1')
+  const vistos = new Set<string>()
+  const unico = (href: string) => (vistos.has(href) ? false : (vistos.add(href), true))
+
+  const fuentesInternas = enlaces
+    .filter((e) => /^\/v-podcast\/[^/#]+$/.test(e.href) && unico(e.href))
+    .map((e) => ({ '@id': `${site.url}${e.href}/#episode` }))
+
+  const citas = enlaces
+    .filter((e) => /^https?:\/\//.test(e.href) && unico(e.href))
+    .map((e) => {
+      if (/youtube\.com|youtu\.be/.test(e.href)) {
+        return { '@type': 'VideoObject', name: e.label, url: e.href }
+      }
+      if (/instagram\.com/.test(e.href)) {
+        return {
+          '@type': 'SocialMediaPosting',
+          headline: e.label,
+          url: e.href,
+          ...(e.href.includes('agencia_contraste') && { author: { '@id': `${site.url}/#organization` } }),
+        }
+      }
+      return { '@type': 'CreativeWork', name: e.label, url: e.href }
+    })
+
   const graph: Record<string, unknown>[] = [
     {
       '@type': 'BlogPosting',
@@ -263,8 +369,10 @@ export function postSchema(post: Post, niches: Niche[]) {
       url,
       headline: post.title,
       description: post.metaDescription || post.excerpt,
-      articleBody: post.body,
-      wordCount: post.body.trim().split(/\s+/).filter(Boolean).length,
+      // Sin la sintaxis de los enlaces: el cuerpo en texto, como lo lee una persona
+      articleBody: textoPlano,
+      wordCount: textoPlano.trim().split(/\s+/).filter(Boolean).length,
+      isPartOf: { '@id': `${site.url}/#website` },
       datePublished: post.publishedAt,
       dateModified: post.updatedAt,
       inLanguage: 'es-CO',
@@ -277,9 +385,13 @@ export function postSchema(post: Post, niches: Niche[]) {
       ...(post.location && {
         contentLocation: { '@type': 'Place', name: post.location },
       }),
+      // Apunta al Service de cada landing, no a un nombre suelto: así el grafo
+      // une el artículo con la página comercial que lo respalda.
       ...(related.length && {
-        about: related.map((n) => ({ '@type': 'Thing', name: n.name })),
+        about: related.map((n) => ({ '@id': `${site.url}/${n.slug}/#service`, name: n.name })),
       }),
+      ...(fuentesInternas.length && { isBasedOn: fuentesInternas }),
+      ...(citas.length && { citation: citas }),
     },
   ]
 

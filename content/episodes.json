@@ -8,38 +8,141 @@
     "number": 1,
     "title": "¿Hacia dónde va el mercado inmobiliario en Colombia?",
     "subtitle": "Tendencias clave para invertir",
-    "metaDescription": "Andrés Giraldo analiza precios, valorización, demanda y oportunidades VIS en el mercado inmobiliario colombiano. Episodio 001 del V-Podcast de Contraste.",
-    "summary": "Analizamos el mercado inmobiliario en Colombia con datos actualizados sobre precios, valorización, demanda y oportunidades VIS. Nuestro invitado comparte su recorrido desde cero hasta convertirse en un referente del desarrollo inmobiliario: los errores que cometió, los aciertos que lo sostuvieron y las estrategias de inversión que hoy están moviendo el sector.",
+    "metaDescription": "El economista Andrés Giraldo explica por qué subió el metro cuadrado, por qué no hay burbuja y quién está comprando vivienda en Colombia. Episodio 001 del V-Podcast.",
+    "summary": "Andrés Giraldo, economista y exdirector de estudios económicos de Camacol Antioquia, responde la pregunta que se repite en cada feria de vivienda: ¿los constructores están especulando? Su respuesta es un no rotundo, y la sustenta con lo que pasó entre 2019 y 2025 en costos, salarios e inflación. De ahí la conversación pasa al déficit habitacional del país, al efecto de haber suprimido los subsidios de Mi Casa Ya, a quién está comprando vivienda hoy y a por qué el sector necesita más inversionistas y no menos.",
     "mediaType": "youtube",
     "youtubeId": "CDTOJja6R9U",
     "mediaUrl": "",
     "coverUrl": "",
     "durationSeconds": 1746,
     "publishedAt": "2025-12-01",
-    "updatedAt": "2025-12-01",
+    "updatedAt": "2026-09-15",
     "guests": [
       {
         "name": "Andrés Giraldo",
-        "role": "Desarrollador inmobiliario",
+        "role": "Gerente de Growth Lab · economista",
         "handle": "@andresgiradata"
       }
     ],
     "topics": [
-      "Precios y valorización en 2025",
-      "Comportamiento de la demanda",
-      "Oportunidades en vivienda VIS",
-      "De cero a referente del desarrollo inmobiliario",
-      "Errores comunes al invertir en finca raíz"
+      "¿Hay especulación en el precio del metro cuadrado?",
+      "Por qué Colombia no está en una burbuja inmobiliaria",
+      "El déficit habitacional y el final de Mi Casa Ya",
+      "Quién compra vivienda hoy: hogares e inversionistas",
+      "Arriendo, soledad y hogares unipersonales",
+      "Qué tiene que cambiar en el mercadeo inmobiliario"
     ],
     "keywords": [
       "mercado inmobiliario Colombia 2026",
       "invertir en propiedad raíz",
       "valorización vivienda Medellín",
-      "vivienda VIS inversión"
+      "vivienda VIS inversión",
+      "déficit de vivienda en Colombia",
+      "burbuja inmobiliaria Colombia"
     ],
-    "chapters": [],
-    "keyTakeaways": [],
-    "faqs": [],
+    "chapters": [
+      {
+        "at": "00:00",
+        "label": "¿Están especulando los constructores?"
+      },
+      {
+        "at": "02:15",
+        "label": "Turismo, normas y escasez de suelo"
+      },
+      {
+        "at": "03:49",
+        "label": "Salario mínimo, tasa de cambio e inflación"
+      },
+      {
+        "at": "06:00",
+        "label": "Quién es Andrés Giraldo"
+      },
+      {
+        "at": "07:30",
+        "label": "Inversión inmobiliaria y pensión: la mirada de largo plazo"
+      },
+      {
+        "at": "09:45",
+        "label": "¿Estamos en una burbuja inmobiliaria?"
+      },
+      {
+        "at": "11:15",
+        "label": "El déficit habitacional de Colombia"
+      },
+      {
+        "at": "12:01",
+        "label": "Qué pasó con Mi Casa Ya"
+      },
+      {
+        "at": "13:32",
+        "label": "Quién está comprando vivienda hoy"
+      },
+      {
+        "at": "15:45",
+        "label": "Cuántos compran para invertir"
+      },
+      {
+        "at": "17:15",
+        "label": "El 40% de los hogares vive en arriendo"
+      },
+      {
+        "at": "18:46",
+        "label": "En qué gasta el colombiano: entretenimiento frente a construcción"
+      },
+      {
+        "at": "21:45",
+        "label": "Qué producto deberían desarrollar hoy"
+      },
+      {
+        "at": "23:15",
+        "label": "Soledad y hogares unipersonales"
+      },
+      {
+        "at": "24:45",
+        "label": "Qué tiene que cambiar en el mercadeo inmobiliario"
+      },
+      {
+        "at": "27:01",
+        "label": "Dónde seguir a Andrés Giraldo"
+      }
+    ],
+    "keyTakeaways": [
+      "No hay especulación, hay costos. Giraldo atribuye el alza del metro cuadrado a fundamentales económicos: entre 2019 y 2025 el salario mínimo subió alrededor del 80% y la mano de obra pesa mucho en la estructura de costos de un proyecto, mientras la inflación pasó del 1,5% de 2019 a máximos cercanos al 13% en 2022 y 2023.",
+      "Tampoco hay burbuja. Una burbuja es un alza de precios o de unidades que no se explica desde los fundamentales, y hoy se venden cerca de 160.000 viviendas nuevas al año en Colombia, por debajo de las 260.000 del máximo de hace tres años.",
+      "El déficit habitacional es enorme: alrededor de 5 millones de hogares no tienen vivienda o la que tienen es inadecuada, y cerca del 30% de ese déficit es ausencia absoluta de vivienda. Se venden 160.000 viviendas al año y se conforman unos 400.000 hogares nuevos, así que la brecha crece.",
+      "La vivienda de interés social pesa alrededor del 70% de las ventas nacionales. Para Giraldo, la desaparición de Mi Casa Ya, que subsidiaba la cuota inicial y la tasa de interés durante siete años, explica buena parte de la contracción del sector.",
+      "Quién está comprando: familias que alcanzaron a ahorrar porque el plazo para pagar la cuota inicial pasó de un año o año y medio a cuatro o cinco años, e inversionistas, que representan entre el 20% y el 30% de las viviendas vendidas.",
+      "El 40% de los hogares colombianos vive en arriendo: el doble del promedio de Latinoamérica y la proporción más alta de la región. Por eso su llamado es a que entren más inversionistas al sector, no menos.",
+      "El colombiano promedio no está invirtiendo, está gastando. Entre 2019 y 2025 el entretenimiento creció 115% dentro del PIB y la construcción cayó 1%: el gasto se fue a experiencias, muchas veces apalancado con tarjeta de crédito.",
+      "La soledad se volvió un problema de producto. Entre 2023 y 2024 se conformaron 225.000 hogares unipersonales y, según Giraldo, ya son cerca del 20% del total. Su ejemplo: sacar la lavandería del apartamento y llevarla a la zona común para que la gente se encuentre.",
+      "Para el mercadeo: hace diez años bastaban unas 16 exposiciones para que alguien te reconociera y hoy se habla de más de 32. Y hay que segmentar por hábitos generacionales en vez de seguir vendiéndole a la familia típica de dos papás y dos hijos."
+    ],
+    "faqs": [
+      {
+        "q": "¿Los constructores están especulando con el precio de la vivienda?",
+        "a": "Andrés Giraldo responde que no. Según explica en el episodio, el alza responde a fundamentales: entre 2019 y 2025 el salario mínimo subió alrededor del 80% y la mano de obra pesa mucho en el costo de obra, la inflación pasó del 1,5% a máximos cercanos al 13%, las normas urbanísticas encarecieron construir lo mismo que hace diez años y en zonas como El Poblado hay escasez real de suelo."
+      },
+      {
+        "q": "¿Colombia está en una burbuja inmobiliaria?",
+        "a": "No, según Giraldo. Una burbuja es un incremento de precios o de unidades que no se explica desde los fundamentales, con compras hechas para especular. Hoy pasa lo contrario: se venden cerca de 160.000 viviendas nuevas al año frente a las 260.000 del pico de hace tres años, e incluso por debajo de la línea de tendencia previa a 2020."
+      },
+      {
+        "q": "¿Cuánta vivienda le falta a Colombia?",
+        "a": "Alrededor de 5 millones de hogares carecen de vivienda o viven en una inadecuada, y cerca del 30% de ese déficit es ausencia absoluta de vivienda. Cada año se venden unas 160.000 viviendas nuevas y se conforman unos 400.000 hogares, de modo que la brecha se amplía año a año."
+      },
+      {
+        "q": "¿Qué efecto tuvo el fin del subsidio Mi Casa Ya?",
+        "a": "Giraldo lo describe como el esquema más exitoso que ha tenido el país: subsidiaba la cuota inicial y la tasa de interés del crédito durante siete años. Como la vivienda de interés social pesa cerca del 70% de las ventas nacionales, su supresión produjo una contracción importante en la venta de vivienda nueva."
+      },
+      {
+        "q": "¿Qué porcentaje de la vivienda nueva se compra para invertir?",
+        "a": "Entre el 20% y el 30% de las viviendas vendidas va a personas que compran con fines de inversión, ya sea para ponerlas en renta o para capitalizar la valorización. Ese rango se mueve con el ciclo: cuando las tasas del sistema financiero están altas, la participación inmobiliaria baja."
+      },
+      {
+        "q": "¿Por qué hace falta que entren más inversionistas al mercado de vivienda?",
+        "a": "Porque el 40% de los hogares colombianos vive en arriendo, el doble del promedio de Latinoamérica, y los precios de la vivienda nueva han subido más rápido que los salarios. Si cada vez más gente va a vivir en arriendo, alguien tiene que proveer esos inmuebles, y ahí es donde Giraldo ve la oportunidad para el inversionista."
+      }
+    ],
     "transcript": ""
   },
   {
@@ -51,25 +154,150 @@
     "number": 2,
     "title": "¿Es posible invertir en propiedad raíz con poco dinero?",
     "subtitle": "Estrategias para 2025 y 2026",
-    "metaDescription": "Cómo entrar al mercado de propiedad raíz en Colombia sin un capital grande. Estrategias de inversión inmobiliaria para 2025 y 2026.",
-    "summary": "",
+    "metaDescription": "Santiago Cardona (Grupo REDI) explica por qué subió el metro cuadrado en Medellín, cuánto gana de verdad un constructor y cómo entrar a la propiedad raíz con menos capital.",
+    "summary": "Santiago Cardona, gerente general de Grupo REDI e ingeniero civil, desarma el precio del metro cuadrado en Medellín: qué parte es costo, qué parte es escasez de tierra y cuánto se gana realmente un constructor. De ahí la conversación llega a la pregunta del título: cómo entra al mercado alguien que no tiene 800 millones de pesos. Cardona cuenta los productos desde 250 millones que ya están operando, su apuesta por fraccionar la propiedad para democratizar la inversión, y cierra con los números de cómo se vende hoy un proyecto: cuánto cuesta un lead, cuántos convierten y qué se hace con el resto.",
     "mediaType": "youtube",
     "youtubeId": "nImG23dqoso",
     "mediaUrl": "",
     "coverUrl": "",
-    "durationSeconds": 0,
+    "durationSeconds": 2652,
     "publishedAt": "2025-11-27",
-    "updatedAt": "2025-11-27",
-    "guests": [],
-    "topics": [],
+    "updatedAt": "2026-09-15",
+    "guests": [
+      {
+        "name": "Santiago Cardona",
+        "role": "Gerente general de Grupo REDI · ingeniero civil"
+      }
+    ],
+    "topics": [
+      "Cómo está el mercado después de la caída de 2023 y 2024",
+      "Las cinco razones del precio del metro cuadrado en Medellín",
+      "Cuánto gana realmente un desarrollador",
+      "De vivienda familiar a activos de renta y usos mixtos",
+      "Democratizar la inversión en bienes raíces",
+      "Vender sin sala de ventas: leads, conversión y remarketing"
+    ],
     "keywords": [
       "invertir poco dinero finca raíz",
       "inversión inmobiliaria para principiantes",
-      "propiedad raíz Colombia 2026"
+      "propiedad raíz Colombia 2026",
+      "precio del metro cuadrado en Medellín",
+      "derechos fiduciarios propiedad raíz",
+      "cómo se vende un proyecto inmobiliario"
     ],
-    "chapters": [],
-    "keyTakeaways": [],
-    "faqs": [],
+    "chapters": [
+      {
+        "at": "00:01",
+        "label": "Avance del episodio"
+      },
+      {
+        "at": "01:32",
+        "label": "Bienvenida y presentación"
+      },
+      {
+        "at": "02:15",
+        "label": "Cómo está hoy el mercado inmobiliario"
+      },
+      {
+        "at": "05:15",
+        "label": "Quién es Santiago Cardona y qué es Grupo REDI"
+      },
+      {
+        "at": "09:45",
+        "label": "Las dos líneas de negocio: usuario final e inversionista"
+      },
+      {
+        "at": "11:15",
+        "label": "Por qué está tan caro el metro cuadrado"
+      },
+      {
+        "at": "15:46",
+        "label": "¿Hay especulación en el precio de la tierra?"
+      },
+      {
+        "at": "17:16",
+        "label": "Cuánto gana realmente un constructor"
+      },
+      {
+        "at": "18:46",
+        "label": "Qué se está construyendo hoy"
+      },
+      {
+        "at": "22:30",
+        "label": "Del comprador al aliado inversionista"
+      },
+      {
+        "at": "25:30",
+        "label": "Democratizar la inversión en bienes raíces"
+      },
+      {
+        "at": "27:45",
+        "label": "Fraccionamiento, derechos fiduciarios y blockchain"
+      },
+      {
+        "at": "28:33",
+        "label": "Productos de inversión desde 250 millones"
+      },
+      {
+        "at": "30:01",
+        "label": "Cómo se vende hoy un proyecto, sin sala de ventas"
+      },
+      {
+        "at": "33:46",
+        "label": "Ferias, eventos y redes: el mix de mercadeo"
+      },
+      {
+        "at": "36:00",
+        "label": "La comunidad plateada"
+      },
+      {
+        "at": "39:45",
+        "label": "Cuánto cuesta un lead y cuántos convierten"
+      },
+      {
+        "at": "41:17",
+        "label": "Qué hacer con el 98% que no compra"
+      }
+    ],
+    "keyTakeaways": [
+      "El mercado viene saliendo del fondo, no rebotando. Tras la bonanza en la que se vendieron entre 250.000 y 260.000 viviendas con crecimientos del 35% al 40% anual, llegaron dos años duros con casi cero subsidios. Cardona dice que ya se ven indicios de reactivación, pero que es una curva ascendente con una pendiente muy bajita.",
+      "Cinco razones detrás del precio en Medellín: el efecto inflacionario, que llegó a casi el 13% y hoy está sobre el 5%; una presión de demanda fuerte sobre la ciudad; gentrificación en ciertas zonas; costos y tasas de interés más altos; y escasez de tierra, porque el plan de ordenamiento territorial es muy restrictivo.",
+      "El metro cuadrado en El Poblado pasó de 8 a 10 millones de pesos hace unos años a proyectos de 17 a 21 millones. Medellín en general estaba entre 4 y 6 millones.",
+      "El mito de que el constructor se la gana toda no se sostiene con los números: el margen bruto sobre la venta rara vez llega al 10%, y en vivienda de interés social muchas veces no alcanza el 5%. Y el lote, que antes pesaba entre el 5% y el 10% del proyecto, hoy pesa entre el 10% y el 20%.",
+      "Lo que se construye cambió: unidades más pequeñas pensadas en hogares unipersonales, proyectos de usos mixtos y activos de renta de largo plazo en lugar de vivienda pura. Cita el dato de que un centro comercial hoy debería llegar al 60% de experiencia y máximo un 40% de almacenes.",
+      "Entrar con menos capital ya es posible: módulos de renta corta u hotelera desde 250 millones de pesos, en lugar de apartamentos de 700 u 800 millones, y sin tener que involucrarse con un crédito.",
+      "Su apuesta siguiente es fraccionar la propiedad mediante derechos fiduciarios, con educación jurídica y financiera de por medio, y está estudiando blockchain y smart contracts. La meta que nombra es democratizar la inversión en bienes raíces hasta que se pueda entrar con cinco millones de pesos.",
+      "Grupo REDI vende sin sala de ventas: en vez de una vendedora dedicada a un solo proyecto, un equipo comercial central capacitado en todo el portafolio, para que quien no se convence con un producto reciba otro. Para el producto que se toca usa showrooms de acabados, realidad virtual y realidad aumentada.",
+      "El mercadeo digital se lleva entre el 50% y el 70% del presupuesto según el proyecto, pero el presencial sigue pesando: ferias, eventos privados a inversionistas y experiencias en el sitio del proyecto.",
+      "Los números reales de conversión: entre quien llega como lead y quien compra, lo normal está entre el 0,5% y el 2%; 0,5% es un dato malo y 2% es muy bueno. De 500 prospectos salen entre 5 y 10 ventas. Cerca del 70% del resto nunca fue interés real, y con el 30% restante se hace remarketing en vez de botar la base.",
+      "La comunidad plateada es el público que viene: mayores de 55 o 60 años, e incluso desde los 40 con los hijos ya criados, sin gastos de colegio y con excedentes de caja. Con una esperanza de vida por encima de los 80, son actores de consumo para los que casi nadie está diseñando producto."
+    ],
+    "faqs": [
+      {
+        "q": "¿Es posible invertir en propiedad raíz con poco dinero?",
+        "a": "Cada vez más, según Santiago Cardona. Hoy ya hay productos de renta corta y hotelera desde 250 millones de pesos, frente a apartamentos de 700 u 800 millones, y sin necesidad de asumir un crédito. Su apuesta siguiente es fraccionar la propiedad con mecanismos como los derechos fiduciarios, para que se pueda entrar con montos mucho menores."
+      },
+      {
+        "q": "¿Por qué está tan caro el metro cuadrado en Medellín?",
+        "a": "Cardona lo explica con cinco factores: la inflación, que llegó a casi el 13% y hoy está sobre el 5%; una presión de demanda muy fuerte sobre la ciudad; un proceso de gentrificación en ciertas zonas; costos de construcción y tasas de interés más altos; y sobre todo escasez de tierra desarrollable, porque el plan de ordenamiento territorial es muy restrictivo."
+      },
+      {
+        "q": "¿Cuánto gana un constructor en un proyecto de vivienda?",
+        "a": "Menos de lo que se cree. Según Cardona, el margen bruto sobre la venta rara vez llega al 10%, y en vivienda de interés social muchas veces no alcanza el 5%. El peso del lote dentro del proyecto pasó de un 5% o 10% a un 10% o 20%, lo que le ha quitado margen al desarrollador."
+      },
+      {
+        "q": "¿Qué son los derechos fiduciarios en propiedad raíz?",
+        "a": "En el episodio se mencionan como el mecanismo jurídico con el que un comprador puede ser dueño de una parte de un activo completo en lugar de comprar una unidad entera. Cardona los ve como el camino para fraccionar la inversión inmobiliaria, y aclara que hace falta educación jurídica y financiera para que la gente vuelva a confiar en ellos."
+      },
+      {
+        "q": "¿Todavía se necesita una sala de ventas para vender un proyecto?",
+        "a": "No siempre. Grupo REDI no tiene sala de ventas: trabaja con un equipo comercial central capacitado en todo el portafolio. Cardona reconoce que hay productos, sobre todo de vivienda, donde la persona quiere tocar el material, y para eso propone centros de experiencia y showrooms de acabados, apoyados en realidad virtual y aumentada."
+      },
+      {
+        "q": "¿Cuántos leads se necesitan para vender un inmueble?",
+        "a": "Cardona da el rango que maneja: convertir entre el 0,5% y el 2% de los leads es lo normal, donde 0,5% es un dato malo y 2% es muy bueno. Con 500 prospectos eso significa entre 5 y 10 ventas. Del resto, cerca del 70% nunca fue interés real y el 30% restante se trabaja con remarketing."
+      }
+    ],
     "transcript": ""
   },
   {
@@ -102,26 +330,110 @@
     "status": "published",
     "number": 3,
     "title": "De cero a una vida con propósito y conexión real",
-    "subtitle": "Construir un negocio que sí se sostiene",
-    "metaDescription": "Un recorrido honesto de cero a un negocio con propósito: decisiones difíciles, errores y lo que realmente sostiene un proyecto en el tiempo.",
-    "summary": "",
+    "subtitle": "El episodio cero de Conexión",
+    "metaDescription": "Episodio cero de Conexión: Óscar Arroyave y Vivi cuentan por qué nace el podcast, qué significa conectar y por qué aquí también se habla de las derrotas.",
+    "summary": "El episodio cero del podcast. Óscar Arroyave, fundador de Contraste, se sienta con Vivi, su esposa, a contar de dónde sale Conexión y para quién es. Habla de por qué eligió esa palabra, de la vida acartonada y muchas veces solitaria del empresario, y de por qué en este espacio se va a hablar tanto de lo que salió bien como de lo que salió mal. Cierra con los tres pilares del proyecto: servir, aprender y disfrutar.",
     "mediaType": "youtube",
     "youtubeId": "64dXCld4I8o",
     "mediaUrl": "",
     "coverUrl": "",
-    "durationSeconds": 0,
+    "durationSeconds": 771,
     "publishedAt": "2025-11-20",
-    "updatedAt": "2025-11-20",
-    "guests": [],
-    "topics": [],
+    "updatedAt": "2026-09-15",
+    "guests": [
+      {
+        "name": "Vivi",
+        "role": "Coanfitriona del episodio"
+      }
+    ],
+    "topics": [
+      "Por qué el podcast se llama Conexión",
+      "De qué se va a hablar: negocios, dinero, marketing y vida",
+      "La vida acartonada del empresario",
+      "Por qué el aprendizaje está en las derrotas",
+      "Qué invitados vienen",
+      "Servir, aprender y disfrutar"
+    ],
     "keywords": [
       "emprender desde cero Colombia",
       "negocio con propósito",
-      "historias de emprendimiento"
+      "historias de emprendimiento",
+      "Conexión Real Podcast",
+      "podcast de negocios Medellín"
     ],
-    "chapters": [],
-    "keyTakeaways": [],
-    "faqs": [],
+    "chapters": [
+      {
+        "at": "00:00",
+        "label": "Por qué existe Conexión"
+      },
+      {
+        "at": "00:46",
+        "label": "Episodio cero, con Vivi"
+      },
+      {
+        "at": "01:33",
+        "label": "Qué significa conectar"
+      },
+      {
+        "at": "02:16",
+        "label": "Un podcast de negocios con temas de vida"
+      },
+      {
+        "at": "04:34",
+        "label": "De dónde salió la palabra conexión"
+      },
+      {
+        "at": "06:48",
+        "label": "Hablar también de las derrotas"
+      },
+      {
+        "at": "08:15",
+        "label": "Qué invitados vienen"
+      },
+      {
+        "at": "09:47",
+        "label": "Para quién es este podcast"
+      },
+      {
+        "at": "11:16",
+        "label": "Servir, aprender y disfrutar"
+      }
+    ],
+    "keyTakeaways": [
+      "El aprendizaje que sirve no está en el éxito. Óscar lo dice así: más del 95% está en las derrotas. Y su reparo es que a la gente que admiramos sólo le preguntamos por los triunfos, nunca por cómo se cayó ni cómo hizo para levantarse.",
+      "Conectar, para él, es quedarse con algo del otro. De ahí sale el nombre del podcast y también el reclamo de fondo: las redes difunden mucho pero nos hicieron olvidar el encuentro real, el de la voz y la cara del otro.",
+      "Es un podcast de negocios, pero con los subtemas que trae la vida: inteligencia financiera, marketing, crianza y el equilibrio que un empresario tiene que sostener en varios frentes a la vez.",
+      "El formato es informal a propósito. Los empresarios, dice, llevan una vida acartonada y muchas veces solitaria, de relaciones sobre todo corporativas, y este espacio existe para poder hablar también de lo que salió mal.",
+      "Qué invitados vienen: empresarios, entrenadores financieros, entrenadores de vida y gente dispuesta a servir. El criterio no es el currículum sino la disposición a compartir lo que aprendieron.",
+      "Para quién es: para quien quiere subir de nivel, y también para quien está en un momento oscuro y necesita un punto de inflexión. Vivi lo resume diciendo que las historias de vida salvan otras vidas.",
+      "Los tres pilares del proyecto, en palabras de Óscar: servir, aprender y disfrutar."
+    ],
+    "faqs": [
+      {
+        "q": "¿Qué es Conexión Real Podcast?",
+        "a": "Es el podcast de Óscar Arroyave, fundador de Agencia Contraste. Se presenta como un podcast de negocios que se abre a los temas que rodean a quien emprende: inteligencia financiera, marketing, crianza y hábitos. Este episodio cero es el que explica de dónde sale el proyecto y para quién está pensado."
+      },
+      {
+        "q": "¿Por qué el podcast se llama Conexión?",
+        "a": "Porque conectar, según Óscar, es la posibilidad de quedarse con algo del otro cuando se comparte un rato con esa persona. Es una palabra que ya estaba metida en la operación de la agencia, hasta en las camisetas de las activaciones de marca, y que contrasta con lo que él ve hoy: mucha difusión en redes y poco encuentro real."
+      },
+      {
+        "q": "¿De qué temas se habla en el podcast?",
+        "a": "De negocios, y de lo que viene con los negocios: inteligencia financiera, marketing, crianza positiva y el equilibrio entre la vida de empresa y la vida familiar. La idea es que cada invitado aporte desde su campo, no que el podcast se quede en un solo tema."
+      },
+      {
+        "q": "¿Qué tipo de invitados van a estar?",
+        "a": "Empresarios, entrenadores financieros, entrenadores de vida y personas que trabajan sobre el ser. El criterio que menciona Óscar es que estén dispuestas a servir y a conectar con alguien que puede estar en su casa sin saber qué hacer."
+      },
+      {
+        "q": "¿Por qué el podcast habla de fracasos y no sólo de éxitos?",
+        "a": "Porque para Óscar más del 95% del aprendizaje está en las derrotas. Su punto es que de las personas que admiramos sólo vemos los triunfos y nunca preguntamos cómo se cayeron ni cómo se levantaron, y eso es justo lo que este espacio quiere poder conversar."
+      },
+      {
+        "q": "¿Qué relación tiene el podcast con Agencia Contraste?",
+        "a": "Óscar Arroyave fundó Agencia Contraste hace catorce años y es quien conduce el podcast. Conexión es el espacio donde la agencia centraliza su contenido: conversaciones de negocio con invitados del sector inmobiliario, del marketing y del desarrollo personal."
+      }
+    ],
     "transcript": ""
   }
 ]
