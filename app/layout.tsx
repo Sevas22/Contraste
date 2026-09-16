@@ -5,6 +5,7 @@ import { site } from '@/lib/site'
 import { JsonLd, organizationSchema, websiteSchema } from '@/lib/schema'
 import { SmoothScroll } from '@/components/site/smooth-scroll'
 import { SiteAnalytics } from '@/components/site/analytics'
+import { WhatsappFloat } from '@/components/site/whatsapp-float'
 import './globals.css'
 
 // Jost es la geométrica libre más cercana al wordmark del logo
@@ -147,6 +148,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <JsonLd data={websiteSchema()} />
         <SmoothScroll />
         {children}
+        <WhatsappFloat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

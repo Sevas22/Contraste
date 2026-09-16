@@ -189,7 +189,7 @@ export function HeroSlider({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
       </div>
 
       {/* Barra inferior */}
-      <div className="shell absolute inset-x-0 bottom-0 z-10 pb-7">
+      <div data-despeja-flotante className="shell absolute inset-x-0 bottom-0 z-10 pb-7">
         <div className="flex items-center justify-between gap-6 border-t border-white/15 pt-5">
           <div className="flex items-center gap-4">
             {heroSlides.map((slide, index) => (
