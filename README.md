@@ -399,7 +399,8 @@ Formatos de los campos multilínea (una entrada por línea):
 1. **Completar el NAP real** en `lib/site.ts` — dirección, teléfono y coordenadas son placeholder.
    Google los cruza con el Perfil de Empresa; un NAP inconsistente es la causa más común de no
    aparecer en el mapa local.
-2. ~~Comprimir el video del hero~~. El hero ya usa `hero-ron-viejo-de-caldas-ligero.mp4` (4 MB).
+2. ~~Comprimir el video del hero~~. El hero usa `hero-ron-viejo-de-caldas-720p.mp4` (8 MB, 30 fps;
+   el comando de ffmpeg está en `lib/site.ts`).
    El original de 63 MB sigue en `public/media/` y se puede borrar.
 3. **Rotar las credenciales de Neon** antes de desplegar: la cadena de conexión actual se
    compartió por chat. Neon → Roles → `neondb_owner` → Reset password.

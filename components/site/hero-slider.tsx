@@ -50,8 +50,8 @@ export function HeroSlider({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
    *
    * Aunque sólo se reproduzca en su turno, el navegador bufferiza por delante:
    * medido, al llegar a esa diapositiva lanzaba peticiones de 22 s y 10 s.
-   * Con `saveData` activado o en 2G/3G se queda el póster, que ya es la misma
-   * imagen y pesa unos 30 KB en vez de decenas de megas.
+   * Con `saveData` activado o en 2G/3G se queda el póster: el primer fotograma
+   * del vídeo, 36 KB en vez de 8 MB.
    */
   useEffect(() => {
     const video = videoRef.current

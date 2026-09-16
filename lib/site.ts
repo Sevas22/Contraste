@@ -210,12 +210,24 @@ export const heroSlides = [
     body: 'Producción 360, promotoría y trazabilidad. De la idea a la calle, sin intermediarios.',
     type: 'video' as const,
     /**
-     * La versión ligera (4 MB). El original pesa 63 MB y el navegador lo baja
-     * entero en cuanto el carrusel llega a esta diapositiva, a los 13 segundos:
-     * cualquier visita que se quedara mirando el hero se lo descargaba.
+     * 720p a 30 fps, sin audio y con el índice al principio (8 MB, 1,2 Mbps).
+     * El original pesa 63 MB y el navegador lo baja entero en cuanto el
+     * carrusel llega a esta diapositiva, a los 13 segundos.
+     *
+     * Se convierte con ffmpeg, no grabándolo desde el navegador: la versión
+     * anterior salió así y quedó a 8,7 fps irregulares y un 16 % más larga,
+     * con lo que se veía a saltos y a cámara lenta.
+     *
+     *   ffmpeg -i hero-ron-viejo-de-caldas.mp4 -an -c:v libx264 -preset slower \
+     *     -profile:v high -pix_fmt yuv420p -g 60 -movflags +faststart \
+     *     -vf "scale=1280:-2,hqdn3d=1.5:1.5:2:2" -crf 29 -maxrate 1400k -bufsize 2800k \
+     *     hero-ron-viejo-de-caldas-720p.mp4
+     *
+     * El póster es su primer fotograma (`-frames:v 1 -q:v 5`), así que al
+     * arrancar el vídeo no hay salto de imagen.
      */
-    src: '/media/hero-ron-viejo-de-caldas-ligero.mp4',
-    poster: '/media/hero-resultados.jpg',
+    src: '/media/hero-ron-viejo-de-caldas-720p.mp4',
+    poster: '/media/hero-ron-viejo-de-caldas-poster.jpg',
     alt: 'Activación de marca de Ron Viejo de Caldas producida por Contraste',
   },
 ] as const
