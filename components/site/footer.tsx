@@ -134,6 +134,14 @@ export async function Footer({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
             </li>
             <li>
               <Link
+                href={ruta('/preguntas-frecuentes')}
+                className="inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {t.faq_pagina.titulo}
+              </Link>
+            </li>
+            <li>
+              <Link
                 href={ruta('/#agencia')}
                 className="inline-block py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >

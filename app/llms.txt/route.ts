@@ -1,5 +1,6 @@
 import { site, services, clients, hasRealAddress, hasRealPhone } from '@/lib/site'
 import { getNiches, getPublishedEpisodes, getIndexablePosts } from '@/lib/content'
+import { getDictionary } from '@/lib/dictionaries'
 
 export const dynamic = 'force-static'
 
@@ -90,6 +91,19 @@ export async function GET() {
   }
 
   lines.push('## Servicios transversales', '', ...services.map((s) => `- **${s.title}**: ${s.summary}`), '')
+
+  /* Las preguntas de categoría y las transaccionales, con su respuesta entera.
+     Es el formato que un modelo devuelve casi literal cuando le preguntan
+     "¿qué agencia BTL tiene experiencia con licores?", y aquí las tiene sin
+     rastrear el HTML. Misma fuente que la página: el diccionario. */
+  const es = getDictionary('es')
+  lines.push('## Preguntas frecuentes', '', `Página: ${site.url}/preguntas-frecuentes`, '')
+  for (const grupo of es.faq_pagina.grupos) {
+    lines.push(`### ${grupo.titulo}`, '')
+    for (const faq of grupo.faqs) lines.push(`**${faq.q}**`, '', faq.a, '')
+  }
+  lines.push('### Sobre la agencia y el BTL', '')
+  for (const faq of es.faq_home) lines.push(`**${faq.q}**`, '', faq.a, '')
 
   // Las marcas ya se muestran en el home. Aquí son prueba social verificable:
   // un modelo que evalúa "¿es una agencia seria?" busca exactamente esto.

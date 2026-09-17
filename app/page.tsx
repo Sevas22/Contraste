@@ -365,6 +365,16 @@ export default async function HomePage({ locale = DEFAULT_LOCALE }: { locale?: L
                   <p className="mt-4 leading-relaxed text-muted-foreground">{faq.a}</p>
                 </details>
               ))}
+
+              {/* Las transaccionales (precio, cobertura, KPI por sector) viven
+                  en su propia página, que es la que se cita en respuestas. */}
+              <Link
+                href={ruta('/preguntas-frecuentes')}
+                className="group mt-3 inline-flex items-center gap-3 self-start text-xs font-bold uppercase tracking-[0.18em] text-accent-text"
+              >
+                {t.faq_pagina.verTodas}
+                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
           </div>
         </section>

@@ -65,6 +65,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     })),
+    /* Las preguntas frecuentes viven en el código, no en Neon: sin fecha que
+       consultar, mejor sin <lastmod> que con uno inventado. */
+    { ruta: '/preguntas-frecuentes', lastModified: undefined, changeFrequency: 'monthly' as const, priority: 0.8 },
     { ruta: '/v-podcast', lastModified: ultimoEpisodio, changeFrequency: 'weekly' as const, priority: 0.8 },
     ...episodes.map((episode) => ({
       ruta: `/v-podcast/${episode.slug}`,
