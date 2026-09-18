@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     locale: OG_LOCALES.en,
     alternateLocale: OG_LOCALES.es,
     url: '/en',
-    siteName: site.legalName,
-    title: `${site.legalName} | Experiences you feel, measure and remember`,
+    siteName: site.brandName,
+    title: `${site.brandName} | Experiences you feel, measure and remember`,
     description:
       'BTL and experiential marketing agency in Medellín. Brand activations, 360 production and real measurement.',
   },

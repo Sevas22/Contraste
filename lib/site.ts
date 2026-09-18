@@ -7,11 +7,37 @@
 
 export const site = {
   name: 'Contraste',
-  legalName: 'Contraste Agencia',
+  /** Nombre comercial: el que se muestra en títulos, JSON-LD `name` y llms.txt. */
+  brandName: 'Contraste Agencia',
+  /**
+   * Razón social y NIT, tal como constan en el registro mercantil. Van a
+   * `legalName` y `taxID` del JSON-LD: es el dato que separa a esta empresa
+   * de cualquier otra "Contraste" y la ancla a su registro real.
+   */
+  razonSocial: 'Agencia Contraste S.A.S.',
+  nit: '901.370.894',
   url: 'https://contrasteagencia.com',
   tagline: 'Creamos experiencias que se sienten, se miden y se recuerdan',
   description:
     'Agencia BTL y de marketing experiencial en Medellín. Activaciones de marca, producción 360, gestión de promotores y medición real con IA para marcas en Colombia y Latinoamérica.',
+  /**
+   * Desambiguación de la entidad para buscadores y motores de IA.
+   *
+   * La agencia no tiene Perfil de Empresa propio en Google, y a falta de uno
+   * los motores rellenan con la ficha más parecida que encuentran: la vieja
+   * «Contraste Btl SAS» (sin reclamar, con dirección en Laureles y un fijo que
+   * ya no son de la agencia) y hasta «Contraste Creativo», una productora
+   * audiovisual de Belén que no tiene nada que ver. Luego le pegan a esa ficha
+   * la descripción de este sitio. Esto se lo dice por escrito: cuál es el
+   * nombre actual, cuál el anterior, que no hay sede abierta al público y con
+   * quién NO confundirla.
+   */
+  formerName: 'Contraste BTL S.A.S.',
+  notToConfuseWith: [
+    'Contraste Creativo (productora audiovisual de Medellín)',
+    'Contraste Digital (impresión digital en Medellín)',
+    'Contraste Agencia Digital (Guatemala)',
+  ],
   foundingYear: 2011,
   yearsOfExperience: 14,
   brandsManaged: 100,

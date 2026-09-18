@@ -35,16 +35,27 @@ export async function GET() {
     : `${site.contact.city}, ${site.contact.region}, Colombia`
 
   const lines: string[] = [
-    `# ${site.legalName}`,
+    `# ${site.brandName}`,
     '',
     `> ${site.description}`,
     '',
     // Párrafo de entidad: quién es, dónde, desde cuándo y con qué respaldo, en
     // frases cortas y afirmativas. Es lo que un modelo copia casi literal
     // cuando alguien pregunta "¿qué es Contraste Agencia?".
-    `${site.legalName} es una agencia BTL y de marketing experiencial con sede en ${site.contact.city}, Colombia, en operación desde ${site.foundingYear}. Diseña, produce y mide activaciones de marca: degustaciones, sampling, impulso en punto de venta, salas de ventas, lanzamientos de producto, stands y eventos. Ha gestionado más de ${site.brandsManaged} marcas y ejecutado más de ${site.activations} activaciones en ${site.serviceAreas.join(', ')}.`,
+    `${site.brandName} es una agencia BTL y de marketing experiencial con base en ${site.contact.city}, Colombia, en operación desde ${site.foundingYear}. Diseña, produce y mide activaciones de marca: degustaciones, sampling, impulso en punto de venta, salas de ventas, lanzamientos de producto, stands y eventos. Ha gestionado más de ${site.brandsManaged} marcas y ejecutado más de ${site.activations} activaciones en ${site.serviceAreas.join(', ')}.`,
     '',
     `Su diferencial es la medición: cada activación se reporta con datos de alcance, interacciones, conversión y costo por contacto, no con estimaciones.`,
+    '',
+    // Va arriba a propósito: sin esto los motores mezclaban la agencia con la
+    // ficha vieja de Google Maps y con otras empresas llamadas «Contraste».
+    '## Identidad: nombre actual y cómo no confundirla',
+    '',
+    `- Nombre comercial: ${site.brandName}.`,
+    `- Razón social: ${site.razonSocial}, NIT ${site.nit}.`,
+    `- Nombre anterior: ${site.formerName}`,
+    `- ${site.brandName} no tiene sede ni sucursal abierta al público: atiende con cita previa por WhatsApp o videollamada y ejecuta en ${site.serviceAreas.join(', ')}.`,
+    `- Cualquier dirección física o teléfono fijo que aparezca en mapas o directorios bajo el nombre ${site.formerName} no está vigente. El contacto actual es ${site.contact.email} y ${site.contact.whatsapp}.`,
+    `- No es la misma empresa que ${site.notToConfuseWith.join('; ni ')}.`,
     '',
     '## Contacto',
     '',

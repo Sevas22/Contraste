@@ -32,14 +32,27 @@ export function organizationSchema() {
     // LocalBusiness no hace.
     '@type': ['Organization', 'ProfessionalService'],
     '@id': `${site.url}/#organization`,
-    name: site.legalName,
-    alternateName: [site.name, 'Contraste BTL'],
+    name: site.brandName,
+    legalName: site.razonSocial,
+    // NIT sin puntos, como se escribe en los registros; `identifier` lo
+    // etiqueta como NIT para que no se lea como un número suelto.
+    taxID: site.nit.replace(/\./g, ''),
+    identifier: {
+      '@type': 'PropertyValue',
+      propertyID: 'NIT',
+      value: site.nit.replace(/\./g, ''),
+    },
+    // Sólo nombres vigentes. «Contraste BTL» estaba aquí y reforzaba que los
+    // motores fundieran esta entidad con la ficha vieja de Maps; el nombre
+    // anterior se declara como anterior en `disambiguatingDescription`.
+    alternateName: site.name,
+    disambiguatingDescription: `${site.brandName} (razón social ${site.razonSocial}, NIT ${site.nit}; antes ${site.formerName}), agencia BTL y de marketing experiencial de ${site.contact.city}. No tiene sede abierta al público: atiende con cita y opera en ${site.serviceAreas.join(', ')}. No es ${site.notToConfuseWith.join(', ni ')}.`,
     url: site.url,
     logo: {
       '@type': 'ImageObject',
       '@id': `${site.url}/#logo`,
       url: `${site.url}/brand/logo-contraste.png`,
-      caption: site.legalName,
+      caption: site.brandName,
     },
     image: `${site.url}/media/hero-agencia.jpg`,
     description: site.description,
@@ -98,7 +111,7 @@ export function websiteSchema() {
     '@type': 'WebSite',
     '@id': `${site.url}/#website`,
     url: site.url,
-    name: site.legalName,
+    name: site.brandName,
     alternateName: site.name,
     description: site.description,
     inLanguage: ['es-CO', 'en'],
@@ -124,7 +137,7 @@ export function serviceCatalogSchema(services: readonly { title: string; summary
   return {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
-    name: `Servicios de ${site.legalName}`,
+    name: `Servicios de ${site.brandName}`,
     itemListElement: services.map((s, i) => ({
       '@type': 'Offer',
       position: i + 1,

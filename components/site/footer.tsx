@@ -219,7 +219,7 @@ export async function Footer({ locale = DEFAULT_LOCALE }: { locale?: Locale }) {
       <div className="border-t border-border">
         <div className="shell flex flex-col justify-between gap-3 py-6 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground sm:flex-row">
           <p>
-            © {new Date().getFullYear()} {site.legalName}
+            © {new Date().getFullYear()} {site.brandName}
           </p>
           <p>{site.serviceAreas.join(' · ')}</p>
         </div>
