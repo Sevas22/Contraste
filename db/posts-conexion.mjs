@@ -137,6 +137,10 @@ Antes de producir, define qué vas a medir —pruebas, interacciones, prospectos
 - [Instagram de Contraste Agencia, @agencia_contraste](${L.ig})`,
     faqs: [
       {
+        q: '¿En qué se diferencia la publicidad BTL de la tradicional para una marca de licores?',
+        a: 'La publicidad tradicional compra medios para que mucha gente vea la marca; la publicidad BTL la lleva a donde se elige el trago: la góndola, la tienda de barrio o la barra. En licores la diferencia pesa más, porque la pauta masiva está restringida y el punto de venta permite ofrecer la degustación sólo a mayores de edad, con alguien que resuelve la duda en el momento.',
+      },
+      {
         q: '¿Qué significa BTL?',
         a: 'BTL significa below the line, «debajo de la línea». En marketing designa las acciones de marca en contacto directo con el público, como activaciones, degustaciones, impulso en punto de venta, eventos y stands, por oposición a la publicidad en medios masivos, que se conoce como ATL.',
       },

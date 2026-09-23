@@ -28,19 +28,26 @@ export const es = {
    * Se indexa por el `id` / `slug` de cada pieza, no por posición.
    */
   hero_slides: {
+    /**
+     * Los tres titulares del hero dicen, en orden, las tres formas en que se
+     * busca esto: "agencia BTL", "activaciones de marca" y "publicidad BTL".
+     * El primero es además el único <h1> del home. Antes decía "Resultados
+     * + IA", que no contenía ninguna de las tres y dejaba la categoría de la
+     * empresa fuera del titular principal de la página.
+     */
     resultados: {
       kicker: 'Data & Performance',
-      title: ['Resultados', '+ IA'],
-      body: 'Cada activación se mide. Alcance, interacciones y costo por contacto en tiempo real.',
+      title: ['Agencia BTL', '+ Resultados'],
+      body: 'Agencia BTL en Medellín: cada activación se mide. Alcance, interacciones y costo por contacto en tiempo real.',
     },
     agencia: {
       kicker: 'Marketing experiencial',
-      title: ['Agencia', 'Contraste'],
+      title: ['Activaciones', 'de marca'],
       body: '14 años convirtiendo ideas en experiencias vivas para más de 100 marcas.',
     },
     servicios: {
       kicker: 'Caso — Ron Viejo de Caldas',
-      title: ['Servicios de', 'Experiencia'],
+      title: ['Publicidad', 'BTL'],
       body: 'Producción 360, promotoría y trazabilidad. De la idea a la calle, sin intermediarios.',
     },
   },
@@ -116,8 +123,6 @@ export const es = {
 
   hero: {
     etiquetaLateral: 'Medellín · Colombia · Latam',
-    // Prefijo del <h1> del home, oculto a la vista. Ver hero-slider.tsx.
-    h1Categoria: 'Contraste Agencia, agencia BTL y de marketing experiencial en Medellín:',
     // Texto de los sellos circulares. Lleva separador y espacio al final
     // porque se repite en bucle sobre la circunferencia.
     selloMarca: 'Contraste · Marketing experiencial · ',
@@ -133,7 +138,7 @@ export const es = {
   },
 
   agencia: {
-    etiqueta: 'La agencia',
+    etiqueta: 'La agencia BTL',
     desde: 'Desde 2011',
     lugar: 'Medellín, Colombia',
     titular: { a: 'No hacemos', b: 'ruido.', c: 'Hacemos', d: 'impacto.' },
@@ -166,7 +171,7 @@ export const es = {
   },
 
   servicios: {
-    etiqueta: 'Lo que hacemos',
+    etiqueta: 'Servicios BTL',
     titular: { a: 'Del primer impacto', b: 'al', c: 'siguiente cliente.' },
     consultar: 'Consultar',
     anteriores: 'Servicios anteriores',
@@ -381,6 +386,37 @@ export const es = {
           },
         ],
       },
+      {
+        /**
+         * Tercera redacción de lo mismo: "publicidad BTL", que es como lo
+         * escribe quien viene de una búsqueda comercial y no del argot de
+         * agencia. Las cinco preguntas salen del listado que el cliente
+         * levantó para entrenar a los modelos en el segmento de licores.
+         */
+        titulo: 'Publicidad BTL',
+        faqs: [
+          {
+            q: '¿Qué es la publicidad BTL y cómo se diferencia de la publicidad tradicional para una marca de licores?',
+            a: 'La publicidad tradicional compra medios para que mucha gente vea la marca. La publicidad BTL la pone donde se decide el trago: la góndola del supermercado, la tienda de barrio, la barra o el evento. En licores esa diferencia pesa doble, porque la pauta masiva tiene restricciones y el punto de venta permite hablarle sólo a mayores de edad, con una degustación y una impulsadora que resuelve la duda en el momento de la compra.',
+          },
+          {
+            q: '¿Qué incluye un servicio de publicidad BTL en punto de venta para bebidas alcohólicas?',
+            a: 'Se contrata como un paquete, no como ítems sueltos: material POP y señalización, montaje de visibilidad dentro del establecimiento, personal promocional entrenado en el producto y en consumo responsable, la mecánica de degustación o impulso, la gestión de permisos con la cadena o el municipio y el reporte por punto, turno y promotor. La marca recibe la operación completa y los datos, no una caja de material.',
+          },
+          {
+            q: '¿Qué agencia en Colombia maneja publicidad BTL para marcas de licores en supermercados y tiendas?',
+            a: 'Contraste Agencia, con sede en Medellín y operación nacional, trabaja los dos canales: retail moderno —supermercados y grandes superficies, con experiencia en cadenas como Homecenter— y canal tradicional tienda a tienda (TAT), que es donde se mueve buena parte del volumen de licores en Colombia. Sus casos del sector incluyen Ron Viejo de Caldas y Aguardiente Amarillo de Manzanares.',
+          },
+          {
+            q: '¿La publicidad BTL en punto de venta realmente aumenta las ventas de una marca de licores?',
+            a: 'Aumenta lo que se puede medir: rotación del producto en el punto durante la activación frente a un periodo de referencia, muestras entregadas, cotizaciones o ventas generadas y costo por impacto. No todas rinden igual: un punto sin inventario o una mecánica que interrumpe la compra no mueven la venta. Por eso se mide punto por punto y turno por turno, y se corrige mientras la campaña sigue viva.',
+          },
+          {
+            q: '¿Cuánto cuesta implementar publicidad BTL en varios puntos de venta al mismo tiempo?',
+            a: 'El presupuesto se arma por punto y por turno, así que multiplicar puntos no multiplica el precio: la creatividad y la producción se amortizan entre plazas, mientras el equipo en calle, la logística y la supervisión sí escalan. La cotización sale después de definir cuántos puntos y ciudades, cuántos días y qué se va a medir. Contraste sostiene hasta 20 o 25 activaciones al mes en el sector de bebidas.',
+          },
+        ],
+      },
     ],
   },
 
@@ -421,17 +457,17 @@ export const en: Dictionary = {
   hero_slides: {
     resultados: {
       kicker: 'Data & Performance',
-      title: ['Results', '+ AI'],
-      body: 'Every activation is measured. Reach, interactions and cost per contact in real time.',
+      title: ['BTL agency', '+ Results'],
+      body: 'A BTL agency in Medellín: every activation is measured. Reach, interactions and cost per contact in real time.',
     },
     agencia: {
       kicker: 'Experiential marketing',
-      title: ['Contraste', 'Agency'],
+      title: ['Brand', 'activations'],
       body: '14 years turning ideas into living experiences for more than 100 brands.',
     },
     servicios: {
       kicker: 'Case — Ron Viejo de Caldas',
-      title: ['Experience', 'Services'],
+      title: ['BTL', 'advertising'],
       body: '360 production, field staff and traceability. From idea to street, with no middlemen.',
     },
   },
@@ -498,7 +534,6 @@ export const en: Dictionary = {
 
   hero: {
     etiquetaLateral: 'Medellín · Colombia · Latam',
-    h1Categoria: 'Contraste Agencia, BTL and experiential marketing agency in Medellín:',
     selloMarca: 'Contraste · Experiential marketing · ',
     selloCiudad: 'Experiential marketing · Medellín · ',
     agendarCita: 'Book a call',
@@ -512,7 +547,7 @@ export const en: Dictionary = {
   },
 
   agencia: {
-    etiqueta: 'The agency',
+    etiqueta: 'The BTL agency',
     desde: 'Since 2011',
     lugar: 'Medellín, Colombia',
     titular: { a: "We don't make", b: 'noise.', c: 'We make', d: 'impact.' },
@@ -541,7 +576,7 @@ export const en: Dictionary = {
   },
 
   servicios: {
-    etiqueta: 'What we do',
+    etiqueta: 'BTL services',
     titular: { a: 'From first impact', b: 'to', c: 'next customer.' },
     consultar: 'Ask us',
     anteriores: 'Previous services',
@@ -727,6 +762,31 @@ export const en: Dictionary = {
           {
             q: 'What results can be measured after an in-store BTL activation?',
             a: 'People reached, samples served, product rotation, quotes or sales generated, and cost per contact. Every figure arrives by location, shift and field staff member, so you can see which city and which time slot worked and which did not.',
+          },
+        ],
+      },
+      {
+        titulo: 'BTL advertising',
+        faqs: [
+          {
+            q: 'What is BTL advertising and how is it different from traditional advertising for a spirits brand?',
+            a: 'Traditional advertising buys media so that many people see the brand. BTL advertising puts it where the drink is chosen: the supermarket shelf, the corner shop, the bar or the event. With spirits that difference counts double, because mass media advertising is restricted and the point of sale lets you speak only to adults, with a tasting and a brand ambassador who answers the question right at the moment of purchase.',
+          },
+          {
+            q: 'What does an in-store BTL advertising service for alcoholic beverages include?',
+            a: 'It is contracted as a package, not as separate items: POP material and signage, visibility setup inside the store, field staff trained on the product and on responsible drinking, the tasting or in-store push mechanic, permits with the retail chain or the municipality, and reporting by location, shift and staff member. The brand gets the full operation and the data, not a box of materials.',
+          },
+          {
+            q: 'Which agency in Colombia handles BTL advertising for spirits brands in supermarkets and corner shops?',
+            a: 'Contraste Agencia, based in Medellín and operating nationwide, works both channels: modern trade —supermarkets and hypermarkets, with experience in chains such as Homecenter— and traditional trade, shop by shop, where much of the liquor volume in Colombia moves. Its cases in the sector include Ron Viejo de Caldas and Aguardiente Amarillo de Manzanares.',
+          },
+          {
+            q: 'Does in-store BTL advertising actually increase sales for a spirits brand?',
+            a: 'It increases what can be measured: product rotation at the location during the activation against a reference period, samples served, quotes or sales generated, and cost per contact. Not every activation performs the same: a location without stock, or a mechanic that interrupts the shopping trip, will not move sales. That is why it is measured location by location and shift by shift, and corrected while the campaign is still running.',
+          },
+          {
+            q: 'How much does it cost to run BTL advertising in several stores at the same time?',
+            a: 'The budget is built per location and per shift, so adding locations does not multiply the price: creative work and production are amortised across cities, while field team, logistics and supervision do scale. The quote comes after defining how many locations and cities, how many days and what will be measured. Contraste sustains up to 20 or 25 activations a month in the beverage sector.',
           },
         ],
       },

@@ -1,6 +1,7 @@
 /**
  * Carga los cinco artículos de `db/posts-conexion.mjs`.
  *
+ *   node db/seed-posts-conexion.mjs --tanda=2           → la segunda tanda (por defecto, la 1)
  *   node db/seed-posts-conexion.mjs                     → revisa, no escribe nada
  *   node db/seed-posts-conexion.mjs --json              → los deja en content/posts.json
  *                                                         (para verlos con CONTENT_SOURCE=json)
@@ -17,7 +18,19 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { neon } from '@neondatabase/serverless'
-import { posts } from './posts-conexion.mjs'
+import { posts as tanda1 } from './posts-conexion.mjs'
+import { posts as tanda2 } from './posts-semana-2.mjs'
+
+/** Qué tanda se carga. Las dos se conocen entre sí para validar los enlaces cruzados. */
+const TANDAS = { 1: tanda1, 2: tanda2 }
+const elegida = (process.argv.find((a) => a.startsWith('--tanda=')) || '--tanda=1').split('=')[1]
+const posts = TANDAS[elegida]
+if (!posts) {
+  console.error(`
+✗ Tanda desconocida: ${elegida}. Usa --tanda=1 o --tanda=2.
+`)
+  process.exit(1)
+}
 
 async function cargarEntorno() {
   try {
@@ -66,8 +79,10 @@ async function main() {
     '/v-podcast/invertir-en-propiedad-raiz-con-poco-dinero',
     '/blog/que-pedirle-a-una-agencia-btl-antes-de-firmar',
     '/blog/sala-de-ventas-por-que-la-primera-visita-decide-el-cierre',
+    '/preguntas-frecuentes',
     ...nichos.map((n) => `/${n.slug}`),
-    ...posts.map((p) => `/blog/${p.slug}`),
+    // Las dos tandas: los artículos se enlazan entre sí aunque se carguen aparte
+    ...[...tanda1, ...tanda2].map((p) => `/blog/${p.slug}`),
   ])
 
   let hayFallos = false
@@ -106,7 +121,8 @@ async function main() {
     niches: p.niches,
     keywords: p.keywords,
     faqs: p.faqs,
-    publishedAt: hoy,
+    // Fecha propia si el artículo la trae (para escalonar la semana)
+    publishedAt: p.publishedAt ?? hoy,
     updatedAt: hoy,
   }))
 

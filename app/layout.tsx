@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     locale: 'es_CO',
     url: site.url,
     siteName: site.brandName,
-    title: `${site.brandName} | Experiencias que se sienten, se miden y se recuerdan`,
+    title: `Agencia BTL en Medellín | ${site.brandName}`,
     description: site.description,
     images: [
       {
