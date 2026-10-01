@@ -86,7 +86,30 @@ export const es = {
     'Cierre con costo por contacto y aprendizajes',
   ],
   /** Palabras de la marquesina del home. */
-  marquee: ['Marketing experiencial', 'Activaciones BTL', 'Producción 360', 'Data'],
+  /**
+   * Marquesina del home. Las doce formas en que se busca el servicio, elegidas
+   * por el cliente desde Semrush (2026-10-01). Se escriben con su ortografía
+   * correcta —tildes y mayúsculas— porque el buscador las entiende igual y en
+   * pantalla van en caja alta.
+   *
+   * Ojo al mantenerla: es texto visible, no una etiqueta oculta. Alargar la
+   * lista con más variantes de la misma raíz la convierte en una lista de
+   * keywords, que es justo lo que Google penaliza.
+   */
+  marquee: [
+    'Agencia BTL',
+    'Publicidad BTL',
+    'Activaciones de marca',
+    'Activación BTL',
+    'BTL marketing',
+    'Agencia BTL Medellín',
+    'Agencias BTL',
+    'Activaciones BTL',
+    'BTL agencia',
+    'Campañas BTL',
+    'BTL mkt',
+    'Publicidad en BTL',
+  ],
 
   /**
    * Nombres de los cuatro nichos.
@@ -505,6 +528,8 @@ export const en: Dictionary = {
     'Live reporting while the activation runs',
     'Wrap-up with cost per contact and lessons learned',
   ],
+  // En inglés se mantienen los servicios: las keywords de arriba son las que
+  // se buscan en español y traducirlas no las haría coincidir con nada.
   marquee: ['Experiential marketing', 'BTL activations', '360 production', 'Data'],
 
   nichos_nombres: {

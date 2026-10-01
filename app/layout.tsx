@@ -25,21 +25,27 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   /**
-   * La keyword principal delante y la marca detrás, en 59 caracteres.
+   * Título y descripción del home, definidos por el cliente (2026-10-01).
    *
-   * El anterior ("Contraste Agencia | Agencia BTL y marketing experiencial en
-   * Medellín") tenía 68: Google lo cortaba justo en la ciudad. Y el título del
-   * WordPress viejo, que es por el que la marca ya salía en "activaciones de
-   * marca", llevaba esas palabras; se recuperan.
+   * Las tres formas en que se busca el servicio, en 45 caracteres: queda
+   * holgado del corte de Google (~60) y no se pierde ninguna. No lleva marca
+   * ni ciudad a propósito; Google muestra "Contraste Agencia" como nombre del
+   * sitio encima del resultado, que sale del WebSite del JSON-LD.
    *
-   * La plantilla usa el nombre corto por lo mismo: " | Contraste Agencia" se
-   * comía 20 caracteres de cada título de post y de episodio.
+   * La plantilla sigue usando el nombre corto: " | Contraste Agencia" se comía
+   * 20 caracteres de cada título de post y de episodio.
    */
   title: {
-    default: `Agencia BTL en Medellín y activaciones de marca | ${site.name}`,
+    default: 'Agencia BTL, Activaciones BTL y BTL Marketing',
     template: `%s | ${site.name}`,
   },
-  description: site.description,
+  /**
+   * Descripción del home. `site.description` se queda como está porque de ella
+   * viven el JSON-LD de la organización y el llms.txt, que describen a la
+   * empresa y no deben llevar llamada a la acción.
+   */
+  description:
+    'Activaciones BTL para bebidas, inmobiliario, consumo masivo y tecnología, con resultados medibles. Agenda tu diagnóstico BTL hoy.',
   applicationName: site.brandName,
   keywords: [
     'agencia BTL Medellín',
@@ -67,8 +73,10 @@ export const metadata: Metadata = {
     locale: 'es_CO',
     url: site.url,
     siteName: site.brandName,
-    title: `Agencia BTL en Medellín | ${site.brandName}`,
-    description: site.description,
+    // En redes sí va la marca: ahí el nombre es lo que da credibilidad al enlace
+    title: `Agencia BTL, Activaciones BTL y BTL Marketing | ${site.brandName}`,
+    description:
+      'Activaciones BTL para bebidas, inmobiliario, consumo masivo y tecnología, con resultados medibles. Agenda tu diagnóstico BTL hoy.',
     images: [
       {
         url: '/media/og-contraste.jpg',
@@ -80,8 +88,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.brandName} | Agencia BTL y marketing experiencial`,
-    description: site.tagline,
+    title: `Agencia BTL, Activaciones BTL y BTL Marketing | ${site.brandName}`,
+    description:
+      'Activaciones BTL para bebidas, inmobiliario, consumo masivo y tecnología, con resultados medibles. Agenda tu diagnóstico BTL hoy.',
     images: ['/media/og-contraste.jpg'],
   },
   /**

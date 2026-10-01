@@ -20,14 +20,15 @@ import path from 'node:path'
 import { neon } from '@neondatabase/serverless'
 import { posts as tanda1 } from './posts-conexion.mjs'
 import { posts as tanda2 } from './posts-semana-2.mjs'
+import { posts as tanda3 } from './posts-semana-3.mjs'
 
 /** Qué tanda se carga. Las dos se conocen entre sí para validar los enlaces cruzados. */
-const TANDAS = { 1: tanda1, 2: tanda2 }
+const TANDAS = { 1: tanda1, 2: tanda2, 3: tanda3 }
 const elegida = (process.argv.find((a) => a.startsWith('--tanda=')) || '--tanda=1').split('=')[1]
 const posts = TANDAS[elegida]
 if (!posts) {
   console.error(`
-✗ Tanda desconocida: ${elegida}. Usa --tanda=1 o --tanda=2.
+✗ Tanda desconocida: ${elegida}. Usa --tanda=1, --tanda=2 o --tanda=3.
 `)
   process.exit(1)
 }
@@ -82,7 +83,7 @@ async function main() {
     '/preguntas-frecuentes',
     ...nichos.map((n) => `/${n.slug}`),
     // Las dos tandas: los artículos se enlazan entre sí aunque se carguen aparte
-    ...[...tanda1, ...tanda2].map((p) => `/blog/${p.slug}`),
+    ...[...tanda1, ...tanda2, ...tanda3].map((p) => `/blog/${p.slug}`),
   ])
 
   let hayFallos = false
