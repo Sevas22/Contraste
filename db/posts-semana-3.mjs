@@ -501,11 +501,11 @@ El método por el que trabajamos este sector está en la landing de [activacione
   {
     slug: 'material-pop-que-es-y-como-auditarlo',
     publishedAt: '2026-10-02',
-    title: 'Material POP: qué es, tipos y cómo auditar su uso',
+    title: 'Material POP: qué es, tipos y por qué no se instala',
     excerpt:
       'Una parte del material POP que una marca manda al punto de venta nunca se instala. Qué tipos hay, por qué se pierde por el camino y cómo controlarlo.',
     metaDescription:
-      'Qué es el material POP, qué tipos existen y cómo auditar su implementación en punto de venta para que no se quede en la bodega de la tienda.',
+      'Qué es el material POP y qué tipos existen, por qué una parte nunca llega a instalarse en el punto de venta y cómo auditar su implementación en ruta.',
     coverUrl: '/media/activacion-02.jpg',
     location: 'Medellín',
     niches: ['consumo-masivo', 'bebidas'],
@@ -517,6 +517,8 @@ El método por el que trabajamos este sector está en la landing de [activacione
       'auditoría de punto de venta',
     ],
     body: `El **material POP** (point of purchase) son las piezas de marca que viven en el punto de venta: lo que hace que un producto se vea antes que los de al lado. Es la parte más barata de una campaña de trade marketing y también la que más se desperdicia, porque una parte del material que se envía nunca llega a instalarse o se instala mal.
+
+**¿Necesitas que alguien audite tu material en el punto?** Eso es parte del servicio de [trade marketing en canal tradicional](/blog/trade-marketing-en-canal-tradicional-tat) y de las campañas de [consumo masivo](/marketing-btl-consumo-masivo-mas-trafico-y-ventas). Si lo que buscas es entender qué es el POP y qué tipos hay, sigue leyendo.
 
 ## Qué tipos hay
 

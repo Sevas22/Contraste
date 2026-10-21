@@ -1,10 +1,12 @@
+import Image from 'next/image'
 import { Fragment, type ReactNode } from 'react'
 
 /**
  * Render del cuerpo del post.
  *
  * Markdown mínimo a propósito: `##` subtítulo, `-` viñeta, línea en blanco
- * entre párrafos, `[texto](url)` para enlaces y `**texto**` para negrita.
+ * entre párrafos, `[texto](url)` para enlaces, `**texto**` para negrita y
+ * `![pie](/ruta.jpg)` en una línea sola para una imagen.
  * Evita traer un parser completo (y su superficie de XSS) para las marcas que
  * el cliente va a usar de verdad. Nada se inyecta como HTML: todo sale como
  * texto dentro de elementos de React.
@@ -27,6 +29,16 @@ function safeHref(url: string): string | null {
 }
 
 const INLINE = /\[([^\]]+)\]\(([^)\s]+)\)|\*\*([^*]+)\*\*/g
+
+/**
+ * Imagen con pie: `![pie](/media/blog/foto.jpg)`, sola en su línea.
+ *
+ * El pie no es decorativo. Hace de `alt` para quien usa lector de pantalla y
+ * de `figcaption` a la vista, y es lo que permite a Google y a los motores de
+ * IA entender de qué es la foto: una imagen sin texto alrededor no aporta
+ * nada al posicionamiento del artículo.
+ */
+const IMAGEN = /^!\[([^\]]*)\]\(([^)\s]+)\)$/
 
 function inline(text: string): ReactNode[] {
   const out: ReactNode[] = []
@@ -95,6 +107,46 @@ export function Prose({ body }: { body: string }) {
               {lines[0].slice(3)}
             </h2>
           )
+        }
+
+        /* Proporción fija y recorte al centro: las fotos llegan de la calle,
+           unas verticales y otras horizontales, y dejarlas con su alto real
+           rompe el ritmo de la columna de lectura. El script que las descarga
+           ya las normaliza a 3:2, así que el recorte casi nunca entra. */
+        const imagen = lines.length === 1 ? IMAGEN.exec(lines[0].trim()) : null
+        if (imagen) {
+          const src = safeHref(imagen[2])
+          const pie = imagen[1].trim()
+          if (src) {
+            return (
+              <figure key={i} className="my-2 flex flex-col gap-3">
+                <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl bg-foreground/5">
+                  {src.startsWith('/') ? (
+                    <Image
+                      src={src}
+                      alt={pie}
+                      fill
+                      sizes="(min-width: 1024px) 720px, 100vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    // Externa: fuera del optimizador de Next, que sólo acepta
+                    // los dominios declarados en next.config.mjs.
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={src}
+                      alt={pie}
+                      loading="lazy"
+                      className="absolute inset-0 size-full object-cover"
+                    />
+                  )}
+                </div>
+                {pie && (
+                  <figcaption className="text-sm leading-relaxed text-foreground/55">{pie}</figcaption>
+                )}
+              </figure>
+            )
+          }
         }
 
         if (lines.every((l) => l.trim().startsWith('- '))) {

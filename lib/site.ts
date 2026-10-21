@@ -38,7 +38,7 @@ export const site = {
     'Contraste Digital (impresión digital en Medellín)',
     'Contraste Agencia Digital (Guatemala)',
   ],
-  foundingYear: 2011,
+  foundingYear: 2012,
   yearsOfExperience: 14,
   brandsManaged: 100,
   activations: 500,

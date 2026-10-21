@@ -15,20 +15,23 @@
  *
  * Sólo toca estos cinco slugs. No pisa ningún otro post.
  */
+import { existsSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { neon } from '@neondatabase/serverless'
 import { posts as tanda1 } from './posts-conexion.mjs'
 import { posts as tanda2 } from './posts-semana-2.mjs'
 import { posts as tanda3 } from './posts-semana-3.mjs'
+import { posts as tanda4 } from './posts-semana-4.mjs'
+import { posts as tanda5 } from './posts-semana-5.mjs'
 
 /** Qué tanda se carga. Las dos se conocen entre sí para validar los enlaces cruzados. */
-const TANDAS = { 1: tanda1, 2: tanda2, 3: tanda3 }
+const TANDAS = { 1: tanda1, 2: tanda2, 3: tanda3, 4: tanda4, 5: tanda5 }
 const elegida = (process.argv.find((a) => a.startsWith('--tanda=')) || '--tanda=1').split('=')[1]
 const posts = TANDAS[elegida]
 if (!posts) {
   console.error(`
-✗ Tanda desconocida: ${elegida}. Usa --tanda=1, --tanda=2 o --tanda=3.
+✗ Tanda desconocida: ${elegida}. Usa --tanda=1 … --tanda=5.
 `)
   process.exit(1)
 }
@@ -50,7 +53,8 @@ const palabras = (t) => t.trim().split(/\s+/).filter(Boolean).length
 
 /** Las mismas reglas que `auditPost` en lib/content.ts, para no descubrir fallos en el panel. */
 function revisar(p) {
-  const texto = p.body.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '$1')
+  // Una imagen (`![pie](ruta)`) no es un enlace, pero su pie sí es texto del artículo.
+  const texto = p.body.replace(/!?\[([^\]]+)\]\(([^)\s]+)\)/g, '$1')
   const fallos = []
   if (p.title.length < 30 || p.title.length > 65) fallos.push(`título de ${p.title.length} caracteres`)
   if (p.metaDescription.length < 120 || p.metaDescription.length > 160)
@@ -82,14 +86,22 @@ async function main() {
     '/blog/sala-de-ventas-por-que-la-primera-visita-decide-el-cierre',
     '/preguntas-frecuentes',
     ...nichos.map((n) => `/${n.slug}`),
-    // Las dos tandas: los artículos se enlazan entre sí aunque se carguen aparte
-    ...[...tanda1, ...tanda2, ...tanda3].map((p) => `/blog/${p.slug}`),
+    // Todas las tandas: los artículos se enlazan entre sí aunque se carguen aparte
+    ...[...tanda1, ...tanda2, ...tanda3, ...tanda4, ...tanda5].map((p) => `/blog/${p.slug}`),
   ])
 
   let hayFallos = false
   for (const p of posts) {
     const { texto, fallos } = revisar(p)
-    const enlaces = [...p.body.matchAll(/\[([^\]]+)\]\(([^)\s]+)\)/g)].map((m) => m[2])
+    // El grupo 1 captura el '!' de una imagen: esas rutas apuntan a public/,
+    // no a una página, y se revisan aparte.
+    const marcas = [...p.body.matchAll(/(!?)\[([^\]]+)\]\(([^)\s]+)\)/g)]
+    const enlaces = marcas.filter((m) => !m[1]).map((m) => m[3])
+    const imagenes = marcas.filter((m) => m[1]).map((m) => m[3])
+    const imagenesRotas = imagenes.filter(
+      (u) => u.startsWith('/') && !existsSync(path.join(process.cwd(), 'public', u)),
+    )
+    if (imagenesRotas.length) fallos.push(`imágenes que no existen: ${imagenesRotas.join(', ')}`)
     const internosRotos = enlaces.filter((u) => u.startsWith('/') && !rutasValidas.has(u.split('#')[0]))
     if (internosRotos.length) fallos.push(`enlaces internos rotos: ${internosRotos.join(', ')}`)
     const externos = enlaces.filter((u) => u.startsWith('http')).length
@@ -98,7 +110,7 @@ async function main() {
     console.log(
       `${fallos.length ? '✗' : '✓'} ${p.title}\n` +
         `    ${palabras(texto)} palabras · ${(p.body.match(/^##\s+/gm) || []).length} subtítulos · ${p.faqs.length} FAQs · ` +
-        `${enlaces.length - externos} enlaces internos · ${externos} externos · título ${p.title.length} · meta ${p.metaDescription.length}` +
+        `${enlaces.length - externos} enlaces internos · ${externos} externos · ${imagenes.length} imágenes · título ${p.title.length} · meta ${p.metaDescription.length}` +
         (fallos.length ? `\n    → ${fallos.join(' · ')}` : ''),
     )
   }

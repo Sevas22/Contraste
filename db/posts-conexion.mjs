@@ -60,11 +60,11 @@ export const posts = [
   /* ── 1 ─────────────────────────────────────────────────────────── */
   {
     slug: 'que-es-btl-significado-y-ejemplos',
-    title: 'Qué es BTL: significado, ejemplos y cómo funciona',
+    title: 'Qué es BTL: significado y ejemplos reales en Colombia',
     excerpt:
       'BTL es la parte del marketing que no sale en televisión: se vive en la calle, en el punto de venta y en los eventos. Qué significa, cómo funciona y ejemplos reales en Colombia.',
     metaDescription:
-      'BTL significa below the line: acciones de marca en contacto directo con el público. Qué es BTL en marketing, tipos de acciones y ejemplos reales.',
+      'Qué significa BTL en marketing, qué tipos de acciones incluye y ejemplos reales de activaciones ejecutadas en Colombia, contados por la agencia que las hizo.',
     coverUrl: '/media/hero-resultados.jpg',
     location: 'Medellín',
     niches: ['bebidas', 'consumo-masivo'],
@@ -77,6 +77,8 @@ export const posts = [
       'BTL ejemplos',
     ],
     body: `**BTL** significa below the line, «debajo de la línea». En marketing se llama así a las acciones que llevan una marca al contacto directo con las personas —activaciones, degustaciones, impulso en punto de venta, eventos, stands— en lugar de hablarle a todo el mundo a la vez desde un medio masivo. Si la publicidad tradicional busca que te enteres de una marca, el BTL busca que la pruebes, la vivas y la recuerdes.
+
+**¿Buscas la definición o buscas quién lo haga?** Si lo que necesitas es contratar, ve directo a [Qué hace una agencia BTL](/blog/que-hace-una-agencia-btl), a [Cuánto cuesta una activación BTL](/blog/cuanto-cuesta-una-activacion-btl) o a [Agencia BTL en Medellín](/blog/agencia-btl-en-medellin). Si quieres entender primero el concepto, sigue leyendo: esto lo escribe una agencia que ejecuta y mide estas activaciones en Colombia.
 
 ## Qué significa BTL y de dónde viene el nombre
 

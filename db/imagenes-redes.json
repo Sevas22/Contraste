@@ -1,0 +1,20 @@
+[
+  {
+    "destino": "podcast-mercado-inmobiliario",
+    "origen": "https://i.ytimg.com/vi/CDTOJja6R9U/maxresdefault.jpg",
+    "pie": "Andrés Giraldo, economista y ex Camacol Antioquia, en el episodio 001 de Conexión Podcast.",
+    "fuente": "https://www.youtube.com/watch?v=CDTOJja6R9U"
+  },
+  {
+    "destino": "podcast-invertir-propiedad-raiz",
+    "origen": "https://i.ytimg.com/vi/nImG23dqoso/maxresdefault.jpg",
+    "pie": "Santiago Cardona, de Grupo REDI y profesor de EAFIT, en el episodio 002 de Conexión Podcast.",
+    "fuente": "https://www.youtube.com/watch?v=nImG23dqoso"
+  },
+  {
+    "destino": "podcast-vida-con-proposito",
+    "origen": "https://i.ytimg.com/vi/64dXCld4I8o/maxresdefault.jpg",
+    "pie": "Óscar Arroyave y Vivi abren Conexión Podcast en el episodio 000, grabado en Medellín.",
+    "fuente": "https://www.youtube.com/watch?v=64dXCld4I8o"
+  }
+]

@@ -123,7 +123,7 @@ Cardona contó además que su compañía nunca ha tenido una sala de ventas trad
 
 ## Cómo trabaja Contraste
 
-Contraste es una agencia BTL con sede en Medellín, en operación desde 2011, que ejecuta activaciones en Bogotá, Cali, Barranquilla y otras ciudades de Colombia. Trabaja cuatro nichos con método propio: [bebidas alcohólicas](${L.bebidas}), [consumo masivo](${L.consumo}), [desarrollo inmobiliario](${L.inmobiliario}) y [tecnología](${L.tecnologia}).
+Contraste es una agencia BTL con sede en Medellín, en operación desde 2012, que ejecuta activaciones en las nueve principales ciudades de Colombia. Trabaja cuatro nichos con método propio: [bebidas alcohólicas](${L.bebidas}), [consumo masivo](${L.consumo}), [desarrollo inmobiliario](${L.inmobiliario}) y [tecnología](${L.tecnologia}).
 
 Los casos se publican con nombre y lugar en el [Instagram de la agencia](${L.ig}): [una gira con chirimía en vivo por cuatro municipios de Antioquia](${L.chirimia}), [una activación con objetivos de trade marketing en Yarumal](${L.yarumal}) o [un partido con leyendas del Once Caldas](${L.futbol}). Hay siete casos explicados en [Activaciones de marca: 7 ejemplos reales de BTL en Antioquia](${L.ejemplos}).
 
@@ -159,7 +159,7 @@ Pide el plan de operación, no sólo el concepto, y define con la agencia qué s
       },
       {
         q: '¿Contraste trabaja fuera de Medellín?',
-        a: 'Sí. La agencia tiene sede en Medellín y ejecuta activaciones en Bogotá, Cali, Barranquilla y otras ciudades de Colombia, con el mismo estándar de selección, entrenamiento y reporte en todas.',
+        a: 'Sí. La agencia tiene sede en Medellín y ejecuta activaciones en las nueve principales ciudades de Colombia, con el mismo estándar de selección, entrenamiento y reporte en todas.',
       },
     ],
   },
