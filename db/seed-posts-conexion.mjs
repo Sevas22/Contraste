@@ -27,14 +27,15 @@ import { posts as tanda5 } from './posts-semana-5.mjs'
 import { posts as tanda6 } from './posts-semana-6.mjs'
 import { posts as tanda7 } from './posts-semana-7.mjs'
 import { posts as tanda8 } from './posts-semana-8.mjs'
+import { posts as tanda9 } from './posts-semana-9.mjs'
 
 /** Qué tanda se carga. Las dos se conocen entre sí para validar los enlaces cruzados. */
-const TANDAS = { 1: tanda1, 2: tanda2, 3: tanda3, 4: tanda4, 5: tanda5, 6: tanda6, 7: tanda7, 8: tanda8 }
+const TANDAS = { 1: tanda1, 2: tanda2, 3: tanda3, 4: tanda4, 5: tanda5, 6: tanda6, 7: tanda7, 8: tanda8, 9: tanda9 }
 const elegida = (process.argv.find((a) => a.startsWith('--tanda=')) || '--tanda=1').split('=')[1]
 const posts = TANDAS[elegida]
 if (!posts) {
   console.error(`
-✗ Tanda desconocida: ${elegida}. Usa --tanda=1 … --tanda=8.
+✗ Tanda desconocida: ${elegida}. Usa --tanda=1 … --tanda=9.
 `)
   process.exit(1)
 }
@@ -90,7 +91,7 @@ async function main() {
     '/preguntas-frecuentes',
     ...nichos.map((n) => `/${n.slug}`),
     // Todas las tandas: los artículos se enlazan entre sí aunque se carguen aparte
-    ...[...tanda1, ...tanda2, ...tanda3, ...tanda4, ...tanda5, ...tanda6, ...tanda7, ...tanda8].map((p) => `/blog/${p.slug}`),
+    ...[...tanda1, ...tanda2, ...tanda3, ...tanda4, ...tanda5, ...tanda6, ...tanda7, ...tanda8, ...tanda9].map((p) => `/blog/${p.slug}`),
   ])
 
   let hayFallos = false

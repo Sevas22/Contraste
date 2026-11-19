@@ -69,6 +69,11 @@ const T = {
   servicios: ['btl-para-marcas-de-servicios', 'BTL para bancos, seguros y telecomunicaciones'],
   puerta: ['sampling-puerta-a-puerta', 'Sampling puerta a puerta'],
   universidades: ['activaciones-btl-en-universidades', 'Activaciones BTL en universidades'],
+  contratar: ['como-contratar-una-agencia-btl', 'Cómo contratar una agencia BTL paso a paso'],
+  cotizacion: ['cotizacion-de-activacion-btl', 'Cotización de activación BTL: cómo leerla'],
+  cuantas: ['cuantas-promotoras-necesita-una-activacion', 'Cuántas promotoras necesita una activación'],
+  alimentos: ['activaciones-btl-para-marcas-de-alimentos', 'Activaciones BTL para marcas de alimentos'],
+  errores: ['errores-en-activaciones-btl', 'Siete errores que arruinan una activación BTL'],
 }
 
 /**
@@ -131,6 +136,13 @@ const RELACIONADOS = {
   finDeAno: ['regreso', 'retail', 'campanas'],
   regreso: ['finDeAno', 'retail', 'merchandising'],
   universidades: ['mecanicas', 'tech', 'degustaciones'],
+
+  // Tanda 9: long tail transaccional. Apuntan entre sí y a la decisión.
+  contratar: ['cotizacion', 'agenciaFirmar', 'errores'],
+  cotizacion: ['contratar', 'costos', 'agenciaFirmar'],
+  cuantas: ['equipo', 'costos', 'errores'],
+  alimentos: ['degustaciones', 'retail', 'tat'],
+  errores: ['campanas', 'contratar', 'metricas'],
 }
 
 // `vivienda` apuntaba a una clave que no existe; se corrige aquí para no
