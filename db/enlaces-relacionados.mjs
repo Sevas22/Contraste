@@ -74,6 +74,11 @@ const T = {
   cuantas: ['cuantas-promotoras-necesita-una-activacion', 'Cuántas promotoras necesita una activación'],
   alimentos: ['activaciones-btl-para-marcas-de-alimentos', 'Activaciones BTL para marcas de alimentos'],
   errores: ['errores-en-activaciones-btl', 'Siete errores que arruinan una activación BTL'],
+  dondeMedellin: ['donde-activar-una-marca-en-medellin', 'Dónde activar una marca en Medellín'],
+  dondeBogota: ['donde-activar-una-marca-en-bogota', 'Dónde activar una marca en Bogotá'],
+  permisos: ['permisos-para-activaciones-en-espacio-publico', 'Permisos para activaciones en espacio público'],
+  municipios: ['activaciones-btl-en-municipios-de-antioquia', 'Activaciones BTL en municipios de Antioquia'],
+  puntos: ['como-elegir-los-puntos-de-una-activacion', 'Cómo elegir los puntos de una activación'],
 }
 
 /**
@@ -143,6 +148,13 @@ const RELACIONADOS = {
   cuantas: ['equipo', 'costos', 'errores'],
   alimentos: ['degustaciones', 'retail', 'tat'],
   errores: ['campanas', 'contratar', 'metricas'],
+
+  // Tanda 10: local y selección de puntos.
+  dondeMedellin: ['medellin', 'puntos', 'municipios'],
+  dondeBogota: ['bogota', 'puntos', 'cuantas'],
+  permisos: ['produccion', 'errores', 'agenciaFirmar'],
+  municipios: ['medellin', 'roadshow', 'ejemplos'],
+  puntos: ['campanas', 'errores', 'metricas'],
 }
 
 // `vivienda` apuntaba a una clave que no existe; se corrige aquí para no
